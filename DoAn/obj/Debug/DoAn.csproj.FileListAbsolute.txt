@@ -1,0 +1,14 @@
+E:\BoDtr\NMCNPM\DoAn\DoAn\bin\Debug\DoAn.exe.config
+E:\BoDtr\NMCNPM\DoAn\DoAn\bin\Debug\DoAn.exe
+E:\BoDtr\NMCNPM\DoAn\DoAn\bin\Debug\DoAn.pdb
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.csproj.AssemblyReference.cache
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.csproj.SuggestedBindingRedirects.cache
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.Form1.resources
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.Properties.Resources.resources
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.csproj.GenerateResource.cache
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.csproj.CoreCompileInputs.cache
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.exe
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.pdb
+E:\BoDtr\NMCNPM\DoAn\DoAn\bin\Debug\FontAwesome.Sharp.dll
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.csproj.CopyComplete
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.g.resources
