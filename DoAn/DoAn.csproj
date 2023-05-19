@@ -167,6 +167,9 @@
     <Resource Include="assets\images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\LogoMain.png" />
+    <Content Include="assets\images\LogoMain2.png" />
+    <Content Include="assets\images\LogoMain3.png" />
     <Resource Include="assets\images\LoginScreen.png" />
     <Content Include="assets\images\Logo2.png" />
   </ItemGroup>

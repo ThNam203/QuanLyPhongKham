@@ -32,11 +32,12 @@
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.lblTitleChildForm = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
-            this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            this.panelMenu = new System.Windows.Forms.Panel();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btn_Setting = new FontAwesome.Sharp.IconButton();
             this.btn_SearchPatient = new FontAwesome.Sharp.IconButton();
@@ -45,13 +46,12 @@
             this.btn_MakeListExamine = new FontAwesome.Sharp.IconButton();
             this.btn_ListPatient = new FontAwesome.Sharp.IconButton();
             this.btn_Dashboard = new FontAwesome.Sharp.IconButton();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelContainer.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,6 +99,44 @@
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
+            // lblTitleChildForm
+            // 
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(81, 24);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(81, 29);
+            this.lblTitleChildForm.TabIndex = 2;
+            this.lblTitleChildForm.Text = "Home";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.Controls.Add(this.btnLogout);
+            this.panelMenu.Controls.Add(this.btn_Setting);
+            this.panelMenu.Controls.Add(this.btn_SearchPatient);
+            this.panelMenu.Controls.Add(this.btn_MakeInvoice);
+            this.panelMenu.Controls.Add(this.btn_MakeListGetMedicine);
+            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
+            this.panelMenu.Controls.Add(this.btn_ListPatient);
+            this.panelMenu.Controls.Add(this.btn_Dashboard);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(280, 753);
+            this.panelMenu.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.btnHome);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(280, 200);
+            this.panelLogo.TabIndex = 0;
+            // 
             // btnMinimize
             // 
             this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
@@ -135,17 +173,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // lblTitleChildForm
-            // 
-            this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(81, 24);
-            this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(81, 29);
-            this.lblTitleChildForm.TabIndex = 2;
-            this.lblTitleChildForm.Text = "Home";
-            // 
             // iconCurrentChildForm
             // 
             this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
@@ -159,26 +186,9 @@
             this.iconCurrentChildForm.TabIndex = 1;
             this.iconCurrentChildForm.TabStop = false;
             // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Controls.Add(this.btn_Setting);
-            this.panelMenu.Controls.Add(this.btn_SearchPatient);
-            this.panelMenu.Controls.Add(this.btn_MakeInvoice);
-            this.panelMenu.Controls.Add(this.btn_MakeListGetMedicine);
-            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
-            this.panelMenu.Controls.Add(this.btn_ListPatient);
-            this.panelMenu.Controls.Add(this.btn_Dashboard);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(280, 753);
-            this.panelMenu.TabIndex = 0;
-            // 
             // btnLogout
             // 
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.ForeColor = System.Drawing.Color.Gainsboro;
@@ -186,9 +196,9 @@
             this.btnLogout.IconColor = System.Drawing.Color.Gainsboro;
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogout.Location = new System.Drawing.Point(84, 603);
+            this.btnLogout.Location = new System.Drawing.Point(0, 645);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(111, 108);
+            this.btnLogout.Size = new System.Drawing.Size(280, 108);
             this.btnLogout.TabIndex = 8;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -206,7 +216,7 @@
             this.btn_Setting.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_Setting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Setting.Location = new System.Drawing.Point(0, 500);
+            this.btn_Setting.Location = new System.Drawing.Point(0, 560);
             this.btn_Setting.Name = "btn_Setting";
             this.btn_Setting.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_Setting.Size = new System.Drawing.Size(280, 60);
@@ -227,7 +237,7 @@
             this.btn_SearchPatient.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_SearchPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_SearchPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_SearchPatient.Location = new System.Drawing.Point(0, 440);
+            this.btn_SearchPatient.Location = new System.Drawing.Point(0, 500);
             this.btn_SearchPatient.Name = "btn_SearchPatient";
             this.btn_SearchPatient.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_SearchPatient.Size = new System.Drawing.Size(280, 60);
@@ -248,7 +258,7 @@
             this.btn_MakeInvoice.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_MakeInvoice.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_MakeInvoice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeInvoice.Location = new System.Drawing.Point(0, 380);
+            this.btn_MakeInvoice.Location = new System.Drawing.Point(0, 440);
             this.btn_MakeInvoice.Name = "btn_MakeInvoice";
             this.btn_MakeInvoice.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_MakeInvoice.Size = new System.Drawing.Size(280, 60);
@@ -269,7 +279,7 @@
             this.btn_MakeListGetMedicine.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_MakeListGetMedicine.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_MakeListGetMedicine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeListGetMedicine.Location = new System.Drawing.Point(0, 320);
+            this.btn_MakeListGetMedicine.Location = new System.Drawing.Point(0, 380);
             this.btn_MakeListGetMedicine.Name = "btn_MakeListGetMedicine";
             this.btn_MakeListGetMedicine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_MakeListGetMedicine.Size = new System.Drawing.Size(280, 60);
@@ -290,7 +300,7 @@
             this.btn_MakeListExamine.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_MakeListExamine.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_MakeListExamine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 260);
+            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 320);
             this.btn_MakeListExamine.Name = "btn_MakeListExamine";
             this.btn_MakeListExamine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_MakeListExamine.Size = new System.Drawing.Size(280, 60);
@@ -311,7 +321,7 @@
             this.btn_ListPatient.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_ListPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_ListPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ListPatient.Location = new System.Drawing.Point(0, 200);
+            this.btn_ListPatient.Location = new System.Drawing.Point(0, 260);
             this.btn_ListPatient.Name = "btn_ListPatient";
             this.btn_ListPatient.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_ListPatient.Size = new System.Drawing.Size(280, 60);
@@ -332,7 +342,7 @@
             this.btn_Dashboard.IconColor = System.Drawing.Color.Gainsboro;
             this.btn_Dashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Dashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Dashboard.Location = new System.Drawing.Point(0, 140);
+            this.btn_Dashboard.Location = new System.Drawing.Point(0, 200);
             this.btn_Dashboard.Name = "btn_Dashboard";
             this.btn_Dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_Dashboard.Size = new System.Drawing.Size(280, 60);
@@ -343,21 +353,13 @@
             this.btn_Dashboard.UseVisualStyleBackColor = true;
             this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.btnHome);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(280, 140);
-            this.panelLogo.TabIndex = 0;
-            // 
             // btnHome
             // 
-            this.btnHome.Image = global::DoAn.Properties.Resources.Logo;
-            this.btnHome.Location = new System.Drawing.Point(32, 24);
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHome.Image = global::DoAn.Properties.Resources.LogoMain3;
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(188, 96);
+            this.btnHome.Size = new System.Drawing.Size(280, 200);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHome.TabIndex = 0;
             this.btnHome.TabStop = false;
@@ -381,9 +383,9 @@
             this.panelContainer.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.ResumeLayout(false);
 
