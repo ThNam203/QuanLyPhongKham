@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using DoAn.Forms;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace DoAn
         private Color borderColor = Color.FromArgb(238, 238, 238);
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private Form currentChildForm;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace DoAn
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
+            this.DoubleBuffered = true;
 
         }
         //Drag Form
@@ -56,12 +59,16 @@ namespace DoAn
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0); // <--- Drag form from anywhere
         }
-        private void panelTitleBar_MouseDown_1(object sender, MouseEventArgs e)
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0); // <--- Drag form from anywhere
+            Application.Exit();
         }
 
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -70,7 +77,7 @@ namespace DoAn
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
-            public static Color color7 = Color.FromArgb(255, 255, 255);
+            public static Color color7 = Color.FromArgb(51, 204, 51);
         }
 
         //Private Methods
@@ -101,7 +108,7 @@ namespace DoAn
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;
@@ -242,53 +249,53 @@ namespace DoAn
             this.Invalidate();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormDashboard());
         }
 
         private void btn_ListPatient_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new FormListPatient());
         }
 
         private void btn_MakeListExamine_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new FormMakeListExamine());
         }
 
         private void btn_MakeListGetMedicine_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new FormMakeListGetMedicine());
         }
 
         private void btn_MakeInvoice_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new FormMakeInvoice());
         }
 
         private void btn_SearchPatient_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new FormSearchPatient());
         }
 
         private void btn_Setting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
+            OpenChildForm(new FormSetting());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            currentChildForm.Close();
             Reset();
         }
         private void Reset()
@@ -299,10 +306,40 @@ namespace DoAn
             iconCurrentChildForm.IconColor = Color.MediumPurple;
             lblTitleChildForm.Text = "Home";
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void OpenChildForm(Form childForm)
         {
+            if (currentChildForm != null)
+            {
+                //open only form
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            //end
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitleChildForm.Text = childForm.Text;
+        }
 
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
     }
 }
