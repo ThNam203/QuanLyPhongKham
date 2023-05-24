@@ -1,15 +1,9 @@
 ﻿using DoAn.Forms;
 using FontAwesome.Sharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAn
@@ -19,15 +13,15 @@ namespace DoAn
         //Fields
         private int borderRadius = 30;
         private int borderSize = 2;
-        private Color borderColor = Color.FromArgb(238, 238, 238);
+        private Color borderColor = Color.FromArgb(91, 217, 173);
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
         public Form1()
         {
             InitializeComponent();
-            this.FormBorderStyle= FormBorderStyle.None;
-            this.Padding= new Padding(borderSize);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Padding = new Padding(borderSize);
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -88,8 +82,8 @@ namespace DoAn
                 DisableButton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
-                currentBtn.ForeColor = color;
+                currentBtn.BackColor = Color.FromArgb(73, 184, 145);
+                //currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -108,15 +102,15 @@ namespace DoAn
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.BackColor = Color.FromArgb(91, 217, 173);
+                currentBtn.ForeColor = Color.Black;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.IconColor = Color.Black;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
-        
+
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -213,20 +207,20 @@ namespace DoAn
             //SMOOTH BODER OUTER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
-            int mWitdh=rectForm.Width/2;
-            int mHeight=rectForm.Height/2;
+            int mWitdh = rectForm.Width / 2;
+            int mHeight = rectForm.Height / 2;
             var fbColor = GetFormBoundsColors();
 
             //Top Left
-            DrawPath(rectForm,e.Graphics, borderColor);
+            DrawPath(rectForm, e.Graphics, borderColor);
             //Top Right
             Rectangle rectTopRight = new Rectangle(mWitdh, rectForm.Y, mWitdh, mHeight);
             DrawPath(rectTopRight, e.Graphics, borderColor);
             //Bottom Left
-            Rectangle rectBottomLeft = new Rectangle(rectForm.X,rectForm.X+ mHeight, mWitdh, mHeight);
+            Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWitdh, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, borderColor);
             //Bottom Right
-            Rectangle rectBottomRight = new Rectangle(mWitdh,rectForm.Y+ mHeight, mWitdh, mHeight);
+            Rectangle rectBottomRight = new Rectangle(mWitdh, rectForm.Y + mHeight, mWitdh, mHeight);
             DrawPath(rectBottomRight, e.Graphics, borderColor);
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -249,7 +243,7 @@ namespace DoAn
             this.Invalidate();
         }
 
-        
+
 
         private void btn_Dashboard_Click(object sender, EventArgs e)
         {
@@ -343,6 +337,11 @@ namespace DoAn
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Close();
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
