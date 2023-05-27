@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbTypeDisease = new RJCodeAdvance.RJControls.RJComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             // 
             this.lblListPatient.AutoSize = true;
             this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListPatient.Location = new System.Drawing.Point(73, 106);
+            this.lblListPatient.Location = new System.Drawing.Point(27, 159);
             this.lblListPatient.Name = "lblListPatient";
             this.lblListPatient.Size = new System.Drawing.Size(278, 31);
             this.lblListPatient.TabIndex = 7;
@@ -64,7 +66,7 @@
             this.Sex,
             this.Birth,
             this.Address});
-            this.dGVListPatient.Location = new System.Drawing.Point(79, 165);
+            this.dGVListPatient.Location = new System.Drawing.Point(83, 235);
             this.dGVListPatient.Name = "dGVListPatient";
             this.dGVListPatient.RowHeadersWidth = 51;
             this.dGVListPatient.RowTemplate.Height = 24;
@@ -113,7 +115,7 @@
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Location = new System.Drawing.Point(590, 25);
+            this.dpDate.Location = new System.Drawing.Point(590, 12);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(382, 60);
@@ -125,7 +127,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(433, 42);
+            this.lblDateExam.Location = new System.Drawing.Point(433, 29);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(151, 31);
             this.lblDateExam.TabIndex = 4;
@@ -141,7 +143,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(167, 42);
+            this.txtName.Location = new System.Drawing.Point(167, 29);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -166,7 +168,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(27, 42);
+            this.label1.Location = new System.Drawing.Point(27, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 31);
             this.label1.TabIndex = 8;
@@ -182,7 +184,7 @@
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(822, 565);
+            this.btnSearch.Location = new System.Drawing.Point(822, 647);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 40);
             this.btnSearch.TabIndex = 13;
@@ -201,7 +203,7 @@
             this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(651, 565);
+            this.btnReset.Location = new System.Drawing.Point(630, 647);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 40);
             this.btnReset.TabIndex = 12;
@@ -210,12 +212,44 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label2.Location = new System.Drawing.Point(27, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 31);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Loại bệnh";
+            // 
+            // cbbTypeDisease
+            // 
+            this.cbbTypeDisease.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbTypeDisease.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbTypeDisease.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbTypeDisease.BorderSize = 1;
+            this.cbbTypeDisease.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbbTypeDisease.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbbTypeDisease.ForeColor = System.Drawing.Color.DimGray;
+            this.cbbTypeDisease.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbTypeDisease.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cbbTypeDisease.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbTypeDisease.Location = new System.Drawing.Point(167, 103);
+            this.cbbTypeDisease.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbbTypeDisease.Name = "cbbTypeDisease";
+            this.cbbTypeDisease.Padding = new System.Windows.Forms.Padding(1);
+            this.cbbTypeDisease.Size = new System.Drawing.Size(200, 30);
+            this.cbbTypeDisease.TabIndex = 15;
+            this.cbbTypeDisease.Texts = "";
+            // 
             // FormSearchPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 617);
+            this.ClientSize = new System.Drawing.Size(984, 717);
+            this.Controls.Add(this.cbbTypeDisease);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtName);
@@ -247,5 +281,7 @@
         private System.Windows.Forms.Label label1;
         private RJCodeAdvance.RJControls.RJButton btnSearch;
         private RJCodeAdvance.RJControls.RJButton btnReset;
+        private System.Windows.Forms.Label label2;
+        private RJCodeAdvance.RJControls.RJComboBox cbbTypeDisease;
     }
 }

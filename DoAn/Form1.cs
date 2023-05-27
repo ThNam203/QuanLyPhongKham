@@ -72,6 +72,7 @@ namespace DoAn
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
             public static Color color7 = Color.FromArgb(51, 204, 51);
+            public static Color color8 = Color.FromArgb(255, 128, 0);
         }
 
         //Private Methods
@@ -286,6 +287,11 @@ namespace DoAn
             ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new FormSetting());
         }
+        private void btnListInvoice_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color8);
+            OpenChildForm(new FormListInvoice());
+        }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -339,9 +345,6 @@ namespace DoAn
             this.Close();
         }
 
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

@@ -42,6 +42,12 @@ namespace DoAn.Forms
                 new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
                 new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" }
             };
+        List<String> typeDisease = new List<string>
+        {
+            "Bệnh lý tim mạch",
+            "Bệnh lý hô hấp",
+            "Bệnh lý tiêu hóa",
+        };
         public FormSearchPatient()
         {
             InitializeComponent();
@@ -60,6 +66,9 @@ namespace DoAn.Forms
 
                 dGVListPatient.Rows.Add(row);
             }
+            cbbTypeDisease.Items.Clear();
+            cbbTypeDisease.Items.AddRange(typeDisease.ToArray());
+            cbbTypeDisease.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void dGVListPatient_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -98,7 +107,7 @@ namespace DoAn.Forms
         }
 
         // Helper method to search for patients by name
-        // Helper method to search for patients by name
+
         private List<Patient> GetPatientsByName(string name)
         {
             List<Patient> searchResults = new List<Patient>();
@@ -137,7 +146,6 @@ namespace DoAn.Forms
                     dGVListPatient.Rows.Add(row);
                 }
             }
-            Console.WriteLine(dpDate.ToString());
         }
 
         private void btnReset_Click(object sender, EventArgs e)
