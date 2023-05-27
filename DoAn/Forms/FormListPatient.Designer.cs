@@ -44,7 +44,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(83, 9);
+            this.lblDateExam.Location = new System.Drawing.Point(83, 49);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(151, 31);
             this.lblDateExam.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Location = new System.Drawing.Point(69, 56);
+            this.dpDate.Location = new System.Drawing.Point(89, 108);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(382, 60);
@@ -74,11 +74,11 @@
             this.Sex,
             this.Birth,
             this.Address});
-            this.dGVListPatient.Location = new System.Drawing.Point(89, 194);
+            this.dGVListPatient.Location = new System.Drawing.Point(89, 266);
             this.dGVListPatient.Name = "dGVListPatient";
             this.dGVListPatient.RowHeadersWidth = 51;
             this.dGVListPatient.RowTemplate.Height = 24;
-            this.dGVListPatient.Size = new System.Drawing.Size(827, 382);
+            this.dGVListPatient.Size = new System.Drawing.Size(926, 382);
             this.dGVListPatient.TabIndex = 2;
             this.dGVListPatient.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dGVListPatient_RowPostPaint);
             // 
@@ -86,7 +86,7 @@
             // 
             this.lblListPatient.AutoSize = true;
             this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListPatient.Location = new System.Drawing.Point(83, 135);
+            this.lblListPatient.Location = new System.Drawing.Point(83, 199);
             this.lblListPatient.Name = "lblListPatient";
             this.lblListPatient.Size = new System.Drawing.Size(278, 31);
             this.lblListPatient.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             // Index
             // 
-            this.Index.HeaderText = "STT";
+            this.Index.HeaderText = "Mã bệnh nhân";
             this.Index.MinimumWidth = 6;
             this.Index.Name = "Index";
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -132,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 617);
+            this.ClientSize = new System.Drawing.Size(1084, 717);
             this.Controls.Add(this.lblListPatient);
             this.Controls.Add(this.dGVListPatient);
             this.Controls.Add(this.dpDate);

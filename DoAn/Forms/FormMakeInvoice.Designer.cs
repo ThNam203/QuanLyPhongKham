@@ -33,12 +33,12 @@
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDateExam = new System.Windows.Forms.Label();
             this.dGVListMedicalBill = new System.Windows.Forms.DataGridView();
-            this.lblListMedicalBill = new System.Windows.Forms.Label();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disease = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsPaid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblListMedicalBill = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicalBill)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,21 +121,12 @@
             this.IsPaid});
             this.dGVListMedicalBill.Location = new System.Drawing.Point(72, 172);
             this.dGVListMedicalBill.Name = "dGVListMedicalBill";
+            this.dGVListMedicalBill.ReadOnly = true;
             this.dGVListMedicalBill.RowHeadersWidth = 51;
             this.dGVListMedicalBill.RowTemplate.Height = 24;
-            this.dGVListMedicalBill.Size = new System.Drawing.Size(841, 460);
+            this.dGVListMedicalBill.Size = new System.Drawing.Size(937, 460);
             this.dGVListMedicalBill.TabIndex = 14;
             this.dGVListMedicalBill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVListMedicalBill_CellDoubleClick);
-            // 
-            // lblListMedicalBill
-            // 
-            this.lblListMedicalBill.AutoSize = true;
-            this.lblListMedicalBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListMedicalBill.Location = new System.Drawing.Point(24, 106);
-            this.lblListMedicalBill.Name = "lblListMedicalBill";
-            this.lblListMedicalBill.Size = new System.Drawing.Size(357, 31);
-            this.lblListMedicalBill.TabIndex = 15;
-            this.lblListMedicalBill.Text = "Danh sách phiếu khám bệnh";
             // 
             // Index
             // 
@@ -178,12 +169,22 @@
             this.IsPaid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IsPaid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // lblListMedicalBill
+            // 
+            this.lblListMedicalBill.AutoSize = true;
+            this.lblListMedicalBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.lblListMedicalBill.Location = new System.Drawing.Point(24, 106);
+            this.lblListMedicalBill.Name = "lblListMedicalBill";
+            this.lblListMedicalBill.Size = new System.Drawing.Size(357, 31);
+            this.lblListMedicalBill.TabIndex = 15;
+            this.lblListMedicalBill.Text = "Danh sách phiếu khám bệnh";
+            // 
             // FormMakeInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 717);
+            this.ClientSize = new System.Drawing.Size(1084, 717);
             this.Controls.Add(this.lblListMedicalBill);
             this.Controls.Add(this.dGVListMedicalBill);
             this.Controls.Add(this.txtName);

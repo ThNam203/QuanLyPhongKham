@@ -320,12 +320,15 @@ namespace DoAn
             //end
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
+            childForm.Dock = DockStyle.None;
+            //childForm.Dock = DockStyle.Fill;
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
             lblTitleChildForm.Text = childForm.Text;
+            childForm.Parent = panelDesktop;
+            panelDesktop.AutoScrollMinSize = childForm.Size;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)

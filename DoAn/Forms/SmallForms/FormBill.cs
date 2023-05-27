@@ -6,6 +6,7 @@ namespace DoAn.Forms.SmallForms
     public partial class FormBill : Form
     {
         private string id;
+
         public FormBill()
         {
             InitializeComponent();
@@ -17,6 +18,12 @@ namespace DoAn.Forms.SmallForms
             this.Text = String.Empty;
             this.id = id;
             txtName.Text = id;
+            //txtDisease.ReadOnly = true;
+            //txtExamineMoney.ReadOnly = true;
+            //txtTotal.ReadOnly = true;
+            txtDisease.Text = "Đau bụng";
+            txtExamineMoney.Text = "100000";
+            txtTotal.Text = "100000";
         }
 
         private void btnReset_Click(object sender, EventArgs e)

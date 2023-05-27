@@ -34,10 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(984, 617);
             this.Name = "FormMakeListGetMedicine";
             this.Text = "Lập phiếu nhập thuốc";
+            this.Load += new System.EventHandler(this.FormMakeListGetMedicine_Load);
             this.ResumeLayout(false);
 
         }

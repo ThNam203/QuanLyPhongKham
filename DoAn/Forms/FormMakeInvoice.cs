@@ -90,9 +90,14 @@ namespace DoAn.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dGVListMedicalBill.Rows[e.RowIndex];
-
+                if (selectedRow.Cells["Index"].Value == null)
+                {
+                    MessageBox.Show("Vui lòng chọn phiếu khám");
+                    return;
+                }
                 // Get the ID value from the selected row
                 string selectedId = selectedRow.Cells["Index"].Value.ToString();
+
 
                 // Open a new form and pass the ID
                 FormBill invoiceDetailsForm = new FormBill(selectedId);

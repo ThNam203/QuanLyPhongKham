@@ -36,14 +36,14 @@
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
-            this.btnReset = new RJCodeAdvance.RJControls.RJButton();
-            this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Use = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnReset = new RJCodeAdvance.RJControls.RJButton();
+            this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             this.SuspendLayout();
@@ -177,46 +177,9 @@
             this.dGVListMedicine.Name = "dGVListMedicine";
             this.dGVListMedicine.RowHeadersWidth = 51;
             this.dGVListMedicine.RowTemplate.Height = 24;
-            this.dGVListMedicine.Size = new System.Drawing.Size(841, 209);
+            this.dGVListMedicine.Size = new System.Drawing.Size(841, 302);
             this.dGVListMedicine.TabIndex = 9;
             this.dGVListMedicine.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dGVListMedicine_RowPostPaint);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.Red;
-            this.btnReset.BackgroundColor = System.Drawing.Color.Red;
-            this.btnReset.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnReset.BorderRadius = 10;
-            this.btnReset.BorderSize = 0;
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(603, 550);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(150, 40);
-            this.btnReset.TabIndex = 10;
-            this.btnReset.Text = "Hủy";
-            this.btnReset.TextColor = System.Drawing.Color.White;
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 10;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(774, 550);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(150, 40);
-            this.btnSave.TabIndex = 11;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // Index
             // 
@@ -271,6 +234,43 @@
             this.Add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Red;
+            this.btnReset.BackgroundColor = System.Drawing.Color.Red;
+            this.btnReset.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnReset.BorderRadius = 10;
+            this.btnReset.BorderSize = 0;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(606, 651);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(150, 40);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Hủy";
+            this.btnReset.TextColor = System.Drawing.Color.White;
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(774, 651);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(150, 40);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
             // txtTrieuChung
             // 
             this.txtTrieuChung.AnimateReadOnly = false;
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 617);
+            this.ClientSize = new System.Drawing.Size(984, 717);
             this.Controls.Add(this.txtTrieuChung);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);

@@ -60,6 +60,7 @@
             this.txtName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtName.Depth = 0;
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
@@ -183,6 +184,7 @@
             this.txtDisease.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtDisease.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDisease.Depth = 0;
+            this.txtDisease.Enabled = false;
             this.txtDisease.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDisease.HideSelection = true;
             this.txtDisease.LeadingIcon = null;
@@ -212,6 +214,7 @@
             this.txtExamineMoney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtExamineMoney.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtExamineMoney.Depth = 0;
+            this.txtExamineMoney.Enabled = false;
             this.txtExamineMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExamineMoney.HideSelection = true;
             this.txtExamineMoney.LeadingIcon = null;
@@ -315,6 +318,7 @@
             this.txtTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotal.Depth = 0;
+            this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.HideSelection = true;
             this.txtTotal.LeadingIcon = null;

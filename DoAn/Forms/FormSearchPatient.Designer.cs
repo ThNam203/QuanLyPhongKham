@@ -30,11 +30,6 @@
         {
             this.lblListPatient = new System.Windows.Forms.Label();
             this.dGVListPatient = new System.Windows.Forms.DataGridView();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDateExam = new System.Windows.Forms.Label();
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -43,6 +38,11 @@
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbTypeDisease = new RJCodeAdvance.RJControls.RJComboBox();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,44 +70,9 @@
             this.dGVListPatient.Name = "dGVListPatient";
             this.dGVListPatient.RowHeadersWidth = 51;
             this.dGVListPatient.RowTemplate.Height = 24;
-            this.dGVListPatient.Size = new System.Drawing.Size(827, 382);
+            this.dGVListPatient.Size = new System.Drawing.Size(947, 382);
             this.dGVListPatient.TabIndex = 6;
             this.dGVListPatient.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dGVListPatient_RowPostPaint);
-            // 
-            // Index
-            // 
-            this.Index.HeaderText = "STT";
-            this.Index.MinimumWidth = 6;
-            this.Index.Name = "Index";
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "Họ và tên";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Sex
-            // 
-            this.Sex.HeaderText = "Giới tính";
-            this.Sex.MinimumWidth = 6;
-            this.Sex.Name = "Sex";
-            this.Sex.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Birth
-            // 
-            this.Birth.HeaderText = "Ngày sinh";
-            this.Birth.MinimumWidth = 6;
-            this.Birth.Name = "Birth";
-            this.Birth.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Địa chỉ";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dpDate
             // 
@@ -184,7 +149,7 @@
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(822, 647);
+            this.btnSearch.Location = new System.Drawing.Point(909, 647);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(150, 40);
             this.btnSearch.TabIndex = 13;
@@ -203,7 +168,7 @@
             this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(630, 647);
+            this.btnReset.Location = new System.Drawing.Point(708, 647);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 40);
             this.btnReset.TabIndex = 12;
@@ -242,12 +207,47 @@
             this.cbbTypeDisease.TabIndex = 15;
             this.cbbTypeDisease.Texts = "";
             // 
+            // Index
+            // 
+            this.Index.HeaderText = "Mã bệnh nhân";
+            this.Index.MinimumWidth = 6;
+            this.Index.Name = "Index";
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "Họ và tên";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Sex
+            // 
+            this.Sex.HeaderText = "Giới tính";
+            this.Sex.MinimumWidth = 6;
+            this.Sex.Name = "Sex";
+            this.Sex.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Birth
+            // 
+            this.Birth.HeaderText = "Ngày sinh";
+            this.Birth.MinimumWidth = 6;
+            this.Birth.Name = "Birth";
+            this.Birth.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Địa chỉ";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // FormSearchPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 717);
+            this.ClientSize = new System.Drawing.Size(1084, 717);
             this.Controls.Add(this.cbbTypeDisease);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSearch);
@@ -270,11 +270,6 @@
 
         private System.Windows.Forms.Label lblListPatient;
         private System.Windows.Forms.DataGridView dGVListPatient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Birth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private RJCodeAdvance.RJControls.RJDatePicker dpDate;
         private System.Windows.Forms.Label lblDateExam;
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
@@ -283,5 +278,10 @@
         private RJCodeAdvance.RJControls.RJButton btnReset;
         private System.Windows.Forms.Label label2;
         private RJCodeAdvance.RJControls.RJComboBox cbbTypeDisease;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Birth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }
