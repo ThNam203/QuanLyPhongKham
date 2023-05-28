@@ -177,7 +177,7 @@
             this.dGVListMedicine.Name = "dGVListMedicine";
             this.dGVListMedicine.RowHeadersWidth = 51;
             this.dGVListMedicine.RowTemplate.Height = 24;
-            this.dGVListMedicine.Size = new System.Drawing.Size(841, 302);
+            this.dGVListMedicine.Size = new System.Drawing.Size(902, 302);
             this.dGVListMedicine.TabIndex = 9;
             this.dGVListMedicine.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dGVListMedicine_RowPostPaint);
             // 
@@ -244,7 +244,7 @@
             this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(606, 651);
+            this.btnReset.Location = new System.Drawing.Point(651, 651);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 40);
             this.btnReset.TabIndex = 10;
@@ -263,7 +263,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(774, 651);
+            this.btnSave.Location = new System.Drawing.Point(835, 651);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 40);
             this.btnSave.TabIndex = 11;
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.ClientSize = new System.Drawing.Size(984, 717);
+            this.ClientSize = new System.Drawing.Size(1084, 717);
             this.Controls.Add(this.txtTrieuChung);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);

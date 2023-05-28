@@ -24,3 +24,4 @@ E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.pdb
 E:\BoDtr\NMCNPM\DoAn\DoAn\bin\Debug\MaterialSkin.dll
 E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.Forms.SmallForms.FormBill.resources
 E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.Forms.FormListInvoice.resources
+E:\BoDtr\NMCNPM\DoAn\DoAn\obj\Debug\DoAn.Forms.FormListGetMedicine.resources
