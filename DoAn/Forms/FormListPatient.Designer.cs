@@ -31,12 +31,12 @@
             this.lblDateExam = new System.Windows.Forms.Label();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.dGVListPatient = new System.Windows.Forms.DataGridView();
-            this.lblListPatient = new System.Windows.Forms.Label();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblListPatient = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,9 @@
             this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dpDate.Location = new System.Drawing.Point(89, 108);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
@@ -63,6 +65,7 @@
             this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.dpDate.TabIndex = 1;
             this.dpDate.TextColor = System.Drawing.Color.Black;
+            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // dGVListPatient
             // 
@@ -80,17 +83,6 @@
             this.dGVListPatient.RowTemplate.Height = 24;
             this.dGVListPatient.Size = new System.Drawing.Size(926, 382);
             this.dGVListPatient.TabIndex = 2;
-            this.dGVListPatient.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dGVListPatient_RowPostPaint);
-            // 
-            // lblListPatient
-            // 
-            this.lblListPatient.AutoSize = true;
-            this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListPatient.Location = new System.Drawing.Point(83, 199);
-            this.lblListPatient.Name = "lblListPatient";
-            this.lblListPatient.Size = new System.Drawing.Size(278, 31);
-            this.lblListPatient.TabIndex = 3;
-            this.lblListPatient.Text = "Danh sách bệnh nhân";
             // 
             // Index
             // 
@@ -126,6 +118,16 @@
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // lblListPatient
+            // 
+            this.lblListPatient.AutoSize = true;
+            this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.lblListPatient.Location = new System.Drawing.Point(83, 199);
+            this.lblListPatient.Name = "lblListPatient";
+            this.lblListPatient.Size = new System.Drawing.Size(278, 31);
+            this.lblListPatient.TabIndex = 3;
+            this.lblListPatient.Text = "Danh sách bệnh nhân";
             // 
             // FormListPatient
             // 
