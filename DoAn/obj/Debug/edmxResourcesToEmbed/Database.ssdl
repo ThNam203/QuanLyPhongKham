@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyPhongKhamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BENHNHAN">
+    <Key>
+      <PropertyRef Name="MaBenhNhan" />
+    </Key>
+    <Property Name="MaBenhNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="varchar" MaxLength="24" />
+    <Property Name="GioiTinh" Type="varchar" MaxLength="4" />
+    <Property Name="NamSinh" Type="smalldatetime" />
+    <Property Name="DiaChi" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="CACHDUNG">
+    <Key>
+      <PropertyRef Name="MaCachDung" />
+    </Key>
+    <Property Name="MaCachDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCachDung" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIEUKHAM">
+    <Key>
+      <PropertyRef Name="MaChiTietPhieuKham" />
+    </Key>
+    <Property Name="MaChiTietPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhieuKham" Type="int" />
+    <Property Name="MaThuoc" Type="int" />
+    <Property Name="MaDonVi" Type="int" />
+    <Property Name="MaCachDung" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIEUNHAPTHUOC">
+    <Key>
+      <PropertyRef Name="MaChiTietPhieuNhapThuoc" />
+    </Key>
+    <Property Name="MaChiTietPhieuNhapThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaThuoc" Type="int" />
+    <Property Name="MaDonVi" Type="int" />
+    <Property Name="MaPhieuNhapThuoc" Type="int" />
+    <Property Name="MaCachDung" Type="int" />
+    <Property Name="DonGia" Type="smallmoney" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="ThanhTien" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="DONVI">
+    <Key>
+      <PropertyRef Name="MaDonVi" />
+    </Key>
+    <Property Name="MaDonVi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDonVi" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhieuKham" Type="int" />
+    <Property Name="NgayKham" Type="smalldatetime" />
+    <Property Name="TienKham" Type="smallmoney" />
+    <Property Name="TienThuoc" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="LOAIBENH">
+    <Key>
+      <PropertyRef Name="MaLoaiBenh" />
+    </Key>
+    <Property Name="MaLoaiBenh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiBenh" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="PHIEUKHAM">
+    <Key>
+      <PropertyRef Name="MaPhieuKham" />
+    </Key>
+    <Property Name="MaPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayKham" Type="smalldatetime" />
+    <Property Name="TrieuChung" Type="varchar" MaxLength="24" />
+    <Property Name="MaLoaiBenh" Type="int" />
+    <Property Name="MaBenhNhan" Type="int" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAPTHUOC">
+    <Key>
+      <PropertyRef Name="MaPhieuNhapThuoc" />
+    </Key>
+    <Property Name="MaPhieuNhapThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayNhap" Type="smalldatetime" />
+    <Property Name="NhaCungCap" Type="varchar" MaxLength="24" />
+    <Property Name="TongTien" Type="smallmoney" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QuanLyPhongKham.dbo.THAMSO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="THAMSO">
+          <Property Name="SoBenhNhanToiDaTrongNgay" Type="int" />
+          <Property Name="SoLuongLoaiBenh" Type="int" />
+          <Property Name="SoLuongLoaiThuoc" Type="int" />
+          <Property Name="SoLuongDonVi" Type="int" />
+          <Property Name="SoLuongCachDung" Type="int" />
+          <Property Name="TienKham" Type="smallmoney" />
+        </EntityType>-->
+  <EntityType Name="THUOC">
+    <Key>
+      <PropertyRef Name="MaThuoc" />
+    </Key>
+    <Property Name="MaThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenThuoc" Type="varchar" MaxLength="24" />
+    <Property Name="DonGia" Type="int" />
+  </EntityType>
+  <Association Name="FK__CHITIETPH__MaCac__34C8D9D1">
+    <End Role="CACHDUNG" Type="Self.CACHDUNG" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CACHDUNG">
+        <PropertyRef Name="MaCachDung" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUKHAM">
+        <PropertyRef Name="MaCachDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaCac__3C69FB99">
+    <End Role="CACHDUNG" Type="Self.CACHDUNG" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUNHAPTHUOC" Type="Self.CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CACHDUNG">
+        <PropertyRef Name="MaCachDung" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUNHAPTHUOC">
+        <PropertyRef Name="MaCachDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaDon__33D4B598">
+    <End Role="DONVI" Type="Self.DONVI" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONVI">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUKHAM">
+        <PropertyRef Name="MaDonVi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaDon__3A81B327">
+    <End Role="DONVI" Type="Self.DONVI" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUNHAPTHUOC" Type="Self.CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONVI">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUNHAPTHUOC">
+        <PropertyRef Name="MaDonVi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaPhi__31EC6D26">
+    <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUKHAM">
+        <PropertyRef Name="MaPhieuKham" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUKHAM">
+        <PropertyRef Name="MaPhieuKham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaPhi__3B75D760">
+    <End Role="PHIEUNHAPTHUOC" Type="Self.PHIEUNHAPTHUOC" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUNHAPTHUOC" Type="Self.CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAPTHUOC">
+        <PropertyRef Name="MaPhieuNhapThuoc" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUNHAPTHUOC">
+        <PropertyRef Name="MaPhieuNhapThuoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaThu__32E0915F">
+    <End Role="THUOC" Type="Self.THUOC" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUKHAM" Type="Self.CHITIETPHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THUOC">
+        <PropertyRef Name="MaThuoc" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUKHAM">
+        <PropertyRef Name="MaThuoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaThu__398D8EEE">
+    <End Role="THUOC" Type="Self.THUOC" Multiplicity="0..1" />
+    <End Role="CHITIETPHIEUNHAPTHUOC" Type="Self.CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THUOC">
+        <PropertyRef Name="MaThuoc" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUNHAPTHUOC">
+        <PropertyRef Name="MaThuoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__MaPhieuK__403A8C7D">
+    <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUKHAM">
+        <PropertyRef Name="MaPhieuKham" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MaPhieuKham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUKHAM__MaBen__29572725">
+    <End Role="BENHNHAN" Type="Self.BENHNHAN" Multiplicity="0..1" />
+    <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BENHNHAN">
+        <PropertyRef Name="MaBenhNhan" />
+      </Principal>
+      <Dependent Role="PHIEUKHAM">
+        <PropertyRef Name="MaBenhNhan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUKHAM__MaLoa__286302EC">
+    <End Role="LOAIBENH" Type="Self.LOAIBENH" Multiplicity="0..1" />
+    <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIBENH">
+        <PropertyRef Name="MaLoaiBenh" />
+      </Principal>
+      <Dependent Role="PHIEUKHAM">
+        <PropertyRef Name="MaLoaiBenh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyPhongKhamModelStoreContainer">
+    <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CACHDUNG" EntityType="Self.CACHDUNG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETPHIEUKHAM" EntityType="Self.CHITIETPHIEUKHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETPHIEUNHAPTHUOC" EntityType="Self.CHITIETPHIEUNHAPTHUOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONVI" EntityType="Self.DONVI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIBENH" EntityType="Self.LOAIBENH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUKHAM" EntityType="Self.PHIEUKHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUNHAPTHUOC" EntityType="Self.PHIEUNHAPTHUOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THUOC" EntityType="Self.THUOC" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHITIETPH__MaCac__34C8D9D1" Association="Self.FK__CHITIETPH__MaCac__34C8D9D1">
+      <End Role="CACHDUNG" EntitySet="CACHDUNG" />
+      <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaCac__3C69FB99" Association="Self.FK__CHITIETPH__MaCac__3C69FB99">
+      <End Role="CACHDUNG" EntitySet="CACHDUNG" />
+      <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaDon__33D4B598" Association="Self.FK__CHITIETPH__MaDon__33D4B598">
+      <End Role="DONVI" EntitySet="DONVI" />
+      <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaDon__3A81B327" Association="Self.FK__CHITIETPH__MaDon__3A81B327">
+      <End Role="DONVI" EntitySet="DONVI" />
+      <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__31EC6D26" Association="Self.FK__CHITIETPH__MaPhi__31EC6D26">
+      <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
+      <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__3B75D760" Association="Self.FK__CHITIETPH__MaPhi__3B75D760">
+      <End Role="PHIEUNHAPTHUOC" EntitySet="PHIEUNHAPTHUOC" />
+      <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaThu__32E0915F" Association="Self.FK__CHITIETPH__MaThu__32E0915F">
+      <End Role="THUOC" EntitySet="THUOC" />
+      <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaThu__398D8EEE" Association="Self.FK__CHITIETPH__MaThu__398D8EEE">
+      <End Role="THUOC" EntitySet="THUOC" />
+      <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__MaPhieuK__403A8C7D" Association="Self.FK__HOADON__MaPhieuK__403A8C7D">
+      <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
+      <End Role="HOADON" EntitySet="HOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUKHAM__MaBen__29572725" Association="Self.FK__PHIEUKHAM__MaBen__29572725">
+      <End Role="BENHNHAN" EntitySet="BENHNHAN" />
+      <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUKHAM__MaLoa__286302EC" Association="Self.FK__PHIEUKHAM__MaLoa__286302EC">
+      <End Role="LOAIBENH" EntitySet="LOAIBENH" />
+      <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
