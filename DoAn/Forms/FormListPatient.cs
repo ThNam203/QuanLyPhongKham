@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Linq;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace DoAn.Forms
 {
@@ -29,7 +27,7 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.HoTen;
                     row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.GioiTinh;
-                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.NamSinh.Value.ToString();
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
                     row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.DiaChi;
 
                     dGVListPatient.Rows.Add(row);

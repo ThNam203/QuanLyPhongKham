@@ -34,8 +34,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,11 +57,6 @@
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -162,6 +162,24 @@
             this.dataGridView2.Size = new System.Drawing.Size(383, 191);
             this.dataGridView2.TabIndex = 16;
             // 
+            // MedicineId
+            // 
+            this.MedicineId.HeaderText = "Mã thuốc";
+            this.MedicineId.MinimumWidth = 6;
+            this.MedicineId.Name = "MedicineId";
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.HeaderText = "Tên thuốc";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            // 
+            // MedicinePrice
+            // 
+            this.MedicinePrice.HeaderText = "Đơn giá";
+            this.MedicinePrice.MinimumWidth = 6;
+            this.MedicinePrice.Name = "MedicinePrice";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -185,6 +203,19 @@
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(405, 189);
             this.dataGridView3.TabIndex = 19;
+            // 
+            // UnitId
+            // 
+            this.UnitId.FillWeight = 50F;
+            this.UnitId.HeaderText = "Mã đơn vị";
+            this.UnitId.MinimumWidth = 6;
+            this.UnitId.Name = "UnitId";
+            // 
+            // UnitName
+            // 
+            this.UnitName.HeaderText = "Tên đơn vị";
+            this.UnitName.MinimumWidth = 6;
+            this.UnitName.Name = "UnitName";
             // 
             // label4
             // 
@@ -424,7 +455,7 @@
             // 
             // DiseaseId
             // 
-            this.DiseaseId.FillWeight = 50F;
+            this.DiseaseId.FillWeight = 70F;
             this.DiseaseId.HeaderText = "Mã loại bệnh";
             this.DiseaseId.MinimumWidth = 6;
             this.DiseaseId.Name = "DiseaseId";
@@ -435,40 +466,9 @@
             this.DiseaseName.MinimumWidth = 6;
             this.DiseaseName.Name = "DiseaseName";
             // 
-            // MedicineId
-            // 
-            this.MedicineId.HeaderText = "Mã thuốc";
-            this.MedicineId.MinimumWidth = 6;
-            this.MedicineId.Name = "MedicineId";
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.HeaderText = "Tên thuốc";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            // 
-            // MedicinePrice
-            // 
-            this.MedicinePrice.HeaderText = "Đơn giá";
-            this.MedicinePrice.MinimumWidth = 6;
-            this.MedicinePrice.Name = "MedicinePrice";
-            // 
-            // UnitId
-            // 
-            this.UnitId.FillWeight = 50F;
-            this.UnitId.HeaderText = "Mã đơn vị";
-            this.UnitId.MinimumWidth = 6;
-            this.UnitId.Name = "UnitId";
-            // 
-            // UnitName
-            // 
-            this.UnitName.HeaderText = "Tên đơn vị";
-            this.UnitName.MinimumWidth = 6;
-            this.UnitName.Name = "UnitName";
-            // 
             // UseId
             // 
-            this.UseId.FillWeight = 70F;
+            this.UseId.FillWeight = 85F;
             this.UseId.HeaderText = "Mã cách dùng";
             this.UseId.MinimumWidth = 6;
             this.UseId.Name = "UseId";
@@ -541,13 +541,13 @@
         private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicinePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UseId;
         private System.Windows.Forms.DataGridViewTextBoxColumn UseName;
     }

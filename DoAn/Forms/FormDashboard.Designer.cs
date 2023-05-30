@@ -40,6 +40,7 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.myChart = new LiveCharts.WinForms.CartesianChart();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -189,12 +190,21 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Doanh thu";
             // 
+            // myChart
+            // 
+            this.myChart.Location = new System.Drawing.Point(27, 276);
+            this.myChart.Name = "myChart";
+            this.myChart.Size = new System.Drawing.Size(1010, 417);
+            this.myChart.TabIndex = 3;
+            this.myChart.Text = "cartesianChart1";
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.myChart);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -225,5 +235,6 @@
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private LiveCharts.WinForms.CartesianChart myChart;
     }
 }
