@@ -346,13 +346,5 @@ namespace DoAn
             Application.Exit();
         }
 
-        private void iconButton1_Click_1(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            this.Close();
-        }
-
-
     }
 }

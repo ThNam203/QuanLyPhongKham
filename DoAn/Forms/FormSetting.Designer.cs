@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtNumberMax = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +45,8 @@
             this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.UseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddDisease = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
@@ -52,48 +56,44 @@
             this.rjButton3 = new RJCodeAdvance.RJControls.RJButton();
             this.rjButton6 = new RJCodeAdvance.RJControls.RJButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtExamineMoney = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
-            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtName
+            // txtNumberMax
             // 
-            this.txtName.AnimateReadOnly = false;
-            this.txtName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtName.Depth = 0;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.HideSelection = true;
-            this.txtName.Hint = "40";
-            this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(376, 27);
-            this.txtName.MaxLength = 32767;
-            this.txtName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtName.Name = "txtName";
-            this.txtName.PasswordChar = '\0';
-            this.txtName.PrefixSuffixText = null;
-            this.txtName.ReadOnly = false;
-            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtName.SelectedText = "";
-            this.txtName.SelectionLength = 0;
-            this.txtName.SelectionStart = 0;
-            this.txtName.ShortcutsEnabled = true;
-            this.txtName.Size = new System.Drawing.Size(56, 36);
-            this.txtName.TabIndex = 11;
-            this.txtName.TabStop = false;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtName.TrailingIcon = null;
-            this.txtName.UseSystemPasswordChar = false;
-            this.txtName.UseTallSize = false;
+            this.txtNumberMax.AnimateReadOnly = false;
+            this.txtNumberMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtNumberMax.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtNumberMax.Depth = 0;
+            this.txtNumberMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumberMax.HideSelection = true;
+            this.txtNumberMax.Hint = "40";
+            this.txtNumberMax.LeadingIcon = null;
+            this.txtNumberMax.Location = new System.Drawing.Point(376, 27);
+            this.txtNumberMax.MaxLength = 32767;
+            this.txtNumberMax.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtNumberMax.Name = "txtNumberMax";
+            this.txtNumberMax.PasswordChar = '\0';
+            this.txtNumberMax.PrefixSuffixText = null;
+            this.txtNumberMax.ReadOnly = false;
+            this.txtNumberMax.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtNumberMax.SelectedText = "";
+            this.txtNumberMax.SelectionLength = 0;
+            this.txtNumberMax.SelectionStart = 0;
+            this.txtNumberMax.ShortcutsEnabled = true;
+            this.txtNumberMax.Size = new System.Drawing.Size(56, 36);
+            this.txtNumberMax.TabIndex = 11;
+            this.txtNumberMax.TabStop = false;
+            this.txtNumberMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtNumberMax.TrailingIcon = null;
+            this.txtNumberMax.UseSystemPasswordChar = false;
+            this.txtNumberMax.UseTallSize = false;
             // 
             // label1
             // 
@@ -128,6 +128,19 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(405, 191);
             this.dataGridView1.TabIndex = 13;
+            // 
+            // DiseaseId
+            // 
+            this.DiseaseId.FillWeight = 70F;
+            this.DiseaseId.HeaderText = "Mã loại bệnh";
+            this.DiseaseId.MinimumWidth = 6;
+            this.DiseaseId.Name = "DiseaseId";
+            // 
+            // DiseaseName
+            // 
+            this.DiseaseName.HeaderText = "Tên loại bệnh";
+            this.DiseaseName.MinimumWidth = 6;
+            this.DiseaseName.Name = "DiseaseName";
             // 
             // btnRemoveDisease
             // 
@@ -240,6 +253,19 @@
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(383, 189);
             this.dataGridView4.TabIndex = 22;
+            // 
+            // UseId
+            // 
+            this.UseId.FillWeight = 85F;
+            this.UseId.HeaderText = "Mã cách dùng";
+            this.UseId.MinimumWidth = 6;
+            this.UseId.Name = "UseId";
+            // 
+            // UseName
+            // 
+            this.UseName.HeaderText = "Cách dùng";
+            this.UseName.MinimumWidth = 6;
+            this.UseName.Name = "UseName";
             // 
             // label5
             // 
@@ -387,35 +413,35 @@
             this.label6.TabIndex = 31;
             this.label6.Text = "Tiền khám";
             // 
-            // materialTextBox21
+            // txtExamineMoney
             // 
-            this.materialTextBox21.AnimateReadOnly = false;
-            this.materialTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialTextBox21.Depth = 0;
-            this.materialTextBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTextBox21.HideSelection = true;
-            this.materialTextBox21.Hint = "5 tỷ";
-            this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(717, 27);
-            this.materialTextBox21.MaxLength = 32767;
-            this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox21.Name = "materialTextBox21";
-            this.materialTextBox21.PasswordChar = '\0';
-            this.materialTextBox21.PrefixSuffixText = null;
-            this.materialTextBox21.ReadOnly = false;
-            this.materialTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialTextBox21.SelectedText = "";
-            this.materialTextBox21.SelectionLength = 0;
-            this.materialTextBox21.SelectionStart = 0;
-            this.materialTextBox21.ShortcutsEnabled = true;
-            this.materialTextBox21.Size = new System.Drawing.Size(165, 36);
-            this.materialTextBox21.TabIndex = 32;
-            this.materialTextBox21.TabStop = false;
-            this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialTextBox21.TrailingIcon = null;
-            this.materialTextBox21.UseSystemPasswordChar = false;
-            this.materialTextBox21.UseTallSize = false;
+            this.txtExamineMoney.AnimateReadOnly = false;
+            this.txtExamineMoney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtExamineMoney.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtExamineMoney.Depth = 0;
+            this.txtExamineMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExamineMoney.HideSelection = true;
+            this.txtExamineMoney.Hint = "5 tỷ";
+            this.txtExamineMoney.LeadingIcon = null;
+            this.txtExamineMoney.Location = new System.Drawing.Point(717, 27);
+            this.txtExamineMoney.MaxLength = 32767;
+            this.txtExamineMoney.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtExamineMoney.Name = "txtExamineMoney";
+            this.txtExamineMoney.PasswordChar = '\0';
+            this.txtExamineMoney.PrefixSuffixText = null;
+            this.txtExamineMoney.ReadOnly = false;
+            this.txtExamineMoney.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtExamineMoney.SelectedText = "";
+            this.txtExamineMoney.SelectionLength = 0;
+            this.txtExamineMoney.SelectionStart = 0;
+            this.txtExamineMoney.ShortcutsEnabled = true;
+            this.txtExamineMoney.Size = new System.Drawing.Size(165, 36);
+            this.txtExamineMoney.TabIndex = 32;
+            this.txtExamineMoney.TabStop = false;
+            this.txtExamineMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtExamineMoney.TrailingIcon = null;
+            this.txtExamineMoney.UseSystemPasswordChar = false;
+            this.txtExamineMoney.UseTallSize = false;
             // 
             // btnSave
             // 
@@ -453,32 +479,6 @@
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
             // 
-            // DiseaseId
-            // 
-            this.DiseaseId.FillWeight = 70F;
-            this.DiseaseId.HeaderText = "Mã loại bệnh";
-            this.DiseaseId.MinimumWidth = 6;
-            this.DiseaseId.Name = "DiseaseId";
-            // 
-            // DiseaseName
-            // 
-            this.DiseaseName.HeaderText = "Tên loại bệnh";
-            this.DiseaseName.MinimumWidth = 6;
-            this.DiseaseName.Name = "DiseaseName";
-            // 
-            // UseId
-            // 
-            this.UseId.FillWeight = 85F;
-            this.UseId.HeaderText = "Mã cách dùng";
-            this.UseId.MinimumWidth = 6;
-            this.UseId.Name = "UseId";
-            // 
-            // UseName
-            // 
-            this.UseName.HeaderText = "Cách dùng";
-            this.UseName.MinimumWidth = 6;
-            this.UseName.Name = "UseName";
-            // 
             // FormSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -487,7 +487,7 @@
             this.ClientSize = new System.Drawing.Size(1072, 732);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.materialTextBox21);
+            this.Controls.Add(this.txtExamineMoney);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rjButton3);
             this.Controls.Add(this.rjButton6);
@@ -505,7 +505,7 @@
             this.Controls.Add(this.btnRemoveDisease);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtNumberMax);
             this.Controls.Add(this.label1);
             this.Name = "FormSetting";
             this.Text = "Thay đổi quy định";
@@ -519,7 +519,7 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialTextBox2 txtName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtNumberMax;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -538,7 +538,7 @@
         private RJCodeAdvance.RJControls.RJButton rjButton3;
         private RJCodeAdvance.RJControls.RJButton rjButton6;
         private System.Windows.Forms.Label label6;
-        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
+        private MaterialSkin.Controls.MaterialTextBox2 txtExamineMoney;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineId;

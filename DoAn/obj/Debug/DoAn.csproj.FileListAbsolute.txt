@@ -79,7 +79,6 @@ E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormMakeListExamine.re
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormMakeListGetMedicine.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormSearchPatient.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormSetting.resources
-E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.LoginForm.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.SmallForms.FormBill.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Properties.Resources.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.csproj.GenerateResource.cache
@@ -96,3 +95,4 @@ E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\bin\Debug\LiveCharts.WinForms.pdb
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\bin\Debug\LiveCharts.WinForms.xml
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\bin\Debug\LiveCharts.Wpf.pdb
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\bin\Debug\LiveCharts.Wpf.xml
+E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.SmallForms.FormPatientDetail.resources

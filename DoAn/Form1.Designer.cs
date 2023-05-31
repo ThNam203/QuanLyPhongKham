@@ -44,7 +44,6 @@
             this.btn_MakeListGetMedicine = new FontAwesome.Sharp.IconButton();
             this.btn_MakeInvoice = new FontAwesome.Sharp.IconButton();
             this.btn_ListPatient = new FontAwesome.Sharp.IconButton();
-            this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.btn_Dashboard = new FontAwesome.Sharp.IconButton();
@@ -172,7 +171,6 @@
             this.panelMenu.Controls.Add(this.btn_MakeListGetMedicine);
             this.panelMenu.Controls.Add(this.btn_MakeInvoice);
             this.panelMenu.Controls.Add(this.btn_ListPatient);
-            this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Controls.Add(this.btn_Dashboard);
             this.panelMenu.Controls.Add(this.btn_MakeListExamine);
@@ -330,26 +328,6 @@
             this.btn_ListPatient.UseVisualStyleBackColor = false;
             this.btn_ListPatient.Click += new System.EventHandler(this.btn_ListPatient_Click);
             // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.Black;
-            this.btnLogout.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.btnLogout.IconColor = System.Drawing.Color.Black;
-            this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLogout.Location = new System.Drawing.Point(0, 698);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(280, 174);
-            this.btnLogout.TabIndex = 8;
-            this.btnLogout.Text = "Đăng xuất";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.iconButton1_Click_1);
-            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.btnHome);
@@ -458,7 +436,6 @@
         private System.Windows.Forms.Panel panelShadow;
         private FontAwesome.Sharp.IconButton btnClose;
         private FontAwesome.Sharp.IconButton btnMinimize;
-        private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton btnListInvoice;
         private FontAwesome.Sharp.IconButton btn_Dashboard;
         private FontAwesome.Sharp.IconButton btn_ListGetMedicine;

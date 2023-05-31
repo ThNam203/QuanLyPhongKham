@@ -30,7 +30,6 @@
         {
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
-            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDateExam = new System.Windows.Forms.Label();
             this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
@@ -50,6 +49,7 @@
             this.btnPaid = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             this.SuspendLayout();
@@ -95,20 +95,6 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Họ và tên";
             // 
-            // dpDate
-            // 
-            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dpDate.BorderSize = 3;
-            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Location = new System.Drawing.Point(169, 229);
-            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
-            this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(382, 60);
-            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.dpDate.TabIndex = 15;
-            this.dpDate.TextColor = System.Drawing.Color.Black;
-            // 
             // lblDateExam
             // 
             this.lblDateExam.AutoSize = true;
@@ -130,7 +116,7 @@
             this.btnMinimize.IconColor = System.Drawing.Color.White;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimize.IconSize = 32;
-            this.btnMinimize.Location = new System.Drawing.Point(547, 2);
+            this.btnMinimize.Location = new System.Drawing.Point(533, 2);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(75, 44);
@@ -390,12 +376,29 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "#123";
             // 
+            // dpDate
+            // 
+            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dpDate.BorderSize = 3;
+            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDate.CustomFormat = "dd/MM/yyyy";
+            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDate.Location = new System.Drawing.Point(169, 229);
+            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
+            this.dpDate.Name = "dpDate";
+            this.dpDate.Size = new System.Drawing.Size(250, 60);
+            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(228)))), ((int)(((byte)(220)))));
+            this.dpDate.TabIndex = 41;
+            this.dpDate.TextColor = System.Drawing.Color.Black;
+            // 
             // FormBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(228)))), ((int)(((byte)(220)))));
             this.ClientSize = new System.Drawing.Size(688, 892);
+            this.Controls.Add(this.dpDate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPaid);
             this.Controls.Add(this.btnReset);
@@ -411,7 +414,6 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dpDate);
             this.Controls.Add(this.lblDateExam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBill";
@@ -428,7 +430,6 @@
 
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label label1;
-        private RJCodeAdvance.RJControls.RJDatePicker dpDate;
         private System.Windows.Forms.Label lblDateExam;
         private FontAwesome.Sharp.IconButton btnMinimize;
         private FontAwesome.Sharp.IconButton btnClose;
@@ -448,5 +449,6 @@
         private RJCodeAdvance.RJControls.RJButton btnPaid;
         private RJCodeAdvance.RJControls.RJButton btnReset;
         private System.Windows.Forms.Label label5;
+        private RJCodeAdvance.RJControls.RJDatePicker dpDate;
     }
 }

@@ -6,14 +6,6 @@ namespace DoAn.Forms
 {
     public partial class FormListPatient : Form
     {
-        public class Patient
-        {
-            public int Index { get; set; }
-            public string LastName { get; set; }
-            public string Sex { get; set; }
-            public string Birth { get; set; }
-            public string Address { get; set; }
-        }
         public FormListPatient()
         {
             InitializeComponent();
