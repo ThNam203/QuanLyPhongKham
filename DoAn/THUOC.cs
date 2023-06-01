@@ -17,17 +17,13 @@ namespace DoAn
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public THUOC()
         {
-            this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
-            this.CHITIETPHIEUNHAPTHUOCs = new HashSet<CHITIETPHIEUNHAPTHUOC>();
+            this.CHITIETTHUOCs = new HashSet<CHITIETTHUOC>();
         }
     
         public int MaThuoc { get; set; }
         public string TenThuoc { get; set; }
-        public Nullable<int> DonGia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUNHAPTHUOC> CHITIETPHIEUNHAPTHUOCs { get; set; }
+        public virtual ICollection<CHITIETTHUOC> CHITIETTHUOCs { get; set; }
     }
 }

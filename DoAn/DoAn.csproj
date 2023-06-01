@@ -97,6 +97,9 @@
     <Compile Include="CHITIETPHIEUNHAPTHUOC.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="CHITIETTHUOC.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -201,6 +204,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThamSo.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="THUOC.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>

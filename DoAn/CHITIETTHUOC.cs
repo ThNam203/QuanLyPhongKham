@@ -12,20 +12,25 @@ namespace DoAn
     using System;
     using System.Collections.Generic;
     
-    public partial class PHIEUNHAPTHUOC
+    public partial class CHITIETTHUOC
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PHIEUNHAPTHUOC()
+        public CHITIETTHUOC()
         {
+            this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
             this.CHITIETPHIEUNHAPTHUOCs = new HashSet<CHITIETPHIEUNHAPTHUOC>();
         }
     
-        public int MaPhieuNhapThuoc { get; set; }
-        public Nullable<System.DateTime> NgayNhap { get; set; }
-        public string NhaCungCap { get; set; }
-        public Nullable<int> TongTien { get; set; }
+        public int MaCTThuoc { get; set; }
+        public Nullable<int> MaThuoc { get; set; }
+        public Nullable<int> MaDonVi { get; set; }
+        public Nullable<int> DonGia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETPHIEUNHAPTHUOC> CHITIETPHIEUNHAPTHUOCs { get; set; }
+        public virtual DONVI DONVI { get; set; }
+        public virtual THUOC THUOC { get; set; }
     }
 }
