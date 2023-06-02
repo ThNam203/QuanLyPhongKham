@@ -31,7 +31,6 @@
             this.lblDateExam = new System.Windows.Forms.Label();
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblTrieuChung = new System.Windows.Forms.Label();
-            this.txtDuDoan = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblDuDoan = new System.Windows.Forms.Label();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDate = new System.Windows.Forms.Label();
@@ -39,9 +38,10 @@
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.cbbTypeOfDisease = new RJCodeAdvance.RJControls.RJComboBox();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usage = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -80,13 +80,14 @@
             this.txtName.SelectionLength = 0;
             this.txtName.SelectionStart = 0;
             this.txtName.ShortcutsEnabled = true;
-            this.txtName.Size = new System.Drawing.Size(250, 36);
+            this.txtName.Size = new System.Drawing.Size(330, 36);
             this.txtName.TabIndex = 2;
             this.txtName.TabStop = false;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtName.TrailingIcon = null;
             this.txtName.UseSystemPasswordChar = false;
             this.txtName.UseTallSize = false;
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // lblTrieuChung
             // 
@@ -97,36 +98,6 @@
             this.lblTrieuChung.Size = new System.Drawing.Size(157, 31);
             this.lblTrieuChung.TabIndex = 3;
             this.lblTrieuChung.Text = "Triệu chứng";
-            // 
-            // txtDuDoan
-            // 
-            this.txtDuDoan.AnimateReadOnly = false;
-            this.txtDuDoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtDuDoan.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtDuDoan.Depth = 0;
-            this.txtDuDoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDuDoan.HideSelection = true;
-            this.txtDuDoan.Hint = "Nhập dự đoán bệnh";
-            this.txtDuDoan.LeadingIcon = null;
-            this.txtDuDoan.Location = new System.Drawing.Point(173, 252);
-            this.txtDuDoan.MaxLength = 32767;
-            this.txtDuDoan.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtDuDoan.Name = "txtDuDoan";
-            this.txtDuDoan.PasswordChar = '\0';
-            this.txtDuDoan.PrefixSuffixText = null;
-            this.txtDuDoan.ReadOnly = false;
-            this.txtDuDoan.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDuDoan.SelectedText = "";
-            this.txtDuDoan.SelectionLength = 0;
-            this.txtDuDoan.SelectionStart = 0;
-            this.txtDuDoan.ShortcutsEnabled = true;
-            this.txtDuDoan.Size = new System.Drawing.Size(250, 36);
-            this.txtDuDoan.TabIndex = 6;
-            this.txtDuDoan.TabStop = false;
-            this.txtDuDoan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtDuDoan.TrailingIcon = null;
-            this.txtDuDoan.UseSystemPasswordChar = false;
-            this.txtDuDoan.UseTallSize = false;
             // 
             // lblDuDoan
             // 
@@ -143,11 +114,13 @@
             this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dpDate.Location = new System.Drawing.Point(173, 75);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(382, 60);
+            this.dpDate.Size = new System.Drawing.Size(330, 60);
             this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.dpDate.TabIndex = 7;
             this.dpDate.TextColor = System.Drawing.Color.Black;
@@ -246,6 +219,25 @@
             this.txtTrieuChung.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTrieuChung.UseSystemPasswordChar = false;
             // 
+            // cbbTypeOfDisease
+            // 
+            this.cbbTypeOfDisease.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
+            this.cbbTypeOfDisease.BorderColor = System.Drawing.Color.Gray;
+            this.cbbTypeOfDisease.BorderSize = 1;
+            this.cbbTypeOfDisease.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbbTypeOfDisease.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbbTypeOfDisease.ForeColor = System.Drawing.Color.Black;
+            this.cbbTypeOfDisease.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbbTypeOfDisease.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cbbTypeOfDisease.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbbTypeOfDisease.Location = new System.Drawing.Point(173, 253);
+            this.cbbTypeOfDisease.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbbTypeOfDisease.Name = "cbbTypeOfDisease";
+            this.cbbTypeOfDisease.Padding = new System.Windows.Forms.Padding(1);
+            this.cbbTypeOfDisease.Size = new System.Drawing.Size(330, 30);
+            this.cbbTypeOfDisease.TabIndex = 72;
+            this.cbbTypeOfDisease.Texts = "";
+            // 
             // Index
             // 
             this.Index.FillWeight = 60F;
@@ -271,7 +263,6 @@
             this.Unit.MinimumWidth = 6;
             this.Unit.Name = "Unit";
             this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Quantity
             // 
@@ -305,13 +296,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.cbbTypeOfDisease);
             this.Controls.Add(this.txtTrieuChung);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dGVListMedicine);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.dpDate);
-            this.Controls.Add(this.txtDuDoan);
             this.Controls.Add(this.lblDuDoan);
             this.Controls.Add(this.lblTrieuChung);
             this.Controls.Add(this.txtName);
@@ -329,7 +320,6 @@
         private System.Windows.Forms.Label lblDateExam;
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label lblTrieuChung;
-        private MaterialSkin.Controls.MaterialTextBox2 txtDuDoan;
         private System.Windows.Forms.Label lblDuDoan;
         private RJCodeAdvance.RJControls.RJDatePicker dpDate;
         private System.Windows.Forms.Label lblDate;
@@ -337,9 +327,10 @@
         private RJCodeAdvance.RJControls.RJButton btnReset;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtTrieuChung;
+        private RJCodeAdvance.RJControls.RJComboBox cbbTypeOfDisease;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewComboBoxColumn Usage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Add;

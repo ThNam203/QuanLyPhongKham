@@ -8,6 +8,10 @@ namespace DoAn.Forms
         public FormSetting()
         {
             InitializeComponent();
+            InitializeData();
+        }
+        public void InitializeData()
+        {
 
         }
 

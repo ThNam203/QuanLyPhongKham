@@ -35,11 +35,11 @@
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.txtSex = new MaterialSkin.Controls.MaterialComboBox();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDateExam = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.materialMultiLineTextBox21 = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.txtAddress = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -72,6 +72,7 @@
             this.btnMinimize.Size = new System.Drawing.Size(44, 44);
             this.btnMinimize.TabIndex = 33;
             this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -90,6 +91,7 @@
             this.btnClose.Size = new System.Drawing.Size(50, 44);
             this.btnClose.TabIndex = 32;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnHome
             // 
@@ -152,32 +154,32 @@
             this.label2.TabIndex = 37;
             this.label2.Text = "Giới tính";
             // 
-            // materialComboBox1
+            // txtSex
             // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 118;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 29;
-            this.materialComboBox1.Items.AddRange(new object[] {
+            this.txtSex.AutoResize = false;
+            this.txtSex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtSex.Depth = 0;
+            this.txtSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.txtSex.DropDownHeight = 118;
+            this.txtSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtSex.DropDownWidth = 121;
+            this.txtSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtSex.FormattingEnabled = true;
+            this.txtSex.IntegralHeight = false;
+            this.txtSex.ItemHeight = 29;
+            this.txtSex.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.materialComboBox1.Location = new System.Drawing.Point(194, 275);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(250, 35);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 38;
-            this.materialComboBox1.UseAccent = false;
-            this.materialComboBox1.UseTallSize = false;
+            this.txtSex.Location = new System.Drawing.Point(194, 275);
+            this.txtSex.MaxDropDownItems = 4;
+            this.txtSex.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtSex.Name = "txtSex";
+            this.txtSex.Size = new System.Drawing.Size(250, 35);
+            this.txtSex.StartIndex = 0;
+            this.txtSex.TabIndex = 38;
+            this.txtSex.UseAccent = false;
+            this.txtSex.UseTallSize = false;
             // 
             // dpDate
             // 
@@ -201,9 +203,9 @@
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.lblDateExam.Location = new System.Drawing.Point(37, 353);
             this.lblDateExam.Name = "lblDateExam";
-            this.lblDateExam.Size = new System.Drawing.Size(151, 31);
+            this.lblDateExam.Size = new System.Drawing.Size(135, 31);
             this.lblDateExam.TabIndex = 39;
-            this.lblDateExam.Text = "Ngày khám";
+            this.lblDateExam.Text = "Ngày sinh";
             // 
             // label3
             // 
@@ -215,31 +217,31 @@
             this.label3.TabIndex = 41;
             this.label3.Text = "Địa chỉ";
             // 
-            // materialMultiLineTextBox21
+            // txtAddress
             // 
-            this.materialMultiLineTextBox21.AnimateReadOnly = false;
-            this.materialMultiLineTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialMultiLineTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialMultiLineTextBox21.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.materialMultiLineTextBox21.Depth = 0;
-            this.materialMultiLineTextBox21.HideSelection = true;
-            this.materialMultiLineTextBox21.Hint = "Nhập địa chỉ";
-            this.materialMultiLineTextBox21.Location = new System.Drawing.Point(194, 429);
-            this.materialMultiLineTextBox21.MaxLength = 32767;
-            this.materialMultiLineTextBox21.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialMultiLineTextBox21.Name = "materialMultiLineTextBox21";
-            this.materialMultiLineTextBox21.PasswordChar = '\0';
-            this.materialMultiLineTextBox21.ReadOnly = false;
-            this.materialMultiLineTextBox21.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialMultiLineTextBox21.SelectedText = "";
-            this.materialMultiLineTextBox21.SelectionLength = 0;
-            this.materialMultiLineTextBox21.SelectionStart = 0;
-            this.materialMultiLineTextBox21.ShortcutsEnabled = true;
-            this.materialMultiLineTextBox21.Size = new System.Drawing.Size(250, 100);
-            this.materialMultiLineTextBox21.TabIndex = 42;
-            this.materialMultiLineTextBox21.TabStop = false;
-            this.materialMultiLineTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.materialMultiLineTextBox21.UseSystemPasswordChar = false;
+            this.txtAddress.AnimateReadOnly = false;
+            this.txtAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddress.Depth = 0;
+            this.txtAddress.HideSelection = true;
+            this.txtAddress.Hint = "Nhập địa chỉ";
+            this.txtAddress.Location = new System.Drawing.Point(194, 429);
+            this.txtAddress.MaxLength = 32767;
+            this.txtAddress.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.PasswordChar = '\0';
+            this.txtAddress.ReadOnly = false;
+            this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtAddress.SelectedText = "";
+            this.txtAddress.SelectionLength = 0;
+            this.txtAddress.SelectionStart = 0;
+            this.txtAddress.ShortcutsEnabled = true;
+            this.txtAddress.Size = new System.Drawing.Size(250, 100);
+            this.txtAddress.TabIndex = 42;
+            this.txtAddress.TabStop = false;
+            this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAddress.UseSystemPasswordChar = false;
             // 
             // btnSave
             // 
@@ -258,6 +260,7 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
@@ -276,6 +279,7 @@
             this.btnReset.Text = "Hủy";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormPatientDetail
             // 
@@ -285,11 +289,11 @@
             this.ClientSize = new System.Drawing.Size(489, 656);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.materialMultiLineTextBox21);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dpDate);
             this.Controls.Add(this.lblDateExam);
-            this.Controls.Add(this.materialComboBox1);
+            this.Controls.Add(this.txtSex);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
@@ -299,6 +303,7 @@
             this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPatientDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatientDetail";
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.ResumeLayout(false);
@@ -315,11 +320,11 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox txtSex;
         private RJCodeAdvance.RJControls.RJDatePicker dpDate;
         private System.Windows.Forms.Label lblDateExam;
         private System.Windows.Forms.Label label3;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 materialMultiLineTextBox21;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtAddress;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
     }

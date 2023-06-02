@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn.Forms.SmallForms;
+using DoAn.NewFolder1;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,10 +8,12 @@ namespace DoAn.Forms
 {
     public partial class FormMakeListExamine : Form
     {
-
+        public Patient PatientData { get; private set; }
+        private bool isDataGridViewInitialized = false;
         public FormMakeListExamine()
         {
             InitializeComponent();
+
             InitializeDataGridView();
 
         }
@@ -17,29 +21,23 @@ namespace DoAn.Forms
         {
             using (var db = new DataPKEntities())
             {
-                var select = from s in db.THUOCs
+                var select = from s in db.CHITIETTHUOCs
                              select s;
                 foreach (var medicine in select)
                 {
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListMedicine);
-                    row.Cells[dGVListMedicine.Columns["Index"].Index].Value = medicine.MaThuoc;
-                    row.Cells[dGVListMedicine.Columns["MedicineName"].Index].Value = medicine.TenThuoc;
+                    row.Cells[dGVListMedicine.Columns["Index"].Index].Value = medicine.MaCTThuoc;
+                    row.Cells[dGVListMedicine.Columns["MedicineName"].Index].Value = medicine.THUOC.TenThuoc;
                     //row.Cells[dGVListMedicine.Columns["Price"].Index].Value = medicine.DonGia;
 
-                    //Populate ComboBox column for units
-                    DataGridViewComboBoxCell comboCell = new DataGridViewComboBoxCell();
-                    var units = from u in db.DONVIs
-                                select u;
-                    foreach (var unit in units)
-                    {
-                        comboCell.Items.Add(unit.TenDonVi);
-                    }
-                    row.Cells[dGVListMedicine.Columns["Unit"].Index] = comboCell;
+                    //Populate textBox column for units
+                    row.Cells[dGVListMedicine.Columns["Unit"].Index].Value = medicine.DONVI.TenDonVi;
 
                     DataGridViewTextBoxCell quantityTextBoxCell = new DataGridViewTextBoxCell();
                     quantityTextBoxCell.Value = 0;
                     row.Cells[dGVListMedicine.Columns["Quantity"].Index] = quantityTextBoxCell;
+
 
                     // Populate ComboBox column for usage
                     DataGridViewComboBoxCell usageComboBoxCell = new DataGridViewComboBoxCell();
@@ -57,7 +55,18 @@ namespace DoAn.Forms
 
                     dGVListMedicine.Rows.Add(row);
                 }
+                var loaibenh = from s in db.LOAIBENHs
+                               select s;
+                foreach (var item in loaibenh)
+                {
+                    cbbTypeOfDisease.Items.Add(item.TenLoaiBenh);
+                }
+                cbbTypeOfDisease.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cbbTypeOfDisease.AutoCompleteSource = AutoCompleteSource.ListItems;
+                dGVListMedicine.CellValueChanged += dGVListMedicine_CellValueChanged;
+                isDataGridViewInitialized = true;
             }
+
         }
         private void btnReset_Click(object sender, System.EventArgs e)
         {
@@ -78,47 +87,104 @@ namespace DoAn.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var db = new DataPKEntities())
+            if (PatientData != null)
             {
-                int lastMaPhieuKham = db.PHIEUKHAMs.Max(p => p.MaPhieuKham);
-                foreach (DataGridViewRow row in dGVListMedicine.Rows)
+                if (cbbTypeOfDisease != null)
                 {
-                    int maThuoc = Convert.ToInt32(row.Cells["Index"].Value);
-                    string tenDonVi = row.Cells["Unit"].Value.ToString();
-                    int soLuong = Convert.ToInt32(row.Cells["Quantity"].Value);
-                    string tenCachDung = row.Cells["Usage"].Value.ToString();
-                    bool add = Convert.ToBoolean(row.Cells["Add"].Value);
-
-                    if (add)
+                    if (txtTrieuChung != null)
                     {
-                        // Save the data into the database
-                        var thuoc = db.THUOCs.Find(maThuoc);
-                        var donVi = db.DONVIs.SingleOrDefault(u => u.TenDonVi == tenDonVi);
-                        var cachDung = db.CACHDUNGs.SingleOrDefault(u => u.TenCachDung == tenCachDung);
-
-                        if (thuoc != null && donVi != null && cachDung != null)
+                        var benhnhan = new BENHNHAN();
+                        benhnhan.HoTen = PatientData.Name;
+                        benhnhan.GioiTinh = PatientData.Sex;
+                        benhnhan.NamSinh = PatientData.Birth;
+                        benhnhan.DiaChi = PatientData.Address;
+                        using (var db = new DataPKEntities())
                         {
-                            // Create a new CHITIETPHIEUKHAM entity
-                            var chitietPhieuKham = new CHITIETPHIEUKHAM
+                            //Add benh nhan
+                            db.BENHNHANs.Add(benhnhan);
+                            db.SaveChanges();
+                            //Add phieu kham
+                            if (cbbTypeOfDisease.Texts != null)
                             {
-                                MaPhieuKham = lastMaPhieuKham + 1, // Set the appropriate MaPhieuKham value
-                                MaThuoc = thuoc.MaThuoc,
-                                MaDonVi = donVi.MaDonVi,
-                                MaCachDung = cachDung.MaCachDung,
-                                SoLuong = soLuong
-                            };
-
-                            // Add the CHITIETPHIEUKHAM to the database
-                            db.CHITIETPHIEUKHAMs.Add(chitietPhieuKham);
+                                var loaibenh = (from s in db.LOAIBENHs
+                                                where s.TenLoaiBenh == cbbTypeOfDisease.Texts
+                                                select s).FirstOrDefault();
+                                var phieukham = new PHIEUKHAM();
+                                phieukham.MaBenhNhan = benhnhan.MaBenhNhan;
+                                phieukham.NgayKham = dpDate.Value;
+                                phieukham.TrieuChung = txtTrieuChung.Text;
+                                phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
+                                db.PHIEUKHAMs.Add(phieukham);
+                                db.SaveChanges();
+                                //Add chi tiet phieu kham
+                                foreach (DataGridViewRow row in dGVListMedicine.Rows)
+                                {
+                                    if (Convert.ToBoolean(row.Cells["Add"].Value) == true && Convert.ToInt32(row.Cells["Quantity"].Value) > 0)
+                                    {
+                                        var chitietphieukham = new CHITIETPHIEUKHAM();
+                                        chitietphieukham.MaPhieuKham = phieukham.MaPhieuKham;
+                                        chitietphieukham.MaCTThuoc = Convert.ToInt32(row.Cells["Index"].Value);
+                                        string usage = row.Cells["Usage"].Value.ToString();
+                                        chitietphieukham.MaCachDung = (from s in db.CACHDUNGs
+                                                                       where s.TenCachDung == usage
+                                                                       select s.MaCachDung).FirstOrDefault();
+                                        chitietphieukham.SoLuong = Convert.ToInt32(row.Cells["Quantity"].Value);
+                                        db.CHITIETPHIEUKHAMs.Add(chitietphieukham);
+                                        db.SaveChanges();
+                                    }
+                                }
+                            }
+                            MessageBox.Show("Đã lưu thành công");
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập triệu chứng");
+                    }
                 }
-
-                // Save the changes to the database
-                db.SaveChanges();
-                MessageBox.Show("Lưu thành công");
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn loại bệnh");
+                }
             }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập thông tin bệnh nhân");
+            }
+
+        }
+        //Pass data from FormPatientDetail to FormMakeListExamine
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            if (PatientData != null)
+            {
+                FormPatientDetail formPatientDetail = new FormPatientDetail(PatientData);
+                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
+                formPatientDetail.Show();
+            }
+            else
+            {
+                FormPatientDetail formPatientDetail = new FormPatientDetail();
+                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
+                formPatientDetail.Show();
+            }
+
         }
 
+        private void FormPatientDetail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormPatientDetail formPatientDetail = (FormPatientDetail)sender;
+            PatientData = formPatientDetail.PatientData;
+            if (PatientData != null)
+            {
+                txtName.Text = PatientData.Name;
+            }
+
+        }
+
+        private void dGVListMedicine_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
