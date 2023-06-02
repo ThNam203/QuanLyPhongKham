@@ -18,7 +18,6 @@ namespace DoAn
         public CACHDUNG()
         {
             this.CHITIETPHIEUKHAMs = new HashSet<CHITIETPHIEUKHAM>();
-            this.CHITIETPHIEUNHAPTHUOCs = new HashSet<CHITIETPHIEUNHAPTHUOC>();
         }
     
         public int MaCachDung { get; set; }
@@ -26,7 +25,5 @@ namespace DoAn
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUNHAPTHUOC> CHITIETPHIEUNHAPTHUOCs { get; set; }
     }
 }

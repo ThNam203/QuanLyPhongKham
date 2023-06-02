@@ -15,17 +15,12 @@ namespace DoAn
     public partial class CHITIETPHIEUNHAPTHUOC
     {
         public int MaChiTietPhieuNhapThuoc { get; set; }
-        public Nullable<int> MaThuoc { get; set; }
-        public Nullable<int> MaDonVi { get; set; }
         public Nullable<int> MaPhieuNhapThuoc { get; set; }
-        public Nullable<int> MaCachDung { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
+        public Nullable<int> MaCTThuoc { get; set; }
         public Nullable<int> SoLuong { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
+        public Nullable<int> ThanhTien { get; set; }
     
-        public virtual CACHDUNG CACHDUNG { get; set; }
-        public virtual DONVI DONVI { get; set; }
+        public virtual CHITIETTHUOC CHITIETTHUOC { get; set; }
         public virtual PHIEUNHAPTHUOC PHIEUNHAPTHUOC { get; set; }
-        public virtual THUOC THUOC { get; set; }
     }
 }

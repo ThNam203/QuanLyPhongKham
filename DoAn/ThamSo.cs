@@ -12,16 +12,14 @@ namespace DoAn
     using System;
     using System.Collections.Generic;
     
-    public partial class CHITIETPHIEUKHAM
+    public partial class THAMSO
     {
-        public int MaChiTietPhieuKham { get; set; }
-        public Nullable<int> MaPhieuKham { get; set; }
-        public Nullable<int> MaCTThuoc { get; set; }
-        public Nullable<int> MaCachDung { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-    
-        public virtual CACHDUNG CACHDUNG { get; set; }
-        public virtual CHITIETTHUOC CHITIETTHUOC { get; set; }
-        public virtual PHIEUKHAM PHIEUKHAM { get; set; }
+        public int MaTs { get; set; }
+        public Nullable<int> SoBenhNhanToiDaTrongNgay { get; set; }
+        public Nullable<int> SoLuongLoaiBenh { get; set; }
+        public Nullable<int> SoLuongLoaiThuoc { get; set; }
+        public Nullable<int> SoLuongDonVi { get; set; }
+        public Nullable<int> SoLuongCachDung { get; set; }
+        public Nullable<int> TienKham { get; set; }
     }
 }

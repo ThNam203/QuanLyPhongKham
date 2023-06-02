@@ -17,8 +17,8 @@ namespace DoAn
         public int MaHoaDon { get; set; }
         public Nullable<int> MaPhieuKham { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
-        public Nullable<decimal> TienKham { get; set; }
-        public Nullable<decimal> TienThuoc { get; set; }
+        public Nullable<int> TienKham { get; set; }
+        public Nullable<int> TienThuoc { get; set; }
     
         public virtual PHIEUKHAM PHIEUKHAM { get; set; }
     }

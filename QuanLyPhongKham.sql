@@ -4,6 +4,8 @@ GO
 USE QuanLyPhongKham
 GO
 
+SET DATEFORMAT DMY
+
 -- Tạo các bảng
 CREATE TABLE BENHNHAN (
     MaBenhNhan INT IDENTITY (1,1) PRIMARY KEY,
@@ -18,18 +20,9 @@ CREATE TABLE LOAIBENH (
     TenLoaiBenh VARCHAR(24)
 )
 
-CREATE TABLE PHIEUKHAM (
-    MaPhieuKham INT IDENTITY (1,1) PRIMARY KEY,
-    NgayKham SMALLDATETIME,
-    TrieuChung VARCHAR(24),
-    MaLoaiBenh INT FOREIGN KEY REFERENCES LOAIBENH(MaLoaiBenh),
-    MaBenhNhan INT FOREIGN KEY REFERENCES BENHNHAN(MaBenhNhan)
-)
-
 CREATE TABLE THUOC (
     MaThuoc INT IDENTITY (1,1) PRIMARY KEY,
     TenThuoc VARCHAR(24),
-	DonGia INT,
 )
 
 CREATE TABLE DONVI (
@@ -42,11 +35,25 @@ CREATE TABLE CACHDUNG (
     TenCachDung VARCHAR(24)
 )
 
+CREATE TABLE CHITIETTHUOC ( 
+	MaCTThuoc INT IDENTITY (1,1) PRIMARY KEY,
+    MaThuoc INT FOREIGN KEY REFERENCES THUOC(MaThuoc),
+    MaDonVi INT FOREIGN KEY REFERENCES DONVI(MaDonVi),
+    DonGia INT
+)
+
+CREATE TABLE PHIEUKHAM (
+    MaPhieuKham INT IDENTITY (1,1) PRIMARY KEY,
+    NgayKham SMALLDATETIME,
+    TrieuChung VARCHAR(24),
+    MaLoaiBenh INT FOREIGN KEY REFERENCES LOAIBENH(MaLoaiBenh),
+    MaBenhNhan INT FOREIGN KEY REFERENCES BENHNHAN(MaBenhNhan)
+)
+
 CREATE TABLE CHITIETPHIEUKHAM (
     MaChiTietPhieuKham INT IDENTITY (1,1) PRIMARY KEY,	
     MaPhieuKham INT FOREIGN KEY REFERENCES PHIEUKHAM(MaPhieuKham),
-    MaThuoc INT FOREIGN KEY REFERENCES THUOC(MaThuoc),
-    MaDonVi INT FOREIGN KEY REFERENCES DONVI(MaDonVi),
+    MaCTThuoc INT FOREIGN KEY REFERENCES CHITIETTHUOC(MaCTThuoc),
     MaCachDung INT FOREIGN KEY REFERENCES CACHDUNG(MaCachDung),
     SoLuong INT
 )
@@ -55,36 +62,33 @@ CREATE TABLE PHIEUNHAPTHUOC (
     MaPhieuNhapThuoc INT IDENTITY (1,1) PRIMARY KEY,
     NgayNhap SMALLDATETIME,
     NhaCungCap VARCHAR(24),
-    TongTien SMALLMONEY
+    TongTien INT
 )
 
 CREATE TABLE CHITIETPHIEUNHAPTHUOC (
     MaChiTietPhieuNhapThuoc INT IDENTITY (1,1) PRIMARY KEY,
-    MaThuoc INT FOREIGN KEY REFERENCES THUOC(MaThuoc),
-    MaDonVi INT FOREIGN KEY REFERENCES DONVI(MaDonVi),
     MaPhieuNhapThuoc INT FOREIGN KEY REFERENCES PHIEUNHAPTHUOC(MaPhieuNhapThuoc),
-    MaCachDung INT FOREIGN KEY REFERENCES CACHDUNG(MaCachDung),
-    DonGia SMALLMONEY,
+    MaCTThuoc INT FOREIGN KEY REFERENCES CHITIETTHUOC(MaCTThuoc),
     SoLuong INT,
-    ThanhTien SMALLMONEY,
-    CONSTRAINT CHECK_ThanhTien CHECK (ThanhTien = SoLuong * DonGia)
+    ThanhTien INT
 )
 
 CREATE TABLE HOADON (
     MaHoaDon INT IDENTITY (1,1) PRIMARY KEY,
     MaPhieuKham INT FOREIGN KEY REFERENCES PHIEUKHAM(MaPhieuKham),
     NgayKham SMALLDATETIME,
-    TienKham SMALLMONEY,
-    TienThuoc SMALLMONEY
+    TienKham INT,
+    TienThuoc INT
 )
 
 CREATE TABLE THAMSO (
+	MaTs INT IDENTITY (1, 1) PRIMARY KEY,
     SoBenhNhanToiDaTrongNgay INT,
     SoLuongLoaiBenh INT,
     SoLuongLoaiThuoc INT,
     SoLuongDonVi INT,
     SoLuongCachDung INT,
-    TienKham SMALLMONEY,
+    TienKham INT,
 )
 GO
 
@@ -185,14 +189,14 @@ GO
 CREATE TRIGGER CHECK_TIENKHAM ON HOADON
 FOR INSERT, UPDATE
 AS
-    DECLARE @TienKham SMALLMONEY, @CONSTQ SMALLMONEY
+    DECLARE @TienKham INT, @CONSTQ INT
     SELECT @TienKham = TienKham
     FROM INSERTED
     SELECT @CONSTQ = TienKham
     FROM THAMSO
     IF (@TienKham != @CONSTQ)
         BEGIN
-            PRINT 'Tiền khám là ' + CAST(@CONSTQ AS VARCHAR) + ' đồng'
+            PRINT 'Tien kham la ' + CAST(@CONSTQ AS VARCHAR) + ' dong'
             ROLLBACK TRAN
         END
 GO
@@ -208,42 +212,7 @@ VALUES
     ('Tran Thi B', 'Nu', '1990', 'Ha Noi'),
     ('Le Van C', 'Nam', '1988', 'Da Nang'),
     ('Pham Thi D', 'Nu', '1982', 'Can Tho'),
-    ('Hoang Van E', 'Nam', '1995', 'Hai Phong'),
-    ('Nguyen Thi F', 'Nu', '1998', 'Vung Tau'),
-    ('Tran Van G', 'Nam', '1979', 'Hue'),
-    ('Pham Thi H', 'Nu', '1984', 'Nha Trang'),
-    ('Le Van I', 'Nam', '1992', 'Bien Hoa'),
-    ('Hoang Thi K', 'Nu', '1996', 'Bac Ninh'),
-    ('Nguyen Van X', 'Nam', '1993', 'Ha Giang'),
-    ('Tran Thi Y', 'Nu', '1999', 'Quang Ninh'),
-    ('Le Van Z', 'Nam', '1987', 'Lao Cai'),
-    ('Pham Thi P', 'Nu', '1986', 'Lang Son'),
-    ('Hoang Van Q', 'Nam', '1991', 'Cao Bang'),
-    ('Nguyen Thi R', 'Nu', '1997', 'Bac Kan'),
-    ('Tran Van S', 'Nam', '1983', 'Thai Nguyen'),
-    ('Pham Thi T', 'Nu', '1989', 'Bac Giang'),
-    ('Le Van U', 'Nam', '1994', 'Phu Tho'),
-    ('Hoang Thi V', 'Nu', '1998', 'Tuyen Quang'),
-    ('Nguyen Van W', 'Nam', '1981', 'Yen Bai'),
-    ('Tran Thi X', 'Nu', '1980', 'Hai Duong'),
-    ('Le Van Y', 'Nam', '1996', 'Hung Yen'),
-    ('Pham Thi Z', 'Nu', '1992', 'Nam Dinh'),
-    ('Hoang Van P', 'Nam', '1988', 'Thai Binh'),
-    ('Nguyen Thi Q', 'Nu', '1984', 'Ha Nam'),
-    ('Tran Van R', 'Nam', '1990', 'Ninh Binh'),
-    ('Pham Thi S', 'Nu', '1995', 'Thanh Hoa'),
-    ('Le Van T', 'Nam', '1982', 'Nghe An'),
-    ('Hoang Thi U', 'Nu', '1987', 'Ha Tinh'),
-    ('Nguyen Van V', 'Nam', '1993', 'Quang Binh'),
-    ('Tran Thi W', 'Nu', '1999', 'Quang Tri'),
-    ('Le Van X', 'Nam', '1989', 'Thua Thien Hue'),
-    ('Pham Thi Y', 'Nu', '1986', 'Da Nang'),
-    ('Hoang Van Z', 'Nam', '1991', 'Quang Nam'),
-    ('Nguyen Thi P', 'Nu', '1997', 'Quang Ngai'),
-    ('Tran Van Q', 'Nam', '1983', 'Binh Dinh'),
-    ('Pham Thi R', 'Nu', '1988', 'Phu Yen'),
-    ('Le Van S', 'Nam', '1994', 'Khanh Hoa'),
-    ('Hoang Thi T', 'Nu', '1998', 'Ninh Thuan');
+    ('Hoang Van E', 'Nam', '1995', 'Hai Phong');
 
 INSERT INTO LOAIBENH (TenLoaiBenh)
 VALUES 
@@ -253,56 +222,38 @@ VALUES
     ('Loai benh 4'),
     ('Loai benh 5');
 
-INSERT INTO PHIEUKHAM (NgayKham, TrieuChung, MaLoaiBenh, MaBenhNhan)
-VALUES 
-    ('01/02/2023', 'Trieu chung 1', 1, 1),
-    ('01/02/2023', 'Trieu chung 2', 2, 2),
-    ('01/02/2023', 'Trieu chung 3', 3, 3),
-    ('01/02/2023', 'Trieu chung 4', 4, 4),
-    ('01/02/2023', 'Trieu chung 5', 5, 5),
-    ('01/02/2023', 'Trieu chung 1', 1, 6),
-    ('01/02/2023', 'Trieu chung 2', 2, 7),
-    ('01/02/2023', 'Trieu chung 3', 3, 8),
-    ('01/02/2023', 'Trieu chung 4', 4, 9),
-    ('01/02/2023', 'Trieu chung 5', 5, 10),
-    ('01/03/2023', 'Trieu chung 1', 1, 11),
-    ('01/03/2023', 'Trieu chung 2', 2, 12),
-    ('01/03/2023', 'Trieu chung 3', 3, 13),
-    ('01/03/2023', 'Trieu chung 4', 4, 14),
-    ('01/03/2023', 'Trieu chung 5', 5, 15);
-
-INSERT INTO THUOC (TenThuoc, DonGia)
+INSERT INTO THUOC (TenThuoc)
 VALUES
-    ('Thuoc 01', 300000),
-    ('Thuoc 02', 400000),
-    ('Thuoc 03', 700000),
-    ('Thuoc 04', 800000),
-    ('Thuoc 05', 200000),
-    ('Thuoc 06', 200000),
-    ('Thuoc 07', 100000),
-    ('Thuoc 08', 200000),
-    ('Thuoc 09', 800000),
-    ('Thuoc 10', 300000),
-    ('Thuoc 11', 700000),
-    ('Thuoc 12', 500000),
-    ('Thuoc 13', 400000),
-    ('Thuoc 14', 300000),
-    ('Thuoc 15', 600000),
-    ('Thuoc 16', 700000),
-    ('Thuoc 17', 200000),
-    ('Thuoc 18', 500000),
-    ('Thuoc 19', 200000),
-    ('Thuoc 20', 600000),
-    ('Thuoc 21', 200000),
-    ('Thuoc 22', 200000),
-    ('Thuoc 23', 100000),
-    ('Thuoc 24', 1000000),
-    ('Thuoc 25', 40000),
-    ('Thuoc 26', 200000),
-    ('Thuoc 27', 2200000),
-    ('Thuoc 28', 1100000),
-    ('Thuoc 29', 13200000),
-    ('Thuoc 30', 2100000);
+    ('Thuoc 01'),
+    ('Thuoc 02'),
+    ('Thuoc 03'),
+    ('Thuoc 04'),
+    ('Thuoc 05'),
+    ('Thuoc 06'),
+    ('Thuoc 07'),
+    ('Thuoc 08'),
+    ('Thuoc 09'),
+    ('Thuoc 10'),
+    ('Thuoc 11'),
+    ('Thuoc 12'),
+    ('Thuoc 13'),
+    ('Thuoc 14'),
+    ('Thuoc 15'),
+    ('Thuoc 16'),
+    ('Thuoc 17'),
+    ('Thuoc 18'),
+    ('Thuoc 19'),
+    ('Thuoc 20'),
+    ('Thuoc 21'),
+    ('Thuoc 22'),
+    ('Thuoc 23'),
+    ('Thuoc 24'),
+    ('Thuoc 25'),
+    ('Thuoc 26'),
+    ('Thuoc 27'),
+    ('Thuoc 28'),
+    ('Thuoc 29'),
+    ('Thuoc 30');
 
 INSERT INTO DONVI (TenDonVi)
 VALUES
@@ -316,110 +267,115 @@ VALUES
     ('Cach dung 3'),
     ('Cach dung 4');
 
-INSERT INTO CHITIETPHIEUKHAM (MaPhieuKham, MaThuoc, MaDonVi, MaCachDung, SoLuong)
+INSERT INTO CHITIETTHUOC (MaThuoc, MaDonVi, DonGia)
 VALUES
-    (1, 1, 1, 1, '5'),
-    (1, 2, 2, 2, '3'),
-    (2, 3, 1, 3, '2'),
-    (2, 4, 2, 4, '1'),
-    (3, 5, 1, 1, '4'),
-    (3, 6, 2, 2, '2'),
-    (4, 7, 1, 3, '3'),
-    (4, 8, 2, 4, '1'),
-    (5, 9, 1, 1, '6'),
-    (5, 10, 2, 1, '2'),
-    (6, 11, 1, 3, '2'),
-    (6, 12, 2, 4, '3'),
-    (7, 13,	1, 1, '4'),
-    (7, 14, 2, 2, '1'),
-    (8, 15, 1, 3, '2'),
-    (8, 16, 2, 4, '3'),
-    (9, 17, 1, 1, '5'),
-    (9, 18, 2, 2, '2'),
-    (10, 19, 1, 3, '3'),
-    (10, 20, 2, 4, '1'),
-    (10, 21, 1, 1, '5'),
-    (11, 22, 2, 2, '3'),
-    (12, 23, 1, 3, '2'),
-    (12, 24, 2, 4, '1'),
-    (12, 25, 1, 1, '4'),
-    (13, 26, 2, 2, '2'),
-    (14, 27, 1, 3, '3'),
-    (14, 28, 2, 4, '1'),
-    (15, 29, 2, 1, '6'),
-    (15, 30, 2, 2, '2');
+    ('1', '1', '1000'),
+    ('2', '2', '2000'),
+    ('3', '1', '3000'),
+    ('4', '2', '4000'),
+    ('5', '1', '5000'),
+    ('6', '2', '6000'),
+    ('7', '1', '7000'),
+    ('8', '2', '8000'),
+    ('9', '1', '9000'),
+    ('10', '2', '10000'),
+    ('11', '1', '11000'),
+    ('12', '2', '12000'),
+    ('13', '1', '13000'),
+    ('14', '2', '14000'),
+    ('15', '1', '15000'),
+    ('16', '2', '16000'),
+    ('17', '1', '17000'),
+    ('18', '2', '18000'),
+    ('19', '1', '19000'),
+    ('20', '2', '20000'),
+    ('21', '1', '21000'),
+    ('22', '2', '22000'),
+    ('23', '1', '23000'),
+    ('24', '2', '24000'),
+    ('25', '1', '25000'),
+    ('26', '2', '26000'),
+    ('27', '1', '27000'),
+    ('28', '2', '28000'),
+    ('29', '1', '29000'),
+    ('30', '2', '30000');
 
+INSERT INTO PHIEUKHAM (NgayKham, TrieuChung, MaLoaiBenh, MaBenhNhan)
+VALUES 
+    ('01/02/2023', 'Trieu chung 1', '1', '1'),
+    ('01/02/2023', 'Trieu chung 2', '2', '2'),
+    ('02/02/2023', 'Trieu chung 3', '3', '3'),
+    ('01/03/2023', 'Trieu chung 4', '4', '4'),
+    ('01/04/2023', 'Trieu chung 5', '5', '5');
+
+INSERT INTO CHITIETPHIEUKHAM (MaPhieuKham, MaCTThuoc, MaCachDung, SoLuong)
+VALUES
+    ('1', '1', '1', '5'),
+    ('2', '2', '2', '5'),
+    ('3', '3', '3', '5'),
+    ('4', '4', '4', '5'),
+    ('5', '5', '1', '5');
 
 INSERT INTO PHIEUNHAPTHUOC (NgayNhap, NhaCungCap, TongTien)
 VALUES
-    ('01/01/2023', 1, '90'),
-    ('01/01/2023', 2, '210'),
-    ('01/01/2023', 3, '300'),
-    ('01/01/2023', 4, '210'),
-    ('01/01/2023', 5, '90'),
-    ('01/01/2023', 1, '90'),
-    ('01/01/2023', 2, '210'),
-    ('01/01/2023', 3, '300'),
-    ('01/01/2023', 4, '210'),
-    ('01/01/2023', 5, '90'),
-    ('01/01/2023', 1, '90'),
-    ('01/01/2023', 2, '210'),
-    ('01/01/2023', 3, '300'),
-    ('01/01/2023', 4, '210'),
-    ('01/01/2023', 5, '90');
+    ('01/01/2023', 'NCC01', '1350000'),
+    ('02/01/2023', 'NCC02', '4650000'),
+    ('03/01/2023', 'NCC03', '7650000');
 
-INSERT INTO CHITIETPHIEUNHAPTHUOC (MaThuoc, MaDonVi, MaPhieuNhapThuoc, MaCachDung, DonGia, SoLuong, ThanhTien)
+INSERT INTO CHITIETPHIEUNHAPTHUOC (MaPhieuNhapThuoc, MaCTThuoc, SoLuong, ThanhTien)
 VALUES
-    ('MTH01', 1, 1, 1, '1', '30', '30'),
-    ('MTH02', 2, 1, 2, '2', '30', '60'),
-    ('MTH03', 1, 2, 3, '3', '30', '90'),
-    ('MTH04', 2, 2, 4, '4', '30', '120'),
-    ('MTH05', 1, 3, 1, '5', '30', '150'),
-    ('MTH06', 2, 3, 2, '5', '30', '150'),
-    ('MTH07', 1, 4, 3, '4', '30', '120'),
-    ('MTH08', 2, 4, 4, '3', '30', '90'),
-    ('MTH09', 1, 5, 1, '2', '30', '60'),
-    ('MTH10', 2, 5, 2, '1', '30', '30'),
-    ('MTH11', 1, 6, 1, '1', '30', '30'),
-    ('MTH12', 2, 6, 2, '2', '30', '60'),
-    ('MTH13', 1, 7, 3, '3', '30', '90'),
-    ('MTH14', 2, 7, 4, '4', '30', '120'),
-    ('MTH15', 1, 8, 1, '5', '30', '150'),
-    ('MTH16', 2, 8, 2, '5', '30', '150'),
-    ('MTH17', 1, 9, 3, '4', '30', '120'),
-    ('MTH18', 2, 9, 4, '3', '30', '90'),
-    ('MTH19', 1, 10, 1, '2', '30', '60'),
-    ('MTH20', 2, 10, 2, '1', '30', '30'),
-    ('MTH21', 1, 11, 3, '1', '30', '30'),
-    ('MTH22', 2, 11, 4, '2', '30', '60'),
-    ('MTH23', 1, 12, 1, '3', '30', '90'),
-    ('MTH24', 2, 12, 2, '4', '30', '120'),
-    ('MTH25', 1, 13, 3, '5', '30', '150'),
-    ('MTH26', 2, 13, 4, '5', '30', '150'),
-    ('MTH27', 1, 14, 1, '4', '30', '120'),
-    ('MTH28', 2, 14, 2, '3', '30', '90'),
-    ('MTH29', 1, 15, 3, '2', '30', '60'),
-    ('MTH30', 2, 15, 4, '1', '30', '30');
+    ('1', '1', '30', '30000'),
+    ('1', '2', '30', '60000'),
+    ('1', '3', '30', '90000'),
+    ('1', '4', '30', '120000'),
+    ('1', '5', '30', '150000'),
+    ('1', '6', '30', '180000'),
+    ('1', '7', '30', '210000'),
+    ('1', '8', '30', '240000'),
+    ('1', '9', '30', '270000'),
+    ('1', '10', '30', '300000'),
+    ('2', '11', '30', '330000'),
+    ('2', '12', '30', '360000'),
+    ('2', '13', '30', '390000'),
+    ('2', '14', '30', '420000'),
+    ('2', '15', '30', '450000'),
+    ('2', '16', '30', '480000'),
+    ('2', '17', '30', '510000'),
+    ('2', '18', '30', '540000'),
+    ('2', '19', '30', '570000'),
+    ('2', '20', '30', '600000'),
+    ('3', '21', '30', '630000'),
+    ('3', '22', '30', '660000'),
+    ('3', '23', '30', '690000'),
+    ('3', '24', '30', '720000'),
+    ('3', '25', '30', '750000'),
+    ('3', '26', '30', '780000'),
+    ('3', '27', '30', '810000'),
+    ('3', '28', '30', '840000'),
+    ('3', '29', '30', '870000'),
+    ('3', '30', '30', '900000');
 
-	SELECT * FROM HOADON
 INSERT INTO HOADON (MaPhieuKham, NgayKham, TienKham, TienThuoc)
 VALUES 
-    (1, '01/02/2023', '30000', '5'),
-    (2, '01/02/2023', '30000', '25'),
-    (3, '01/02/2023', '30000', '50'),
-    (4, '01/02/2023', '30000', '25'),
-    (5, '01/02/2023', '30000', '5'),
-    (6, '01/02/2023', '30000', '5'),
-    (7, '01/02/2023', '30000', '25'),
-    (8, '01/02/2023', '30000', '50'),
-    (9, '01/02/2023', '30000', '25'),
-    (10, '01/02/2023', '30000', '5'),
-    (11, '01/03/2023', '30000', '5'),
-    (12, '01/03/2023', '30000', '25'),
-    (13, '01/03/2023', '30000', '50'),
-    (14, '01/03/2023', '30000', '25'),
-    (15, '01/03/2023', '30000', '5');
+    ('1', '01/02/2023', '30000', '5000'),
+    ('2', '01/02/2023', '30000', '10000'),
+    ('3', '02/02/2023', '30000', '15000'),
+    ('4', '01/03/2023', '30000', '20000'),
+    ('5', '01/04/2023', '30000', '25000');
+GO
 
+SELECT * FROM BENHNHAN
+SELECT * FROM LOAIBENH
+SELECT * FROM THUOC
+SELECT * FROM DONVI
+SELECT * FROM CACHDUNG
+SELECT * FROM CHITIETTHUOC
+SELECT * FROM PHIEUKHAM
+SELECT * FROM CHITIETPHIEUKHAM
+SELECT * FROM PHIEUNHAPTHUOC
+SELECT * FROM CHITIETPHIEUNHAPTHUOC
+SELECT * FROM HOADON
+SELECT * FROM THAMSO
 
 -- Bảng báo cáo doanh thu 
 SELECT DAY(PK.NgayKham) Ngay, MONTH(PK.NgayKham) Thang, YEAR(PK.NgayKham) Nam, 
@@ -427,10 +383,10 @@ COUNT(PK.MaBenhNhan) SLBN, SUM(TienKham + TienThuoc) DoanhThu
 FROM PHIEUKHAM PK, HOADON HD
 WHERE PK.MaPhieuKham = HD.MaPhieuKham
 GROUP BY DAY(PK.NgayKham), MONTH(PK.NgayKham), YEAR(PK.NgayKham)
-
+--
 -- Bảng báo cáo sử dụng thuốc
 SELECT DAY(PK.NgayKham) Ngay, MONTH(PK.NgayKham) Thang, YEAR(PK.NgayKham) Nam,
-CTPK.MaThuoc, CTPNT.SoLuong, CTPK.SoLuong SoLanDung
+CTPK.MaCTThuoc, CTPNT.SoLuong, CTPK.SoLuong SoLanDung
 FROM PHIEUKHAM PK, CHITIETPHIEUKHAM CTPK, CHITIETPHIEUNHAPTHUOC CTPNT
 WHERE PK.MaPhieuKham = CTPK.MaPhieuKham
-AND CTPK.MaThuoc = CTPNT.MaThuoc
+AND CTPK.MaCTThuoc = CTPNT.MaCTThuoc
