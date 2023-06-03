@@ -14,6 +14,12 @@ namespace DoAn
     
     public partial class HOADON
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOADON()
+        {
+            this.CTHOADONs = new HashSet<CTHOADON>();
+        }
+    
         public int MaHoaDon { get; set; }
         public Nullable<int> MaPhieuKham { get; set; }
         public Nullable<System.DateTime> NgayKham { get; set; }
@@ -21,5 +27,7 @@ namespace DoAn
         public Nullable<int> TienThuoc { get; set; }
     
         public virtual PHIEUKHAM PHIEUKHAM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTHOADON> CTHOADONs { get; set; }
     }
 }

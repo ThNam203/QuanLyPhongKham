@@ -27,6 +27,9 @@
         <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" />
         <AssociationConnector Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" />
         <AssociationConnector Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26" />
+        <EntityTypeShape EntityType="QuanLyPhongKhamModel.CTHOADON" Width="1.5" PointX="7.5" PointY="8.875" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CTHOADON__MaThuo__45F365D3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
