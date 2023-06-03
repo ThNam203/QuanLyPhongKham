@@ -90,6 +90,14 @@ CREATE TABLE THAMSO (
     SoLuongCachDung INT,
     TienKham INT,
 )
+
+CREATE TABLE CTHOADON (
+	MaCTHoaDon INT IDENTITY (1, 1) PRIMARY KEY,
+	MaHoaDon INT FOREIGN KEY REFERENCES HOADON(MaHoaDon),
+	MaThuoc INT FOREIGN KEY REFERENCES THUOC(MaThuoc),
+	SoLuong INT,
+	TongTien INT,
+)
 GO
 
 -- Tạo các ràng buộc
