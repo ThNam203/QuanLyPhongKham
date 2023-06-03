@@ -30,6 +30,7 @@ namespace DoAn
         public virtual DbSet<CHITIETPHIEUKHAM> CHITIETPHIEUKHAMs { get; set; }
         public virtual DbSet<CHITIETPHIEUNHAPTHUOC> CHITIETPHIEUNHAPTHUOCs { get; set; }
         public virtual DbSet<CHITIETTHUOC> CHITIETTHUOCs { get; set; }
+        public virtual DbSet<CTHOADON> CTHOADONs { get; set; }
         public virtual DbSet<DONVI> DONVIs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<LOAIBENH> LOAIBENHs { get; set; }
@@ -37,6 +38,5 @@ namespace DoAn
         public virtual DbSet<PHIEUNHAPTHUOC> PHIEUNHAPTHUOCs { get; set; }
         public virtual DbSet<THAMSO> THAMSOes { get; set; }
         public virtual DbSet<THUOC> THUOCs { get; set; }
-        public virtual DbSet<CTHOADON> CTHOADONs { get; set; }
     }
 }

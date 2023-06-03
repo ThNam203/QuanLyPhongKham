@@ -26,8 +26,8 @@ namespace DoAn
         public Nullable<int> TienKham { get; set; }
         public Nullable<int> TienThuoc { get; set; }
     
-        public virtual PHIEUKHAM PHIEUKHAM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHOADON> CTHOADONs { get; set; }
+        public virtual PHIEUKHAM PHIEUKHAM { get; set; }
     }
 }

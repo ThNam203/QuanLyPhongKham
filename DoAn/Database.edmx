@@ -57,7 +57,7 @@
           </Key>
           <Property Name="MaCTHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaHoaDon" Type="int" />
-          <Property Name="MaThuoc" Type="int" />
+          <Property Name="TenThuoc" Type="varchar" MaxLength="24" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="TongTien" Type="int" />
         </EntityType>
@@ -219,18 +219,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTHOADON__MaThuo__45F365D3">
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="0..1" />
-          <End Role="CTHOADON" Type="Self.CTHOADON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THUOC">
-              <PropertyRef Name="MaThuoc" />
-            </Principal>
-            <Dependent Role="CTHOADON">
-              <PropertyRef Name="MaThuoc" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__HOADON__MaPhieuK__403A8C7D">
           <End Role="PHIEUKHAM" Type="Self.PHIEUKHAM" Multiplicity="0..1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
@@ -313,10 +301,6 @@
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CTHOADON" EntitySet="CTHOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTHOADON__MaThuo__45F365D3" Association="Self.FK__CTHOADON__MaThuo__45F365D3">
-            <End Role="THUOC" EntitySet="THUOC" />
-            <End Role="CTHOADON" EntitySet="CTHOADON" />
-          </AssociationSet>
           <AssociationSet Name="FK__HOADON__MaPhieuK__403A8C7D" Association="Self.FK__HOADON__MaPhieuK__403A8C7D">
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAM" />
             <End Role="HOADON" EntitySet="HOADON" />
@@ -340,6 +324,7 @@
           <EntitySet Name="CHITIETPHIEUKHAMs" EntityType="QuanLyPhongKhamModel.CHITIETPHIEUKHAM" />
           <EntitySet Name="CHITIETPHIEUNHAPTHUOCs" EntityType="QuanLyPhongKhamModel.CHITIETPHIEUNHAPTHUOC" />
           <EntitySet Name="CHITIETTHUOCs" EntityType="QuanLyPhongKhamModel.CHITIETTHUOC" />
+          <EntitySet Name="CTHOADONs" EntityType="QuanLyPhongKhamModel.CTHOADON" />
           <EntitySet Name="DONVIs" EntityType="QuanLyPhongKhamModel.DONVI" />
           <EntitySet Name="HOADONs" EntityType="QuanLyPhongKhamModel.HOADON" />
           <EntitySet Name="LOAIBENHs" EntityType="QuanLyPhongKhamModel.LOAIBENH" />
@@ -379,6 +364,10 @@
             <End Role="THUOC" EntitySet="THUOCs" />
             <End Role="CHITIETTHUOC" EntitySet="CHITIETTHUOCs" />
           </AssociationSet>
+          <AssociationSet Name="FK__CTHOADON__MaHoaD__44FF419A" Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="CTHOADON" EntitySet="CTHOADONs" />
+          </AssociationSet>
           <AssociationSet Name="FK__HOADON__MaPhieuK__403A8C7D" Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D">
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
             <End Role="HOADON" EntitySet="HOADONs" />
@@ -386,15 +375,6 @@
           <AssociationSet Name="FK__PHIEUKHAM__MaLoa__31EC6D26" Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26">
             <End Role="LOAIBENH" EntitySet="LOAIBENHs" />
             <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
-          </AssociationSet>
-          <EntitySet Name="CTHOADONs" EntityType="QuanLyPhongKhamModel.CTHOADON" />
-          <AssociationSet Name="FK__CTHOADON__MaHoaD__44FF419A" Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A">
-            <End Role="HOADON" EntitySet="HOADONs" />
-            <End Role="CTHOADON" EntitySet="CTHOADONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CTHOADON__MaThuo__45F365D3" Association="QuanLyPhongKhamModel.FK__CTHOADON__MaThuo__45F365D3">
-            <End Role="THUOC" EntitySet="THUOCs" />
-            <End Role="CTHOADON" EntitySet="CTHOADONs" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BENHNHAN">
@@ -454,6 +434,17 @@
           <NavigationProperty Name="DONVI" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__2F10007B" FromRole="CHITIETTHUOC" ToRole="DONVI" />
           <NavigationProperty Name="THUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" FromRole="CHITIETTHUOC" ToRole="THUOC" />
         </EntityType>
+        <EntityType Name="CTHOADON">
+          <Key>
+            <PropertyRef Name="MaCTHoaDon" />
+          </Key>
+          <Property Name="MaCTHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaHoaDon" Type="Int32" />
+          <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="TongTien" Type="Int32" />
+          <NavigationProperty Name="HOADON" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A" FromRole="CTHOADON" ToRole="HOADON" />
+        </EntityType>
         <EntityType Name="DONVI">
           <Key>
             <PropertyRef Name="MaDonVi" />
@@ -471,8 +462,8 @@
           <Property Name="NgayKham" Type="DateTime" Precision="0" />
           <Property Name="TienKham" Type="Int32" />
           <Property Name="TienThuoc" Type="Int32" />
-          <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" FromRole="HOADON" ToRole="PHIEUKHAM" />
           <NavigationProperty Name="CTHOADONs" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A" FromRole="HOADON" ToRole="CTHOADON" />
+          <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" FromRole="HOADON" ToRole="PHIEUKHAM" />
         </EntityType>
         <EntityType Name="LOAIBENH">
           <Key>
@@ -525,7 +516,6 @@
           <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" FromRole="THUOC" ToRole="CHITIETTHUOC" />
-          <NavigationProperty Name="CTHOADONs" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaThuo__45F365D3" FromRole="THUOC" ToRole="CTHOADON" />
         </EntityType>
         <Association Name="FK__PHIEUKHAM__MaBen__32E0915F">
           <End Type="QuanLyPhongKhamModel.BENHNHAN" Role="BENHNHAN" Multiplicity="0..1" />
@@ -623,6 +613,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__CTHOADON__MaHoaD__44FF419A">
+          <End Type="QuanLyPhongKhamModel.HOADON" Role="HOADON" Multiplicity="0..1" />
+          <End Type="QuanLyPhongKhamModel.CTHOADON" Role="CTHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Principal>
+            <Dependent Role="CTHOADON">
+              <PropertyRef Name="MaHoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__HOADON__MaPhieuK__403A8C7D">
           <End Type="QuanLyPhongKhamModel.PHIEUKHAM" Role="PHIEUKHAM" Multiplicity="0..1" />
           <End Type="QuanLyPhongKhamModel.HOADON" Role="HOADON" Multiplicity="*" />
@@ -647,43 +649,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CTHOADON">
-          <Key>
-            <PropertyRef Name="MaCTHoaDon" />
-          </Key>
-          <Property Name="MaCTHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaHoaDon" Type="Int32" />
-          <Property Name="MaThuoc" Type="Int32" />
-          <Property Name="SoLuong" Type="Int32" />
-          <Property Name="TongTien" Type="Int32" />
-          <NavigationProperty Name="HOADON" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A" FromRole="CTHOADON" ToRole="HOADON" />
-          <NavigationProperty Name="THUOC" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaThuo__45F365D3" FromRole="CTHOADON" ToRole="THUOC" />
-        </EntityType>
-        <Association Name="FK__CTHOADON__MaHoaD__44FF419A">
-          <End Type="QuanLyPhongKhamModel.HOADON" Role="HOADON" Multiplicity="0..1" />
-          <End Type="QuanLyPhongKhamModel.CTHOADON" Role="CTHOADON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HOADON">
-              <PropertyRef Name="MaHoaDon" />
-            </Principal>
-            <Dependent Role="CTHOADON">
-              <PropertyRef Name="MaHoaDon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CTHOADON__MaThuo__45F365D3">
-          <End Type="QuanLyPhongKhamModel.THUOC" Role="THUOC" Multiplicity="0..1" />
-          <End Type="QuanLyPhongKhamModel.CTHOADON" Role="CTHOADON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THUOC">
-              <PropertyRef Name="MaThuoc" />
-            </Principal>
-            <Dependent Role="CTHOADON">
-              <PropertyRef Name="MaThuoc" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -737,6 +703,17 @@
                 <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
                 <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
                 <ScalarProperty Name="MaCTThuoc" ColumnName="MaCTThuoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CTHOADONs">
+            <EntityTypeMapping TypeName="QuanLyPhongKhamModel.CTHOADON">
+              <MappingFragment StoreEntitySet="CTHOADON">
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
+                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+                <ScalarProperty Name="MaCTHoaDon" ColumnName="MaCTHoaDon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -806,17 +783,6 @@
               <MappingFragment StoreEntitySet="THUOC">
                 <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
                 <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CTHOADONs">
-            <EntityTypeMapping TypeName="QuanLyPhongKhamModel.CTHOADON">
-              <MappingFragment StoreEntitySet="CTHOADON">
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="MaThuoc" ColumnName="MaThuoc" />
-                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
-                <ScalarProperty Name="MaCTHoaDon" ColumnName="MaCTHoaDon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

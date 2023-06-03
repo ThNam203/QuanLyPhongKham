@@ -16,11 +16,10 @@ namespace DoAn
     {
         public int MaCTHoaDon { get; set; }
         public Nullable<int> MaHoaDon { get; set; }
-        public Nullable<int> MaThuoc { get; set; }
+        public string TenThuoc { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<int> TongTien { get; set; }
     
         public virtual HOADON HOADON { get; set; }
-        public virtual THUOC THUOC { get; set; }
     }
 }

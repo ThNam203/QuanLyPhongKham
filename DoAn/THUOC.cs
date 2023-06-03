@@ -18,7 +18,6 @@ namespace DoAn
         public THUOC()
         {
             this.CHITIETTHUOCs = new HashSet<CHITIETTHUOC>();
-            this.CTHOADONs = new HashSet<CTHOADON>();
         }
     
         public int MaThuoc { get; set; }
@@ -26,7 +25,5 @@ namespace DoAn
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETTHUOC> CHITIETTHUOCs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTHOADON> CTHOADONs { get; set; }
     }
 }
