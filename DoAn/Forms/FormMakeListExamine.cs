@@ -89,9 +89,9 @@ namespace DoAn.Forms
         {
             if (PatientData != null)
             {
-                if (cbbTypeOfDisease != null)
+                if (cbbTypeOfDisease.Items.Contains(cbbTypeOfDisease.Texts))
                 {
-                    if (txtTrieuChung != null)
+                    if (txtTrieuChung.Text != null)
                     {
                         var benhnhan = new BENHNHAN();
                         benhnhan.HoTen = PatientData.Name;
@@ -184,7 +184,21 @@ namespace DoAn.Forms
 
         private void dGVListMedicine_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (isDataGridViewInitialized && e.ColumnIndex == dGVListMedicine.Columns["Quantity"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCell quantityCell = dGVListMedicine.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string quantityText = quantityCell.Value?.ToString();
 
+                // Check if the quantity is not a number or less than 0
+                if (!int.TryParse(quantityText, out int quantity) || quantity < 0)
+                {
+                    // Perform your desired action when the quantity is not a valid number or less than 0 (e.g., display an error message)
+                    MessageBox.Show("Số lượng phải là số không âm.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Reset the quantity value to 0
+                    quantityCell.Value = 0;
+                }
+            }
         }
     }
 }

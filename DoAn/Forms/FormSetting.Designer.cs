@@ -31,7 +31,7 @@
             this.txtNumberMax = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGVListDisease = new System.Windows.Forms.DataGridView();
             this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
@@ -59,7 +59,7 @@
             this.txtExamineMoney = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -115,19 +115,19 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Loại bệnh";
             // 
-            // dataGridView1
+            // dGVListDisease
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGVListDisease.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVListDisease.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVListDisease.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DiseaseId,
             this.DiseaseName});
-            this.dataGridView1.Location = new System.Drawing.Point(37, 151);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(405, 191);
-            this.dataGridView1.TabIndex = 13;
+            this.dGVListDisease.Location = new System.Drawing.Point(37, 151);
+            this.dGVListDisease.Name = "dGVListDisease";
+            this.dGVListDisease.RowHeadersWidth = 51;
+            this.dGVListDisease.RowTemplate.Height = 24;
+            this.dGVListDisease.Size = new System.Drawing.Size(405, 191);
+            this.dGVListDisease.TabIndex = 13;
             // 
             // DiseaseId
             // 
@@ -503,13 +503,13 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemoveDisease);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dGVListDisease);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNumberMax);
             this.Controls.Add(this.label1);
             this.Name = "FormSetting";
             this.Text = "Thay đổi quy định";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -522,7 +522,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtNumberMax;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGVListDisease;
         private RJCodeAdvance.RJControls.RJButton btnRemoveDisease;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label3;
