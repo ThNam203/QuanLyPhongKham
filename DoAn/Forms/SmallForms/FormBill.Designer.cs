@@ -382,6 +382,7 @@
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dpDate.CustomFormat = "dd/MM/yyyy";
+            this.dpDate.Enabled = false;
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dpDate.Location = new System.Drawing.Point(169, 229);

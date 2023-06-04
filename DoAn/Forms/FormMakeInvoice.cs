@@ -1,42 +1,13 @@
 ﻿using DoAn.Forms.SmallForms;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DoAn.Forms
 {
     public partial class FormMakeInvoice : Form
     {
-        public class MedicalBill
-        {
-            public string Id { get; set; }
-            public string PatientName { get; set; }
-            public string Disease { get; set; }
 
-            public string Total { get; set; }
-            public Boolean isPaid { get; set; }
-        }
-        List<MedicalBill> listBill = new List<MedicalBill>
-        {
-            new MedicalBill {Id="1",PatientName="Nguyễn Văn A",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="2",PatientName="Nguyễn Văn B",Disease="Sốt",Total="100000",isPaid=true},
-            new MedicalBill {Id="3",PatientName="Nguyễn Văn C",Disease="Sốt",Total="100000",isPaid=true},
-            new MedicalBill {Id="4",PatientName="Nguyễn Văn D",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="5",PatientName="Nguyễn Văn E",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="6",PatientName="Nguyễn Văn F",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="7",PatientName="Nguyễn Văn G",Disease="Sốt",Total="100000",isPaid=true},
-            new MedicalBill {Id="8",PatientName="Nguyễn Văn H",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="9",PatientName="Nguyễn Văn I",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="10",PatientName="Nguyễn Văn K",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="11",PatientName="Nguyễn Văn L",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="12",PatientName="Nguyễn Văn M",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="13",PatientName="Nguyễn Văn N",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="14",PatientName="Nguyễn Văn O",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="15",PatientName="Nguyễn Văn P",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="16",PatientName="Nguyễn Văn Q",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="17",PatientName="Nguyễn Văn R",Disease="Sốt",Total="100000",isPaid=false},
-            new MedicalBill {Id="18",PatientName="Nguyễn Văn S",Disease="Sốt",Total="100000",isPaid=false},
-        };
         public FormMakeInvoice()
         {
             InitializeComponent();
@@ -44,47 +15,93 @@ namespace DoAn.Forms
         }
         public void InitializeDataGridView()
         {
-
-            foreach (MedicalBill item in listBill)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dGVListMedicalBill);
-                row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = item.Id;
-                row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = item.PatientName;
-                row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = item.Disease;
-                row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = item.Total;
-                row.Cells[dGVListMedicalBill.Columns["isPaid"].Index].Value = item.isPaid;
-
-                dGVListMedicalBill.Rows.Add(row);
-            }
-            // Autosize the columns.
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-            string searchName = txtName.Text.Trim();
-
-            // Clear the DataGridView
             dGVListMedicalBill.Rows.Clear();
+            dGVListMedicalBill.ReadOnly = true;
 
-            // Search for matching patients and add them to the DataGridView
-            foreach (MedicalBill item in listBill)
+            DateTime selectedDate = dpDate.Value.Date;
+            using (var db = new DataPKEntities())
             {
-                if (item.PatientName.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0)
+                var tienkham = (from s in db.THAMSOes
+                                select s.TienKham).FirstOrDefault();
+
+                var select = from s in db.PHIEUKHAMs
+                             where s.NgayKham.Value.Year == selectedDate.Year
+                                && s.NgayKham.Value.Month == selectedDate.Month
+                                && s.NgayKham.Value.Day == selectedDate.Day
+                             select s;
+                foreach (var s in select)
                 {
+                    var total = db.CHITIETPHIEUKHAMs
+                        .Where(ctpk => ctpk.MaPhieuKham == s.MaPhieuKham)
+                        .Join(db.CHITIETTHUOCs, ctpk => ctpk.MaCTThuoc, ct => ct.MaCTThuoc,
+                        (ctpk, ct) => new { ctpk, ct })
+                        .Sum(x => x.ct.DonGia * x.ctpk.SoLuong);
+                    bool isPaid = db.HOADONs.Any(h => h.MaPhieuKham == s.MaPhieuKham);
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListMedicalBill);
-                    row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = item.Id;
-                    row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = item.PatientName;
-                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = item.Disease;
-                    row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = item.Total;
-                    row.Cells[dGVListMedicalBill.Columns["isPaid"].Index].Value = item.isPaid;
+                    row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = s.MaPhieuKham;
+                    row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = s.BENHNHAN.HoTen;
+                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.TrieuChung;
+                    row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham + total;
 
+                    if (row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value == null)
+                    {
+                        row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham;
+                    }
+                    row.Cells[dGVListMedicalBill.Columns["IsPaid"].Index].Value = isPaid;
                     dGVListMedicalBill.Rows.Add(row);
                 }
             }
         }
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtName.Text.Trim();
+            DateTime selectedDate = dpDate.Value.Date;
+            // Clear previous search results
+            dGVListMedicalBill.Rows.Clear();
 
+            using (var db = new DataPKEntities())
+            {
+                var tienkham = (from s in db.THAMSOes
+                                select s.TienKham).FirstOrDefault();
+
+                var select = from s in db.PHIEUKHAMs
+                             where s.BENHNHAN.HoTen.Contains(searchText)
+                                && s.NgayKham.Value.Year == selectedDate.Year
+                                && s.NgayKham.Value.Month == selectedDate.Month
+                                && s.NgayKham.Value.Day == selectedDate.Day// Filter by patient name
+                             select s;
+
+                foreach (var s in select)
+                {
+                    var total = db.CHITIETPHIEUKHAMs
+                        .Where(ctpk => ctpk.MaPhieuKham == s.MaPhieuKham)
+                        .Join(db.CHITIETTHUOCs, ctpk => ctpk.MaCTThuoc, ct => ct.MaCTThuoc,
+                        (ctpk, ct) => new { ctpk, ct })
+                        .Sum(x => x.ct.DonGia * x.ctpk.SoLuong);
+
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dGVListMedicalBill);
+                    row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = s.MaPhieuKham;
+                    row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = s.BENHNHAN.HoTen;
+                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.TrieuChung;
+                    row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham + total;
+
+                    if (row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value == null)
+                    {
+                        row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham;
+                    }
+
+                    row.Cells[dGVListMedicalBill.Columns["IsPaid"].Index].Value = false;
+                    dGVListMedicalBill.Rows.Add(row);
+                }
+            }
+        }
+        private void dpDate_ValueChanged(object sender, EventArgs e)
+        {
+            txtName.Clear();
+            InitializeDataGridView();
+        }
         private void dGVListMedicalBill_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -96,7 +113,7 @@ namespace DoAn.Forms
                     return;
                 }
                 // Get the ID value from the selected row
-                string selectedId = selectedRow.Cells["Index"].Value.ToString();
+                int selectedId = int.Parse(selectedRow.Cells["Index"].Value.ToString());
 
 
                 // Open a new form and pass the ID

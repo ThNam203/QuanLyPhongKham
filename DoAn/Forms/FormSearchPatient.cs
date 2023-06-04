@@ -74,7 +74,7 @@ namespace DoAn.Forms
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            InitializeData();
         }
 
         private void dpDate_ValueChanged(object sender, EventArgs e)

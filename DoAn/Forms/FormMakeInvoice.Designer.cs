@@ -88,20 +88,23 @@
             this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dpDate.BorderSize = 3;
             this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Location = new System.Drawing.Point(587, 7);
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDate.Location = new System.Drawing.Point(781, 12);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(382, 60);
+            this.dpDate.Size = new System.Drawing.Size(228, 60);
             this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.dpDate.TabIndex = 11;
             this.dpDate.TextColor = System.Drawing.Color.Black;
+            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // lblDateExam
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(430, 24);
+            this.lblDateExam.Location = new System.Drawing.Point(624, 24);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(151, 31);
             this.lblDateExam.TabIndex = 10;
@@ -152,6 +155,7 @@
             this.Disease.HeaderText = "Bệnh";
             this.Disease.MinimumWidth = 6;
             this.Disease.Name = "Disease";
+            this.Disease.ReadOnly = true;
             this.Disease.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Total
@@ -159,6 +163,7 @@
             this.Total.HeaderText = "Tổng tiền";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // IsPaid
             // 
@@ -166,6 +171,7 @@
             this.IsPaid.HeaderText = "Đã thanh toán";
             this.IsPaid.MinimumWidth = 6;
             this.IsPaid.Name = "IsPaid";
+            this.IsPaid.ReadOnly = true;
             this.IsPaid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IsPaid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
