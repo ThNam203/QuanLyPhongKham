@@ -1,193 +1,109 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DoAn.Forms
 {
     public partial class FormSearchPatient : Form
     {
-        public class Patient
-        {
-            public int Index { get; set; }
-            public string LastName { get; set; }
-            public string Sex { get; set; }
-            public string Birth { get; set; }
-            public string Address { get; set; }
-        }
-        List<Patient> people = new List<Patient>
-            {
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" },
-                new Patient {  LastName = "John Doe", Sex = "Male", Birth = new DateTime(1990, 5, 15).ToString("MM/dd/yyyy"), Address = "123 Main St" },
-                new Patient {  LastName = "Jane Smith", Sex = "Female", Birth = new DateTime(1988, 8, 22).ToString("MM/dd/yyyy"), Address = "456 Elm St" },
-                new Patient { LastName = "Bob Johnson", Sex = "Male", Birth = new DateTime(1995, 3, 10).ToString("MM/dd/yyyy"), Address = "789 Oak St" }
-            };
-        List<String> typeDisease = new List<string>
-        {
-            "Bệnh lý tim mạch",
-            "Bệnh lý hô hấp",
-            "Bệnh lý tiêu hóa",
-        };
         public FormSearchPatient()
         {
             InitializeComponent();
-
-
-            dGVListPatient.ReadOnly = true;
-            foreach (Patient person in people)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dGVListPatient);
-
-                row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.LastName;
-                row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.Sex;
-                row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.Birth;
-                row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.Address;
-
-                dGVListPatient.Rows.Add(row);
-            }
-            cbbTypeDisease.Items.Clear();
-            cbbTypeDisease.Items.AddRange(typeDisease.ToArray());
-            cbbTypeDisease.AutoCompleteSource = AutoCompleteSource.ListItems;
+            InitializeData();
         }
-
-        private void dGVListPatient_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void InitializeData()
         {
-            DataGridViewCell indexCell = dGVListPatient.Rows[e.RowIndex].Cells["Index"];
+            dGVListPatient.ReadOnly = true;
+            dGVListPatient.Rows.Clear();
+            DateTime selectedDate = dpDate.Value.Date;
+            using (var db = new DataPKEntities())
+            {
+                var select = from s in db.PHIEUKHAMs
+                             where s.NgayKham.Value.Year == selectedDate.Year
+                                && s.NgayKham.Value.Month == selectedDate.Month
+                                && s.NgayKham.Value.Day == selectedDate.Day
+                             select s;
+                foreach (var person in select)
+                {
 
-            // Update the index value for the current row
-            indexCell.Value = (e.RowIndex + 1).ToString();
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dGVListPatient);
+                    row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
+                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
+                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
+                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
+                    // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
+                    dGVListPatient.Rows.Add(row);
+                }
+
+            }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchName = txtName.Text;
-            if (!string.IsNullOrEmpty(searchName))
-            {
-                // Clear existing search results
-                dGVListPatient.Rows.Clear();
 
-                // Perform the search
-                List<Patient> searchResults = GetPatientsByName(searchName);
-
-                // Display the search results in the DataGridView
-                foreach (Patient person in searchResults)
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    row.CreateCells(dGVListPatient);
-
-                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.LastName;
-                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.Sex;
-                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.Birth;
-                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.Address;
-
-                    dGVListPatient.Rows.Add(row);
-                }
-            }
         }
-
-        // Helper method to search for patients by name
-
-        private List<Patient> GetPatientsByName(string name)
-        {
-            List<Patient> searchResults = new List<Patient>();
-            foreach (Patient person in people)
-            {
-                if (person.LastName.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0)
-                {
-                    searchResults.Add(person);
-                }
-            }
-            return searchResults;
-        }
-
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            string searchName = txtName.Text;
-            if (!string.IsNullOrEmpty(searchName))
+            string lastName = txtName.Text;
+            DateTime selectedDate = dpDate.Value.Date;
+
+            using (var db = new DataPKEntities())
             {
-                // Clear existing search results
-                dGVListPatient.Rows.Clear();
+                var select = from s in db.PHIEUKHAMs
+                             where s.BENHNHAN.HoTen.Contains(lastName) &&
+                                   s.NgayKham.Value.Year == selectedDate.Year &&
+                                   s.NgayKham.Value.Month == selectedDate.Month &&
+                                   s.NgayKham.Value.Day == selectedDate.Day // Filter based on LastName
+                             select s;
 
-                // Perform the search
-                List<Patient> searchResults = GetPatientsByName(searchName);
+                dGVListPatient.Rows.Clear(); // Clear the existing rows in the DataGridView
 
-                // Display the search results in the DataGridView
-                foreach (Patient person in searchResults)
+                foreach (var person in select)
                 {
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListPatient);
-
-                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.LastName;
-                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.Sex;
-                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.Birth;
-                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.Address;
-
+                    row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
+                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
+                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
+                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
                     dGVListPatient.Rows.Add(row);
                 }
             }
         }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
-            // Clear the search TextBox
-            txtName.Text = string.Empty;
-            //DateTime date = DateTime.ParseExact(dpDate.Text.ToString(), "dddd, MMMM dd, yyyy", CultureInfo.InvariantCulture);
 
-            //// Format the date to the desired format
-            //string formattedDate = date.ToString("dd/MM/yyyy");
+        }
 
-            //// The formatted date will be "24/05/2023"
-            //txtName.Text = formattedDate;
-
-            // Clear existing search results
-            dGVListPatient.Rows.Clear();
-
-            // Display all patients in the DataGridView
-            foreach (Patient person in people)
+        private void dpDate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dpDate.Value.Date;
+            txtName.Clear();
+            using (var db = new DataPKEntities())
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dGVListPatient);
+                var select = from s in db.PHIEUKHAMs
+                             where s.NgayKham.Value.Year == selectedDate.Year
+                                && s.NgayKham.Value.Month == selectedDate.Month
+                                && s.NgayKham.Value.Day == selectedDate.Day
+                             select s;
 
-                row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.LastName;
-                row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.Sex;
-                row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.Birth;
-                row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.Address;
+                dGVListPatient.Rows.Clear(); // Clear the existing rows in the DataGridView
 
-                dGVListPatient.Rows.Add(row);
+                foreach (var person in select)
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dGVListPatient);
+                    row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
+                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
+                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
+                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
+                    dGVListPatient.Rows.Add(row);
+                }
             }
         }
-
-        private void ConvertDate()
-        {
-            DateTime date = DateTime.ParseExact(dpDate.Text.ToString(), "dddd, MMMM dd, yyyy", CultureInfo.InvariantCulture);
-
-            // Format the date to the desired format
-            string formattedDate = date.ToString("dd/MM/yyyy");
-
-            // The formatted date will be "24/05/2023"
-            txtName.Text = formattedDate;
-        }
-
     }
 }
+

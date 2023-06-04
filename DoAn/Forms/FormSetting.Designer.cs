@@ -32,37 +32,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dGVListDisease = new System.Windows.Forms.DataGridView();
-            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dGVListMedicine = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.UseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dGVListUsage = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddDisease = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton4 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton2 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton5 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton3 = new RJCodeAdvance.RJControls.RJButton();
-            this.rjButton6 = new RJCodeAdvance.RJControls.RJButton();
+            this.btnAddUsage = new RJCodeAdvance.RJControls.RJButton();
+            this.btnRemoveUsage = new RJCodeAdvance.RJControls.RJButton();
+            this.btnAddMedicine = new RJCodeAdvance.RJControls.RJButton();
+            this.btnRemoveMedicine = new RJCodeAdvance.RJControls.RJButton();
             this.label6 = new System.Windows.Forms.Label();
             this.txtExamineMoney = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
+            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListUsage)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNumberMax
@@ -73,7 +68,6 @@
             this.txtNumberMax.Depth = 0;
             this.txtNumberMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumberMax.HideSelection = true;
-            this.txtNumberMax.Hint = "40";
             this.txtNumberMax.LeadingIcon = null;
             this.txtNumberMax.Location = new System.Drawing.Point(376, 27);
             this.txtNumberMax.MaxLength = 32767;
@@ -129,19 +123,6 @@
             this.dGVListDisease.Size = new System.Drawing.Size(405, 191);
             this.dGVListDisease.TabIndex = 13;
             // 
-            // DiseaseId
-            // 
-            this.DiseaseId.FillWeight = 70F;
-            this.DiseaseId.HeaderText = "Mã loại bệnh";
-            this.DiseaseId.MinimumWidth = 6;
-            this.DiseaseId.Name = "DiseaseId";
-            // 
-            // DiseaseName
-            // 
-            this.DiseaseName.HeaderText = "Tên loại bệnh";
-            this.DiseaseName.MinimumWidth = 6;
-            this.DiseaseName.Name = "DiseaseName";
-            // 
             // btnRemoveDisease
             // 
             this.btnRemoveDisease.BackColor = System.Drawing.Color.Red;
@@ -159,119 +140,53 @@
             this.btnRemoveDisease.Text = "Xóa";
             this.btnRemoveDisease.TextColor = System.Drawing.Color.White;
             this.btnRemoveDisease.UseVisualStyleBackColor = false;
+            this.btnRemoveDisease.Click += new System.EventHandler(this.btnRemoveDisease_Click);
             // 
-            // dataGridView2
+            // dGVListMedicine
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGVListMedicine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVListMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVListMedicine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MedicineId,
             this.MedicineName,
+            this.MedicineUnit,
             this.MedicinePrice});
-            this.dataGridView2.Location = new System.Drawing.Point(577, 151);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(383, 191);
-            this.dataGridView2.TabIndex = 16;
-            // 
-            // MedicineId
-            // 
-            this.MedicineId.HeaderText = "Mã thuốc";
-            this.MedicineId.MinimumWidth = 6;
-            this.MedicineId.Name = "MedicineId";
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.HeaderText = "Tên thuốc";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            // 
-            // MedicinePrice
-            // 
-            this.MedicinePrice.HeaderText = "Đơn giá";
-            this.MedicinePrice.MinimumWidth = 6;
-            this.MedicinePrice.Name = "MedicinePrice";
+            this.dGVListMedicine.Location = new System.Drawing.Point(37, 428);
+            this.dGVListMedicine.Name = "dGVListMedicine";
+            this.dGVListMedicine.RowHeadersWidth = 51;
+            this.dGVListMedicine.RowTemplate.Height = 24;
+            this.dGVListMedicine.Size = new System.Drawing.Size(923, 191);
+            this.dGVListMedicine.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label3.Location = new System.Drawing.Point(571, 93);
+            this.label3.Location = new System.Drawing.Point(31, 376);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 31);
             this.label3.TabIndex = 15;
             this.label3.Text = "Thuốc";
             // 
-            // dataGridView3
+            // dGVListUsage
             // 
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UnitId,
-            this.UnitName});
-            this.dataGridView3.Location = new System.Drawing.Point(37, 403);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(405, 189);
-            this.dataGridView3.TabIndex = 19;
-            // 
-            // UnitId
-            // 
-            this.UnitId.FillWeight = 50F;
-            this.UnitId.HeaderText = "Mã đơn vị";
-            this.UnitId.MinimumWidth = 6;
-            this.UnitId.Name = "UnitId";
-            // 
-            // UnitName
-            // 
-            this.UnitName.HeaderText = "Tên đơn vị";
-            this.UnitName.MinimumWidth = 6;
-            this.UnitName.Name = "UnitName";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label4.Location = new System.Drawing.Point(31, 356);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 31);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Đơn vị tính";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UseId,
-            this.UseName});
-            this.dataGridView4.Location = new System.Drawing.Point(577, 403);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(383, 189);
-            this.dataGridView4.TabIndex = 22;
-            // 
-            // UseId
-            // 
-            this.UseId.FillWeight = 85F;
-            this.UseId.HeaderText = "Mã cách dùng";
-            this.UseId.MinimumWidth = 6;
-            this.UseId.Name = "UseId";
-            // 
-            // UseName
-            // 
-            this.UseName.HeaderText = "Cách dùng";
-            this.UseName.MinimumWidth = 6;
-            this.UseName.Name = "UseName";
+            this.dGVListUsage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVListUsage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVListUsage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UsageId,
+            this.UsageName});
+            this.dGVListUsage.Location = new System.Drawing.Point(582, 153);
+            this.dGVListUsage.Name = "dGVListUsage";
+            this.dGVListUsage.RowHeadersWidth = 51;
+            this.dGVListUsage.RowTemplate.Height = 24;
+            this.dGVListUsage.Size = new System.Drawing.Size(383, 189);
+            this.dGVListUsage.TabIndex = 22;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label5.Location = new System.Drawing.Point(571, 356);
+            this.label5.Location = new System.Drawing.Point(571, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 31);
             this.label5.TabIndex = 21;
@@ -294,114 +209,83 @@
             this.btnAddDisease.Text = "Thêm";
             this.btnAddDisease.TextColor = System.Drawing.Color.White;
             this.btnAddDisease.UseVisualStyleBackColor = false;
+            this.btnAddDisease.Click += new System.EventHandler(this.btnAddDisease_Click);
             // 
-            // rjButton1
+            // btnAddUsage
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.SeaGreen;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 10;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(971, 151);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(89, 40);
-            this.rjButton1.TabIndex = 26;
-            this.rjButton1.Text = "Thêm";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnAddUsage.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddUsage.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddUsage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddUsage.BorderRadius = 10;
+            this.btnAddUsage.BorderSize = 0;
+            this.btnAddUsage.FlatAppearance.BorderSize = 0;
+            this.btnAddUsage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUsage.ForeColor = System.Drawing.Color.White;
+            this.btnAddUsage.Location = new System.Drawing.Point(971, 151);
+            this.btnAddUsage.Name = "btnAddUsage";
+            this.btnAddUsage.Size = new System.Drawing.Size(89, 40);
+            this.btnAddUsage.TabIndex = 26;
+            this.btnAddUsage.Text = "Thêm";
+            this.btnAddUsage.TextColor = System.Drawing.Color.White;
+            this.btnAddUsage.UseVisualStyleBackColor = false;
+            this.btnAddUsage.Click += new System.EventHandler(this.btnAddUsage_Click);
             // 
-            // rjButton4
+            // btnRemoveUsage
             // 
-            this.rjButton4.BackColor = System.Drawing.Color.Red;
-            this.rjButton4.BackgroundColor = System.Drawing.Color.Red;
-            this.rjButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton4.BorderRadius = 10;
-            this.rjButton4.BorderSize = 0;
-            this.rjButton4.FlatAppearance.BorderSize = 0;
-            this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(971, 197);
-            this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(89, 40);
-            this.rjButton4.TabIndex = 25;
-            this.rjButton4.Text = "Xóa";
-            this.rjButton4.TextColor = System.Drawing.Color.White;
-            this.rjButton4.UseVisualStyleBackColor = false;
+            this.btnRemoveUsage.BackColor = System.Drawing.Color.Red;
+            this.btnRemoveUsage.BackgroundColor = System.Drawing.Color.Red;
+            this.btnRemoveUsage.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRemoveUsage.BorderRadius = 10;
+            this.btnRemoveUsage.BorderSize = 0;
+            this.btnRemoveUsage.FlatAppearance.BorderSize = 0;
+            this.btnRemoveUsage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveUsage.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveUsage.Location = new System.Drawing.Point(971, 197);
+            this.btnRemoveUsage.Name = "btnRemoveUsage";
+            this.btnRemoveUsage.Size = new System.Drawing.Size(89, 40);
+            this.btnRemoveUsage.TabIndex = 25;
+            this.btnRemoveUsage.Text = "Xóa";
+            this.btnRemoveUsage.TextColor = System.Drawing.Color.White;
+            this.btnRemoveUsage.UseVisualStyleBackColor = false;
+            this.btnRemoveUsage.Click += new System.EventHandler(this.btnRemoveUsage_Click);
             // 
-            // rjButton2
+            // btnAddMedicine
             // 
-            this.rjButton2.BackColor = System.Drawing.Color.SeaGreen;
-            this.rjButton2.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 10;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(448, 403);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(89, 40);
-            this.rjButton2.TabIndex = 28;
-            this.rjButton2.Text = "Thêm";
-            this.rjButton2.TextColor = System.Drawing.Color.White;
-            this.rjButton2.UseVisualStyleBackColor = false;
+            this.btnAddMedicine.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddMedicine.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddMedicine.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddMedicine.BorderRadius = 10;
+            this.btnAddMedicine.BorderSize = 0;
+            this.btnAddMedicine.FlatAppearance.BorderSize = 0;
+            this.btnAddMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMedicine.ForeColor = System.Drawing.Color.White;
+            this.btnAddMedicine.Location = new System.Drawing.Point(971, 428);
+            this.btnAddMedicine.Name = "btnAddMedicine";
+            this.btnAddMedicine.Size = new System.Drawing.Size(89, 40);
+            this.btnAddMedicine.TabIndex = 30;
+            this.btnAddMedicine.Text = "Thêm";
+            this.btnAddMedicine.TextColor = System.Drawing.Color.White;
+            this.btnAddMedicine.UseVisualStyleBackColor = false;
+            this.btnAddMedicine.Click += new System.EventHandler(this.btnAddMedicine_Click);
             // 
-            // rjButton5
+            // btnRemoveMedicine
             // 
-            this.rjButton5.BackColor = System.Drawing.Color.Red;
-            this.rjButton5.BackgroundColor = System.Drawing.Color.Red;
-            this.rjButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton5.BorderRadius = 10;
-            this.rjButton5.BorderSize = 0;
-            this.rjButton5.FlatAppearance.BorderSize = 0;
-            this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(448, 449);
-            this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(89, 40);
-            this.rjButton5.TabIndex = 27;
-            this.rjButton5.Text = "Xóa";
-            this.rjButton5.TextColor = System.Drawing.Color.White;
-            this.rjButton5.UseVisualStyleBackColor = false;
-            // 
-            // rjButton3
-            // 
-            this.rjButton3.BackColor = System.Drawing.Color.SeaGreen;
-            this.rjButton3.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 10;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(971, 403);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(89, 40);
-            this.rjButton3.TabIndex = 30;
-            this.rjButton3.Text = "Thêm";
-            this.rjButton3.TextColor = System.Drawing.Color.White;
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
-            // rjButton6
-            // 
-            this.rjButton6.BackColor = System.Drawing.Color.Red;
-            this.rjButton6.BackgroundColor = System.Drawing.Color.Red;
-            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton6.BorderRadius = 10;
-            this.rjButton6.BorderSize = 0;
-            this.rjButton6.FlatAppearance.BorderSize = 0;
-            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(971, 449);
-            this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(89, 40);
-            this.rjButton6.TabIndex = 29;
-            this.rjButton6.Text = "Xóa";
-            this.rjButton6.TextColor = System.Drawing.Color.White;
-            this.rjButton6.UseVisualStyleBackColor = false;
+            this.btnRemoveMedicine.BackColor = System.Drawing.Color.Red;
+            this.btnRemoveMedicine.BackgroundColor = System.Drawing.Color.Red;
+            this.btnRemoveMedicine.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRemoveMedicine.BorderRadius = 10;
+            this.btnRemoveMedicine.BorderSize = 0;
+            this.btnRemoveMedicine.FlatAppearance.BorderSize = 0;
+            this.btnRemoveMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveMedicine.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveMedicine.Location = new System.Drawing.Point(971, 474);
+            this.btnRemoveMedicine.Name = "btnRemoveMedicine";
+            this.btnRemoveMedicine.Size = new System.Drawing.Size(89, 40);
+            this.btnRemoveMedicine.TabIndex = 29;
+            this.btnRemoveMedicine.Text = "Xóa";
+            this.btnRemoveMedicine.TextColor = System.Drawing.Color.White;
+            this.btnRemoveMedicine.UseVisualStyleBackColor = false;
+            this.btnRemoveMedicine.Click += new System.EventHandler(this.btnRemoveMedicine_Click);
             // 
             // label6
             // 
@@ -421,7 +305,6 @@
             this.txtExamineMoney.Depth = 0;
             this.txtExamineMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExamineMoney.HideSelection = true;
-            this.txtExamineMoney.Hint = "5 tỷ";
             this.txtExamineMoney.LeadingIcon = null;
             this.txtExamineMoney.Location = new System.Drawing.Point(717, 27);
             this.txtExamineMoney.MaxLength = 32767;
@@ -460,6 +343,7 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
@@ -478,6 +362,71 @@
             this.btnReset.Text = "Hủy";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // DiseaseId
+            // 
+            this.DiseaseId.FillWeight = 70F;
+            this.DiseaseId.HeaderText = "Mã loại bệnh";
+            this.DiseaseId.MinimumWidth = 6;
+            this.DiseaseId.Name = "DiseaseId";
+            this.DiseaseId.ReadOnly = true;
+            // 
+            // DiseaseName
+            // 
+            this.DiseaseName.HeaderText = "Tên loại bệnh";
+            this.DiseaseName.MinimumWidth = 6;
+            this.DiseaseName.Name = "DiseaseName";
+            // 
+            // UsageId
+            // 
+            this.UsageId.FillWeight = 85F;
+            this.UsageId.HeaderText = "Mã cách dùng";
+            this.UsageId.MinimumWidth = 6;
+            this.UsageId.Name = "UsageId";
+            this.UsageId.ReadOnly = true;
+            // 
+            // UsageName
+            // 
+            this.UsageName.HeaderText = "Cách dùng";
+            this.UsageName.MinimumWidth = 6;
+            this.UsageName.Name = "UsageName";
+            // 
+            // MedicineId
+            // 
+            this.MedicineId.FillWeight = 70F;
+            this.MedicineId.HeaderText = "Mã thuốc";
+            this.MedicineId.MinimumWidth = 6;
+            this.MedicineId.Name = "MedicineId";
+            this.MedicineId.ReadOnly = true;
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.HeaderText = "Tên thuốc";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            // 
+            // MedicineUnit
+            // 
+            this.MedicineUnit.HeaderText = "Đơn vị";
+            this.MedicineUnit.MinimumWidth = 6;
+            this.MedicineUnit.Name = "MedicineUnit";
+            // 
+            // MedicinePrice
+            // 
+            this.MedicinePrice.HeaderText = "Đơn giá";
+            this.MedicinePrice.MinimumWidth = 6;
+            this.MedicinePrice.Name = "MedicinePrice";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label4.Location = new System.Drawing.Point(888, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 31);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "đ";
             // 
             // FormSetting
             // 
@@ -485,22 +434,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1072, 732);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtExamineMoney);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.rjButton3);
-            this.Controls.Add(this.rjButton6);
-            this.Controls.Add(this.rjButton2);
-            this.Controls.Add(this.rjButton5);
-            this.Controls.Add(this.rjButton1);
-            this.Controls.Add(this.rjButton4);
+            this.Controls.Add(this.btnAddMedicine);
+            this.Controls.Add(this.btnRemoveMedicine);
+            this.Controls.Add(this.btnAddUsage);
+            this.Controls.Add(this.btnRemoveUsage);
             this.Controls.Add(this.btnAddDisease);
-            this.Controls.Add(this.dataGridView4);
+            this.Controls.Add(this.dGVListUsage);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dGVListMedicine);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemoveDisease);
             this.Controls.Add(this.dGVListDisease);
@@ -510,9 +456,8 @@
             this.Name = "FormSetting";
             this.Text = "Thay đổi quy định";
             ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVListUsage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,31 +469,27 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dGVListDisease;
         private RJCodeAdvance.RJControls.RJButton btnRemoveDisease;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dGVListMedicine;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dGVListUsage;
         private System.Windows.Forms.Label label5;
         private RJCodeAdvance.RJControls.RJButton btnAddDisease;
-        private RJCodeAdvance.RJControls.RJButton rjButton1;
-        private RJCodeAdvance.RJControls.RJButton rjButton4;
-        private RJCodeAdvance.RJControls.RJButton rjButton2;
-        private RJCodeAdvance.RJControls.RJButton rjButton5;
-        private RJCodeAdvance.RJControls.RJButton rjButton3;
-        private RJCodeAdvance.RJControls.RJButton rjButton6;
+        private RJCodeAdvance.RJControls.RJButton btnAddUsage;
+        private RJCodeAdvance.RJControls.RJButton btnRemoveUsage;
+        private RJCodeAdvance.RJControls.RJButton btnAddMedicine;
+        private RJCodeAdvance.RJControls.RJButton btnRemoveMedicine;
         private System.Windows.Forms.Label label6;
         private MaterialSkin.Controls.MaterialTextBox2 txtExamineMoney;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MedicinePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseId;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UseId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicineUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MedicinePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsageId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsageName;
+        private System.Windows.Forms.Label label4;
     }
 }
