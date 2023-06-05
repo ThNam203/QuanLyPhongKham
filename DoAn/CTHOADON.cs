@@ -17,6 +17,7 @@ namespace DoAn
         public int MaCTHoaDon { get; set; }
         public Nullable<int> MaHoaDon { get; set; }
         public string TenThuoc { get; set; }
+        public string TenDonVi { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<int> TongTien { get; set; }
     
