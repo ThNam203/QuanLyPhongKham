@@ -123,6 +123,7 @@
     <Property Name="MaCTHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaHoaDon" Type="Int32" />
     <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenDonVi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
     <Property Name="SoLuong" Type="Int32" />
     <Property Name="TongTien" Type="Int32" />
     <NavigationProperty Name="HOADON" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E" FromRole="CTHOADON" ToRole="HOADON" />

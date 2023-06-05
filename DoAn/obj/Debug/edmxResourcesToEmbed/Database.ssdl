@@ -53,6 +53,7 @@
     <Property Name="MaCTHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaHoaDon" Type="int" />
     <Property Name="TenThuoc" Type="varchar" MaxLength="24" />
+    <Property Name="TenDonVi" Type="varchar" MaxLength="24" />
     <Property Name="SoLuong" Type="int" />
     <Property Name="TongTien" Type="int" />
   </EntityType>

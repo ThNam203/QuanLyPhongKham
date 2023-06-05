@@ -57,6 +57,7 @@
         <MappingFragment StoreEntitySet="CTHOADON">
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
           <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
           <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
           <ScalarProperty Name="MaCTHoaDon" ColumnName="MaCTHoaDon" />

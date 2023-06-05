@@ -96,6 +96,7 @@ namespace DoAn.Forms.SmallForms
                 //Lay tong tien thuoc
                 var total = select.TienThuoc;
                 dpDate.Value = select.NgayKham.Value;
+                txtDisease.Text = select.PHIEUKHAM.TrieuChung;
                 txtExamineMoney.Text = select.TienKham.ToString();
                 txtName.Text = select.PHIEUKHAM.BENHNHAN.HoTen;
                 txtTotal.Text = (select.TienKham + total).ToString();
@@ -103,6 +104,7 @@ namespace DoAn.Forms.SmallForms
                 {
                     txtTotal.Text = select.TienKham.ToString();
                 }
+
                 //Lay danh sach thuoc
                 var select2 = from s in db.CTHOADONs
                               where s.MaHoaDon == id // Replace 1 with the desired MaPhieuKham
@@ -110,8 +112,10 @@ namespace DoAn.Forms.SmallForms
                               {
                                   s.TenThuoc,
                                   s.SoLuong,
-                                  s.TongTien
+                                  s.TongTien,
+                                  s.TenDonVi,
                               };
+
                 foreach (var medicine in select2)
                 {
                     DataGridViewRow row = new DataGridViewRow();
@@ -119,6 +123,7 @@ namespace DoAn.Forms.SmallForms
                     row.Cells[dGVListMedicine.Columns["MedicineName"].Index].Value = medicine.TenThuoc;
                     row.Cells[dGVListMedicine.Columns["Quantity"].Index].Value = medicine.SoLuong;
                     row.Cells[dGVListMedicine.Columns["Price"].Index].Value = medicine.TongTien / medicine.SoLuong; // [TongTien] / [SoLuong]
+                    row.Cells[dGVListMedicine.Columns["Unit"].Index].Value = medicine.TenDonVi;
                     row.Cells[dGVListMedicine.Columns["Total"].Index].Value = medicine.TongTien;
                     dGVListMedicine.Rows.Add(row);
                 }
@@ -145,6 +150,7 @@ namespace DoAn.Forms.SmallForms
                     var cthd = new CTHOADON();
                     cthd.MaHoaDon = hoadon.MaHoaDon;
                     cthd.TenThuoc = row.Cells["MedicineName"].Value.ToString();
+                    cthd.TenDonVi = row.Cells["Unit"].Value.ToString();
                     cthd.SoLuong = int.Parse(row.Cells["Quantity"].Value.ToString());
                     cthd.TongTien = int.Parse(row.Cells["Total"].Value.ToString());
                     db.CTHOADONs.Add(cthd);

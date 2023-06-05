@@ -56,6 +56,10 @@
             // 
             // dGVListPatient
             // 
+            this.dGVListPatient.AllowUserToAddRows = false;
+            this.dGVListPatient.AllowUserToDeleteRows = false;
+            this.dGVListPatient.AllowUserToResizeColumns = false;
+            this.dGVListPatient.AllowUserToResizeRows = false;
             this.dGVListPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVListPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVListPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

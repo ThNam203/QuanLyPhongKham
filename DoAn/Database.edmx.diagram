@@ -18,17 +18,17 @@
         <EntityTypeShape EntityType="QuanLyPhongKhamModel.PHIEUNHAPTHUOC" Width="1.5" PointX="3" PointY="12.125" />
         <EntityTypeShape EntityType="QuanLyPhongKhamModel.THAMSO" Width="1.5" PointX="7.75" PointY="1.75" />
         <EntityTypeShape EntityType="QuanLyPhongKhamModel.THUOC" Width="1.5" PointX="0.75" PointY="9.5" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__32E0915F" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__37A5467C" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__36B12243" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__35BCFE0A" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__3D5E1FD2" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__3C69FB99" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__2F10007B" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__44FF419A" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" />
-        <AssociationConnector Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__4AB81AF0" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__49C3F6B7" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__48CFD27E" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__5070F446" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__4F7CD00D" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__4222D4EF" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__412EB0B6" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__534D60F1" />
+        <AssociationConnector Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__44FF419A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
