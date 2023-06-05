@@ -113,13 +113,21 @@ namespace DoAn.Forms
                     return;
                 }
                 // Get the ID value from the selected row
-                int selectedId = int.Parse(selectedRow.Cells["Index"].Value.ToString());
+                int selectedId = (int)selectedRow.Cells["Index"].Value;
 
 
                 // Open a new form and pass the ID
-                FormBill invoiceDetailsForm = new FormBill(selectedId);
+                FormBill invoiceDetailsForm = new FormBill(selectedId, false);
+                invoiceDetailsForm.FormClosed += InvoiceDetailsForm_FormClosed;
                 invoiceDetailsForm.Show();
             }
+            //Initialize the data again
+
+        }
+
+        private void InvoiceDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            InitializeDataGridView();
         }
     }
 }

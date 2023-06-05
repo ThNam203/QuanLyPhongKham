@@ -52,6 +52,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CTHOADONs">
+      <EntityTypeMapping TypeName="QuanLyPhongKhamModel.CTHOADON">
+        <MappingFragment StoreEntitySet="CTHOADON">
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="TenThuoc" ColumnName="TenThuoc" />
+          <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+          <ScalarProperty Name="MaCTHoaDon" ColumnName="MaCTHoaDon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DONVIs">
       <EntityTypeMapping TypeName="QuanLyPhongKhamModel.DONVI">
         <MappingFragment StoreEntitySet="DONVI">

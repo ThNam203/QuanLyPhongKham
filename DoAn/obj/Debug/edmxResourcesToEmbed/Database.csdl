@@ -6,6 +6,7 @@
     <EntitySet Name="CHITIETPHIEUKHAMs" EntityType="QuanLyPhongKhamModel.CHITIETPHIEUKHAM" />
     <EntitySet Name="CHITIETPHIEUNHAPTHUOCs" EntityType="QuanLyPhongKhamModel.CHITIETPHIEUNHAPTHUOC" />
     <EntitySet Name="CHITIETTHUOCs" EntityType="QuanLyPhongKhamModel.CHITIETTHUOC" />
+    <EntitySet Name="CTHOADONs" EntityType="QuanLyPhongKhamModel.CTHOADON" />
     <EntitySet Name="DONVIs" EntityType="QuanLyPhongKhamModel.DONVI" />
     <EntitySet Name="HOADONs" EntityType="QuanLyPhongKhamModel.HOADON" />
     <EntitySet Name="LOAIBENHs" EntityType="QuanLyPhongKhamModel.LOAIBENH" />
@@ -13,43 +14,47 @@
     <EntitySet Name="PHIEUNHAPTHUOCs" EntityType="QuanLyPhongKhamModel.PHIEUNHAPTHUOC" />
     <EntitySet Name="THAMSOes" EntityType="QuanLyPhongKhamModel.THAMSO" />
     <EntitySet Name="THUOCs" EntityType="QuanLyPhongKhamModel.THUOC" />
-    <AssociationSet Name="FK__PHIEUKHAM__MaBen__32E0915F" Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__32E0915F">
+    <AssociationSet Name="FK__PHIEUKHAM__MaBen__45F365D3" Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3">
       <End Role="BENHNHAN" EntitySet="BENHNHANs" />
       <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETPH__MaCac__37A5467C" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__37A5467C">
+    <AssociationSet Name="FK__CHITIETPH__MaCac__4AB81AF0" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__4AB81AF0">
       <End Role="CACHDUNG" EntitySet="CACHDUNGs" />
       <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAMs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETPH__MaCTT__36B12243" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__36B12243">
+    <AssociationSet Name="FK__CHITIETPH__MaCTT__49C3F6B7" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__49C3F6B7">
       <End Role="CHITIETTHUOC" EntitySet="CHITIETTHUOCs" />
       <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAMs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETPH__MaPhi__35BCFE0A" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__35BCFE0A">
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__48CFD27E" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__48CFD27E">
       <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
       <End Role="CHITIETPHIEUKHAM" EntitySet="CHITIETPHIEUKHAMs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETPH__MaCTT__3D5E1FD2" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__3D5E1FD2">
+    <AssociationSet Name="FK__CHITIETPH__MaCTT__5070F446" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__5070F446">
       <End Role="CHITIETTHUOC" EntitySet="CHITIETTHUOCs" />
       <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOCs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETPH__MaPhi__3C69FB99" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__3C69FB99">
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__4F7CD00D" Association="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__4F7CD00D">
       <End Role="PHIEUNHAPTHUOC" EntitySet="PHIEUNHAPTHUOCs" />
       <End Role="CHITIETPHIEUNHAPTHUOC" EntitySet="CHITIETPHIEUNHAPTHUOCs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETTH__MaDon__2F10007B" Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__2F10007B">
+    <AssociationSet Name="FK__CHITIETTH__MaDon__4222D4EF" Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__4222D4EF">
       <End Role="DONVI" EntitySet="DONVIs" />
       <End Role="CHITIETTHUOC" EntitySet="CHITIETTHUOCs" />
     </AssociationSet>
-    <AssociationSet Name="FK__CHITIETTH__MaThu__2E1BDC42" Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42">
+    <AssociationSet Name="FK__CHITIETTH__MaThu__412EB0B6" Association="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__412EB0B6">
       <End Role="THUOC" EntitySet="THUOCs" />
       <End Role="CHITIETTHUOC" EntitySet="CHITIETTHUOCs" />
     </AssociationSet>
-    <AssociationSet Name="FK__HOADON__MaPhieuK__403A8C7D" Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D">
+    <AssociationSet Name="FK__CTHOADON__MaHoaD__5812160E" Association="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E">
+      <End Role="HOADON" EntitySet="HOADONs" />
+      <End Role="CTHOADON" EntitySet="CTHOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOADON__MaPhieuK__534D60F1" Association="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__534D60F1">
       <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
       <End Role="HOADON" EntitySet="HOADONs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PHIEUKHAM__MaLoa__31EC6D26" Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26">
+    <AssociationSet Name="FK__PHIEUKHAM__MaLoa__44FF419A" Association="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__44FF419A">
       <End Role="LOAIBENH" EntitySet="LOAIBENHs" />
       <End Role="PHIEUKHAM" EntitySet="PHIEUKHAMs" />
     </AssociationSet>
@@ -63,7 +68,7 @@
     <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
     <Property Name="NamSinh" Type="DateTime" Precision="0" />
     <Property Name="DiaChi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__32E0915F" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
+    <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="CACHDUNG">
     <Key>
@@ -71,7 +76,7 @@
     </Key>
     <Property Name="MaCachDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenCachDung" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__37A5467C" FromRole="CACHDUNG" ToRole="CHITIETPHIEUKHAM" />
+    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__4AB81AF0" FromRole="CACHDUNG" ToRole="CHITIETPHIEUKHAM" />
   </EntityType>
   <EntityType Name="CHITIETPHIEUKHAM">
     <Key>
@@ -82,9 +87,9 @@
     <Property Name="MaCTThuoc" Type="Int32" />
     <Property Name="MaCachDung" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
-    <NavigationProperty Name="CACHDUNG" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__37A5467C" FromRole="CHITIETPHIEUKHAM" ToRole="CACHDUNG" />
-    <NavigationProperty Name="CHITIETTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__36B12243" FromRole="CHITIETPHIEUKHAM" ToRole="CHITIETTHUOC" />
-    <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__35BCFE0A" FromRole="CHITIETPHIEUKHAM" ToRole="PHIEUKHAM" />
+    <NavigationProperty Name="CACHDUNG" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__4AB81AF0" FromRole="CHITIETPHIEUKHAM" ToRole="CACHDUNG" />
+    <NavigationProperty Name="CHITIETTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__49C3F6B7" FromRole="CHITIETPHIEUKHAM" ToRole="CHITIETTHUOC" />
+    <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__48CFD27E" FromRole="CHITIETPHIEUKHAM" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="CHITIETPHIEUNHAPTHUOC">
     <Key>
@@ -95,8 +100,8 @@
     <Property Name="MaCTThuoc" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
     <Property Name="ThanhTien" Type="Int32" />
-    <NavigationProperty Name="CHITIETTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__3D5E1FD2" FromRole="CHITIETPHIEUNHAPTHUOC" ToRole="CHITIETTHUOC" />
-    <NavigationProperty Name="PHIEUNHAPTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__3C69FB99" FromRole="CHITIETPHIEUNHAPTHUOC" ToRole="PHIEUNHAPTHUOC" />
+    <NavigationProperty Name="CHITIETTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__5070F446" FromRole="CHITIETPHIEUNHAPTHUOC" ToRole="CHITIETTHUOC" />
+    <NavigationProperty Name="PHIEUNHAPTHUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__4F7CD00D" FromRole="CHITIETPHIEUNHAPTHUOC" ToRole="PHIEUNHAPTHUOC" />
   </EntityType>
   <EntityType Name="CHITIETTHUOC">
     <Key>
@@ -106,10 +111,21 @@
     <Property Name="MaThuoc" Type="Int32" />
     <Property Name="MaDonVi" Type="Int32" />
     <Property Name="DonGia" Type="Int32" />
-    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__36B12243" FromRole="CHITIETTHUOC" ToRole="CHITIETPHIEUKHAM" />
-    <NavigationProperty Name="CHITIETPHIEUNHAPTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__3D5E1FD2" FromRole="CHITIETTHUOC" ToRole="CHITIETPHIEUNHAPTHUOC" />
-    <NavigationProperty Name="DONVI" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__2F10007B" FromRole="CHITIETTHUOC" ToRole="DONVI" />
-    <NavigationProperty Name="THUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" FromRole="CHITIETTHUOC" ToRole="THUOC" />
+    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__49C3F6B7" FromRole="CHITIETTHUOC" ToRole="CHITIETPHIEUKHAM" />
+    <NavigationProperty Name="CHITIETPHIEUNHAPTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCTT__5070F446" FromRole="CHITIETTHUOC" ToRole="CHITIETPHIEUNHAPTHUOC" />
+    <NavigationProperty Name="DONVI" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__4222D4EF" FromRole="CHITIETTHUOC" ToRole="DONVI" />
+    <NavigationProperty Name="THUOC" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__412EB0B6" FromRole="CHITIETTHUOC" ToRole="THUOC" />
+  </EntityType>
+  <EntityType Name="CTHOADON">
+    <Key>
+      <PropertyRef Name="MaCTHoaDon" />
+    </Key>
+    <Property Name="MaCTHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHoaDon" Type="Int32" />
+    <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="TongTien" Type="Int32" />
+    <NavigationProperty Name="HOADON" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E" FromRole="CTHOADON" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="DONVI">
     <Key>
@@ -117,7 +133,7 @@
     </Key>
     <Property Name="MaDonVi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenDonVi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__2F10007B" FromRole="DONVI" ToRole="CHITIETTHUOC" />
+    <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__4222D4EF" FromRole="DONVI" ToRole="CHITIETTHUOC" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -128,7 +144,8 @@
     <Property Name="NgayKham" Type="DateTime" Precision="0" />
     <Property Name="TienKham" Type="Int32" />
     <Property Name="TienThuoc" Type="Int32" />
-    <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" FromRole="HOADON" ToRole="PHIEUKHAM" />
+    <NavigationProperty Name="CTHOADONs" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E" FromRole="HOADON" ToRole="CTHOADON" />
+    <NavigationProperty Name="PHIEUKHAM" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__534D60F1" FromRole="HOADON" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="LOAIBENH">
     <Key>
@@ -136,7 +153,7 @@
     </Key>
     <Property Name="MaLoaiBenh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenLoaiBenh" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26" FromRole="LOAIBENH" ToRole="PHIEUKHAM" />
+    <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__44FF419A" FromRole="LOAIBENH" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="PHIEUKHAM">
     <Key>
@@ -147,10 +164,10 @@
     <Property Name="TrieuChung" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
     <Property Name="MaLoaiBenh" Type="Int32" />
     <Property Name="MaBenhNhan" Type="Int32" />
-    <NavigationProperty Name="BENHNHAN" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__32E0915F" FromRole="PHIEUKHAM" ToRole="BENHNHAN" />
-    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__35BCFE0A" FromRole="PHIEUKHAM" ToRole="CHITIETPHIEUKHAM" />
-    <NavigationProperty Name="HOADONs" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__403A8C7D" FromRole="PHIEUKHAM" ToRole="HOADON" />
-    <NavigationProperty Name="LOAIBENH" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__31EC6D26" FromRole="PHIEUKHAM" ToRole="LOAIBENH" />
+    <NavigationProperty Name="BENHNHAN" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3" FromRole="PHIEUKHAM" ToRole="BENHNHAN" />
+    <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__48CFD27E" FromRole="PHIEUKHAM" ToRole="CHITIETPHIEUKHAM" />
+    <NavigationProperty Name="HOADONs" Relationship="QuanLyPhongKhamModel.FK__HOADON__MaPhieuK__534D60F1" FromRole="PHIEUKHAM" ToRole="HOADON" />
+    <NavigationProperty Name="LOAIBENH" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__44FF419A" FromRole="PHIEUKHAM" ToRole="LOAIBENH" />
   </EntityType>
   <EntityType Name="PHIEUNHAPTHUOC">
     <Key>
@@ -160,7 +177,7 @@
     <Property Name="NgayNhap" Type="DateTime" Precision="0" />
     <Property Name="NhaCungCap" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
     <Property Name="TongTien" Type="Int32" />
-    <NavigationProperty Name="CHITIETPHIEUNHAPTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__3C69FB99" FromRole="PHIEUNHAPTHUOC" ToRole="CHITIETPHIEUNHAPTHUOC" />
+    <NavigationProperty Name="CHITIETPHIEUNHAPTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__4F7CD00D" FromRole="PHIEUNHAPTHUOC" ToRole="CHITIETPHIEUNHAPTHUOC" />
   </EntityType>
   <EntityType Name="THAMSO">
     <Key>
@@ -180,9 +197,9 @@
     </Key>
     <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__2E1BDC42" FromRole="THUOC" ToRole="CHITIETTHUOC" />
+    <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__412EB0B6" FromRole="THUOC" ToRole="CHITIETTHUOC" />
   </EntityType>
-  <Association Name="FK__PHIEUKHAM__MaBen__32E0915F">
+  <Association Name="FK__PHIEUKHAM__MaBen__45F365D3">
     <End Type="QuanLyPhongKhamModel.BENHNHAN" Role="BENHNHAN" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.PHIEUKHAM" Role="PHIEUKHAM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +211,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETPH__MaCac__37A5467C">
+  <Association Name="FK__CHITIETPH__MaCac__4AB81AF0">
     <End Type="QuanLyPhongKhamModel.CACHDUNG" Role="CACHDUNG" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETPHIEUKHAM" Role="CHITIETPHIEUKHAM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +223,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETPH__MaCTT__36B12243">
+  <Association Name="FK__CHITIETPH__MaCTT__49C3F6B7">
     <End Type="QuanLyPhongKhamModel.CHITIETTHUOC" Role="CHITIETTHUOC" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETPHIEUKHAM" Role="CHITIETPHIEUKHAM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,7 +235,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETPH__MaPhi__35BCFE0A">
+  <Association Name="FK__CHITIETPH__MaPhi__48CFD27E">
     <End Type="QuanLyPhongKhamModel.PHIEUKHAM" Role="PHIEUKHAM" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETPHIEUKHAM" Role="CHITIETPHIEUKHAM" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +247,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETPH__MaCTT__3D5E1FD2">
+  <Association Name="FK__CHITIETPH__MaCTT__5070F446">
     <End Type="QuanLyPhongKhamModel.CHITIETTHUOC" Role="CHITIETTHUOC" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETPHIEUNHAPTHUOC" Role="CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,7 +259,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETPH__MaPhi__3C69FB99">
+  <Association Name="FK__CHITIETPH__MaPhi__4F7CD00D">
     <End Type="QuanLyPhongKhamModel.PHIEUNHAPTHUOC" Role="PHIEUNHAPTHUOC" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETPHIEUNHAPTHUOC" Role="CHITIETPHIEUNHAPTHUOC" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +271,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETTH__MaDon__2F10007B">
+  <Association Name="FK__CHITIETTH__MaDon__4222D4EF">
     <End Type="QuanLyPhongKhamModel.DONVI" Role="DONVI" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETTHUOC" Role="CHITIETTHUOC" Multiplicity="*" />
     <ReferentialConstraint>
@@ -266,7 +283,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CHITIETTH__MaThu__2E1BDC42">
+  <Association Name="FK__CHITIETTH__MaThu__412EB0B6">
     <End Type="QuanLyPhongKhamModel.THUOC" Role="THUOC" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.CHITIETTHUOC" Role="CHITIETTHUOC" Multiplicity="*" />
     <ReferentialConstraint>
@@ -278,7 +295,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HOADON__MaPhieuK__403A8C7D">
+  <Association Name="FK__CTHOADON__MaHoaD__5812160E">
+    <End Type="QuanLyPhongKhamModel.HOADON" Role="HOADON" Multiplicity="0..1" />
+    <End Type="QuanLyPhongKhamModel.CTHOADON" Role="CTHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CTHOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOADON__MaPhieuK__534D60F1">
     <End Type="QuanLyPhongKhamModel.PHIEUKHAM" Role="PHIEUKHAM" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.HOADON" Role="HOADON" Multiplicity="*" />
     <ReferentialConstraint>
@@ -290,7 +319,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PHIEUKHAM__MaLoa__31EC6D26">
+  <Association Name="FK__PHIEUKHAM__MaLoa__44FF419A">
     <End Type="QuanLyPhongKhamModel.LOAIBENH" Role="LOAIBENH" Multiplicity="0..1" />
     <End Type="QuanLyPhongKhamModel.PHIEUKHAM" Role="PHIEUKHAM" Multiplicity="*" />
     <ReferentialConstraint>

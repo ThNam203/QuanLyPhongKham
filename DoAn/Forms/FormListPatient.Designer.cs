@@ -61,7 +61,7 @@
             this.dpDate.Location = new System.Drawing.Point(89, 108);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(382, 60);
+            this.dpDate.Size = new System.Drawing.Size(272, 60);
             this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.dpDate.TabIndex = 1;
             this.dpDate.TextColor = System.Drawing.Color.Black;

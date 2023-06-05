@@ -236,6 +236,10 @@
             // 
             // dGVListMedicine
             // 
+            this.dGVListMedicine.AllowUserToAddRows = false;
+            this.dGVListMedicine.AllowUserToDeleteRows = false;
+            this.dGVListMedicine.AllowUserToResizeColumns = false;
+            this.dGVListMedicine.AllowUserToResizeRows = false;
             this.dGVListMedicine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVListMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVListMedicine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -246,6 +250,7 @@
             this.Total});
             this.dGVListMedicine.Location = new System.Drawing.Point(27, 463);
             this.dGVListMedicine.Name = "dGVListMedicine";
+            this.dGVListMedicine.ReadOnly = true;
             this.dGVListMedicine.RowHeadersWidth = 51;
             this.dGVListMedicine.RowTemplate.Height = 24;
             this.dGVListMedicine.Size = new System.Drawing.Size(633, 209);
@@ -266,6 +271,7 @@
             this.Unit.HeaderText = "Đơn vị";
             this.Unit.MinimumWidth = 6;
             this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
             this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Quantity
@@ -274,6 +280,7 @@
             this.Quantity.HeaderText = "Số lượng";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Price
@@ -281,12 +288,14 @@
             this.Price.HeaderText = "Đơn giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // Total
             // 
             this.Total.HeaderText = "Thành tiền";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // label4
             // 
