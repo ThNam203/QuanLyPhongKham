@@ -1,3 +1,5 @@
+Drop Database QuanLyPhongKham
+Go
 CREATE DATABASE QuanLyPhongKham
 GO
 
