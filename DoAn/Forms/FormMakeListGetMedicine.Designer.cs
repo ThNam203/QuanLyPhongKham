@@ -32,16 +32,16 @@
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
-            this.materialTextBox21 = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtTotal = new MaterialSkin.Controls.MaterialTextBox2();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Use = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
@@ -99,13 +99,17 @@
             // 
             // dGVListMedicine
             // 
+            this.dGVListMedicine.AllowUserToAddRows = false;
+            this.dGVListMedicine.AllowUserToDeleteRows = false;
+            this.dGVListMedicine.AllowUserToResizeColumns = false;
+            this.dGVListMedicine.AllowUserToResizeRows = false;
             this.dGVListMedicine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVListMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVListMedicine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Index,
             this.MedicineName,
             this.Unit,
             this.Quantity,
-            this.Use,
             this.Price,
             this.Total});
             this.dGVListMedicine.Location = new System.Drawing.Point(88, 229);
@@ -114,37 +118,39 @@
             this.dGVListMedicine.RowTemplate.Height = 24;
             this.dGVListMedicine.Size = new System.Drawing.Size(902, 302);
             this.dGVListMedicine.TabIndex = 16;
+            this.dGVListMedicine.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVListMedicine_CellEndEdit);
+            this.dGVListMedicine.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dGVListMedicine_CellFormatting);
             // 
-            // materialTextBox21
+            // txtTotal
             // 
-            this.materialTextBox21.AnimateReadOnly = false;
-            this.materialTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialTextBox21.Depth = 0;
-            this.materialTextBox21.Enabled = false;
-            this.materialTextBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTextBox21.HideSelection = true;
-            this.materialTextBox21.LeadingIcon = null;
-            this.materialTextBox21.Location = new System.Drawing.Point(749, 572);
-            this.materialTextBox21.MaxLength = 32767;
-            this.materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox21.Name = "materialTextBox21";
-            this.materialTextBox21.PasswordChar = '\0';
-            this.materialTextBox21.PrefixSuffixText = null;
-            this.materialTextBox21.ReadOnly = false;
-            this.materialTextBox21.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialTextBox21.SelectedText = "";
-            this.materialTextBox21.SelectionLength = 0;
-            this.materialTextBox21.SelectionStart = 0;
-            this.materialTextBox21.ShortcutsEnabled = true;
-            this.materialTextBox21.Size = new System.Drawing.Size(241, 36);
-            this.materialTextBox21.TabIndex = 18;
-            this.materialTextBox21.TabStop = false;
-            this.materialTextBox21.Text = "1000000";
-            this.materialTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialTextBox21.TrailingIcon = null;
-            this.materialTextBox21.UseSystemPasswordChar = false;
-            this.materialTextBox21.UseTallSize = false;
+            this.txtTotal.AnimateReadOnly = false;
+            this.txtTotal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotal.Depth = 0;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.HideSelection = true;
+            this.txtTotal.LeadingIcon = null;
+            this.txtTotal.Location = new System.Drawing.Point(749, 572);
+            this.txtTotal.MaxLength = 32767;
+            this.txtTotal.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.PasswordChar = '\0';
+            this.txtTotal.PrefixSuffixText = null;
+            this.txtTotal.ReadOnly = false;
+            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtTotal.SelectedText = "";
+            this.txtTotal.SelectionLength = 0;
+            this.txtTotal.SelectionStart = 0;
+            this.txtTotal.ShortcutsEnabled = true;
+            this.txtTotal.Size = new System.Drawing.Size(241, 36);
+            this.txtTotal.TabIndex = 18;
+            this.txtTotal.TabStop = false;
+            this.txtTotal.Text = "1000000";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotal.TrailingIcon = null;
+            this.txtTotal.UseSystemPasswordChar = false;
+            this.txtTotal.UseTallSize = false;
             // 
             // label2
             // 
@@ -183,6 +189,7 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReset
             // 
@@ -201,6 +208,7 @@
             this.btnReset.Text = "Hủy";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dpDate
             // 
@@ -218,6 +226,12 @@
             this.dpDate.TabIndex = 22;
             this.dpDate.TextColor = System.Drawing.Color.Black;
             // 
+            // Index
+            // 
+            this.Index.HeaderText = "Mã thuốc";
+            this.Index.MinimumWidth = 6;
+            this.Index.Name = "Index";
+            // 
             // MedicineName
             // 
             this.MedicineName.FillWeight = 87.91444F;
@@ -233,8 +247,8 @@
             this.Unit.HeaderText = "Đơn vị";
             this.Unit.MinimumWidth = 6;
             this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
             this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Quantity
             // 
@@ -244,21 +258,13 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Use
-            // 
-            this.Use.FillWeight = 87.91444F;
-            this.Use.HeaderText = "Cách dùng";
-            this.Use.MinimumWidth = 6;
-            this.Use.Name = "Use";
-            this.Use.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Use.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // Price
             // 
             this.Price.FillWeight = 87.91444F;
             this.Price.HeaderText = "Đơn giá";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             this.Price.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Total
@@ -266,6 +272,7 @@
             this.Total.HeaderText = "Thành tiền";
             this.Total.MinimumWidth = 6;
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // FormMakeListGetMedicine
             // 
@@ -277,7 +284,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.materialTextBox21);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dGVListMedicine);
             this.Controls.Add(this.txtName);
@@ -297,16 +304,16 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGVListMedicine;
-        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox21;
+        private MaterialSkin.Controls.MaterialTextBox2 txtTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
         private RJCodeAdvance.RJControls.RJDatePicker dpDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Use;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }

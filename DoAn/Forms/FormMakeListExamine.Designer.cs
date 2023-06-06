@@ -45,6 +45,7 @@
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.cbbTypeOfDisease = new RJCodeAdvance.RJControls.RJComboBox();
+            this.btnAddPatient = new RJCodeAdvance.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             this.txtName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtName.Depth = 0;
+            this.txtName.Enabled = false;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
@@ -87,7 +89,6 @@
             this.txtName.TrailingIcon = null;
             this.txtName.UseSystemPasswordChar = false;
             this.txtName.UseTallSize = false;
-            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // lblTrieuChung
             // 
@@ -137,6 +138,10 @@
             // 
             // dGVListMedicine
             // 
+            this.dGVListMedicine.AllowUserToAddRows = false;
+            this.dGVListMedicine.AllowUserToDeleteRows = false;
+            this.dGVListMedicine.AllowUserToResizeColumns = false;
+            this.dGVListMedicine.AllowUserToResizeRows = false;
             this.dGVListMedicine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVListMedicine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVListMedicine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -290,12 +295,32 @@
             this.cbbTypeOfDisease.TabIndex = 72;
             this.cbbTypeOfDisease.Texts = "";
             // 
+            // btnAddPatient
+            // 
+            this.btnAddPatient.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddPatient.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddPatient.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddPatient.BorderRadius = 10;
+            this.btnAddPatient.BorderSize = 0;
+            this.btnAddPatient.FlatAppearance.BorderSize = 0;
+            this.btnAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPatient.ForeColor = System.Drawing.Color.White;
+            this.btnAddPatient.Location = new System.Drawing.Point(651, 25);
+            this.btnAddPatient.Name = "btnAddPatient";
+            this.btnAddPatient.Size = new System.Drawing.Size(150, 36);
+            this.btnAddPatient.TabIndex = 73;
+            this.btnAddPatient.Text = "Thêm bệnh nhân";
+            this.btnAddPatient.TextColor = System.Drawing.Color.White;
+            this.btnAddPatient.UseVisualStyleBackColor = false;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
+            // 
             // FormMakeListExamine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.cbbTypeOfDisease);
             this.Controls.Add(this.txtTrieuChung);
             this.Controls.Add(this.btnSave);
@@ -334,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewComboBoxColumn Usage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Add;
+        private RJCodeAdvance.RJControls.RJButton btnAddPatient;
     }
 }

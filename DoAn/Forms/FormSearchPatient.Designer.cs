@@ -48,7 +48,7 @@
             // 
             this.lblListPatient.AutoSize = true;
             this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListPatient.Location = new System.Drawing.Point(27, 176);
+            this.lblListPatient.Location = new System.Drawing.Point(77, 186);
             this.lblListPatient.Name = "lblListPatient";
             this.lblListPatient.Size = new System.Drawing.Size(278, 31);
             this.lblListPatient.TabIndex = 7;
@@ -118,7 +118,7 @@
             this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(167, 93);
+            this.dpDate.Location = new System.Drawing.Point(253, 93);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(216, 60);
@@ -131,7 +131,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(6, 110);
+            this.lblDateExam.Location = new System.Drawing.Point(77, 110);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(151, 31);
             this.lblDateExam.TabIndex = 4;
@@ -147,7 +147,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(167, 29);
+            this.txtName.Location = new System.Drawing.Point(253, 29);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -172,7 +172,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(27, 29);
+            this.label1.Location = new System.Drawing.Point(77, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 31);
             this.label1.TabIndex = 8;

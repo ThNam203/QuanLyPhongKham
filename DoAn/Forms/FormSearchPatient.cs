@@ -25,7 +25,6 @@ namespace DoAn.Forms
                              select s;
                 foreach (var person in select)
                 {
-
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;

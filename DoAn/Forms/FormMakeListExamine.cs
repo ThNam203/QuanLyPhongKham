@@ -134,39 +134,22 @@ namespace DoAn.Forms
                                     }
                                 }
                             }
-                            MessageBox.Show("Đã lưu thành công");
+                            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng nhập triệu chứng");
+                        MessageBox.Show("Vui lòng nhập triệu chứng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn loại bệnh");
+                    MessageBox.Show("Vui lòng chọn loại bệnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thông tin bệnh nhân");
-            }
-
-        }
-        //Pass data from FormPatientDetail to FormMakeListExamine
-        private void txtName_Click(object sender, EventArgs e)
-        {
-            if (PatientData != null)
-            {
-                FormPatientDetail formPatientDetail = new FormPatientDetail(PatientData);
-                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.Show();
-            }
-            else
-            {
-                FormPatientDetail formPatientDetail = new FormPatientDetail();
-                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.Show();
+                MessageBox.Show("Vui lòng nhập thông tin bệnh nhân", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -198,6 +181,22 @@ namespace DoAn.Forms
                     // Reset the quantity value to 0
                     quantityCell.Value = 0;
                 }
+            }
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            if (PatientData != null)
+            {
+                FormPatientDetail formPatientDetail = new FormPatientDetail(PatientData);
+                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
+                formPatientDetail.Show();
+            }
+            else
+            {
+                FormPatientDetail formPatientDetail = new FormPatientDetail();
+                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
+                formPatientDetail.Show();
             }
         }
     }
