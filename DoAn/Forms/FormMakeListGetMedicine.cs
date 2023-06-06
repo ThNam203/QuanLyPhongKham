@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Windows.Forms;
 
 namespace DoAn.Forms
@@ -10,9 +10,14 @@ namespace DoAn.Forms
             InitializeComponent();
         }
 
-        private void FormMakeListGetMedicine_Load(object sender, EventArgs e)
+        private void InitializeData()
         {
+            using (var db = new DataPKEntities())
+            {
+                var medicine = from s in db.THUOCs
+                               select s;
 
+            }
         }
 
     }

@@ -52,7 +52,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(33, 25);
+            this.lblDateExam.Location = new System.Drawing.Point(77, 30);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(130, 31);
             this.lblDateExam.TabIndex = 1;
@@ -68,7 +68,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(173, 25);
+            this.txtName.Location = new System.Drawing.Point(260, 25);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -93,7 +93,7 @@
             // 
             this.lblTrieuChung.AutoSize = true;
             this.lblTrieuChung.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblTrieuChung.Location = new System.Drawing.Point(6, 158);
+            this.lblTrieuChung.Location = new System.Drawing.Point(77, 155);
             this.lblTrieuChung.Name = "lblTrieuChung";
             this.lblTrieuChung.Size = new System.Drawing.Size(157, 31);
             this.lblTrieuChung.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             this.lblDuDoan.AutoSize = true;
             this.lblDuDoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDuDoan.Location = new System.Drawing.Point(33, 252);
+            this.lblDuDoan.Location = new System.Drawing.Point(77, 252);
             this.lblDuDoan.Name = "lblDuDoan";
             this.lblDuDoan.Size = new System.Drawing.Size(116, 31);
             this.lblDuDoan.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(173, 75);
+            this.dpDate.Location = new System.Drawing.Point(260, 75);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(330, 60);
@@ -129,7 +129,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDate.Location = new System.Drawing.Point(12, 92);
+            this.lblDate.Location = new System.Drawing.Point(77, 92);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(151, 31);
             this.lblDate.TabIndex = 8;
@@ -253,7 +253,7 @@
             this.txtTrieuChung.Depth = 0;
             this.txtTrieuChung.HideSelection = true;
             this.txtTrieuChung.Hint = "Nhập triệu chứng bệnh";
-            this.txtTrieuChung.Location = new System.Drawing.Point(173, 158);
+            this.txtTrieuChung.Location = new System.Drawing.Point(260, 155);
             this.txtTrieuChung.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrieuChung.MaxLength = 2147483647;
             this.txtTrieuChung.MouseState = MaterialSkin.MouseState.OUT;
@@ -282,7 +282,7 @@
             this.cbbTypeOfDisease.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cbbTypeOfDisease.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbbTypeOfDisease.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbbTypeOfDisease.Location = new System.Drawing.Point(173, 253);
+            this.cbbTypeOfDisease.Location = new System.Drawing.Point(260, 253);
             this.cbbTypeOfDisease.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbbTypeOfDisease.Name = "cbbTypeOfDisease";
             this.cbbTypeOfDisease.Padding = new System.Windows.Forms.Padding(1);
