@@ -1,6 +1,7 @@
 ﻿using LiveCharts; //Core of the library
 using LiveCharts.Wpf;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -20,7 +21,7 @@ namespace DoAn.Forms
                 new LineSeries
                 {
                     Title = "Doanh thu",
-                    Values = new ChartValues<decimal> { 15000000000, 18000000000000, 22000000000, 19000000000, 250000000000, 300000000000, 35000000000, 40000000000, 4500000000, 50000000000, 550000000, 60000000000 }
+                    Values = GetMonthlyRevenueValues(DateTime.Now.Year)
                 }
             };
 
@@ -36,6 +37,50 @@ namespace DoAn.Forms
                 Foreground = new SolidColorBrush(Colors.Black)//This will make the label color black
             });
             myChart.LegendLocation = LegendLocation.Right;
+
+            using (var db = new DataPKEntities())
+            {
+                DateTime startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+                var countPhieuKham = db.PHIEUKHAMs.Count(p => p.NgayKham >= startDate && p.NgayKham <= endDate);
+                label2.Text = countPhieuKham.ToString();
+
+                var countBenhNhan = db.PHIEUKHAMs
+                    .Where(p => p.NgayKham >= startDate && p.NgayKham <= endDate)
+                    .Select(p => p.MaBenhNhan)
+                    .Distinct()
+                    .Count();
+                label3.Text = countBenhNhan.ToString();
+                var doanhThu = db.HOADONs
+                    .Where(h => h.NgayKham >= startDate && h.NgayKham <= endDate)
+                    .Sum(h => h.TienKham + h.TienThuoc) / 1000000m; // Chia cho 1 triệu để có đơn vị triệu
+
+                label5.Text = $"{doanhThu:F2}";
+            }
+        }
+        private ChartValues<int> GetMonthlyRevenueValues(int year)
+        {
+            using (var db = new DataPKEntities())
+            {
+                var monthlyRevenues = new ChartValues<int>();
+
+                for (int month = 1; month <= 12; month++)
+                {
+                    DateTime startDate = new DateTime(year, month, 1);
+                    DateTime endDate = startDate.AddMonths(1).AddDays(-1);
+
+                    var monthlyRevenue = db.HOADONs
+                        .Where(h => h.NgayKham >= startDate && h.NgayKham <= endDate)
+                        .Sum(h => h.TienKham + h.TienThuoc);
+                    if (monthlyRevenue == null)
+                    {
+                        monthlyRevenue = 0;
+                    }
+                    monthlyRevenues.Add((int)monthlyRevenue);
+                }
+
+                return monthlyRevenues;
+            }
         }
     }
 }

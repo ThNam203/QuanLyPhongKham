@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.myChart = new LiveCharts.WinForms.CartesianChart();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -145,12 +146,13 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(20)))), ((int)(((byte)(102)))));
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.iconButton3);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(710, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(327, 149);
+            this.panel3.Size = new System.Drawing.Size(362, 149);
             this.panel3.TabIndex = 2;
             // 
             // iconButton3
@@ -162,7 +164,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.White;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 100;
-            this.iconButton3.Location = new System.Drawing.Point(218, 39);
+            this.iconButton3.Location = new System.Drawing.Point(264, 39);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(95, 89);
             this.iconButton3.TabIndex = 13;
@@ -173,8 +175,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(23, 58);
+            this.label5.Location = new System.Drawing.Point(18, 58);
             this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label5.Size = new System.Drawing.Size(97, 52);
             this.label5.TabIndex = 12;
             this.label5.Text = "250";
@@ -197,6 +200,17 @@
             this.myChart.Size = new System.Drawing.Size(1010, 417);
             this.myChart.TabIndex = 3;
             this.myChart.Text = "cartesianChart1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(232, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 39);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "tr";
             // 
             // FormDashboard
             // 
@@ -236,5 +250,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private LiveCharts.WinForms.CartesianChart myChart;
+        private System.Windows.Forms.Label label7;
     }
 }

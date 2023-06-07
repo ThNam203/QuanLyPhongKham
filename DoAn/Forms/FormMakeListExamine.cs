@@ -1,6 +1,7 @@
 ﻿using DoAn.Forms.SmallForms;
 using DoAn.NewFolder1;
 using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -93,16 +94,38 @@ namespace DoAn.Forms
                 {
                     if (txtTrieuChung.Text != null)
                     {
-                        var benhnhan = new BENHNHAN();
-                        benhnhan.HoTen = PatientData.Name;
-                        benhnhan.GioiTinh = PatientData.Sex;
-                        benhnhan.NamSinh = PatientData.Birth;
-                        benhnhan.DiaChi = PatientData.Address;
+
                         using (var db = new DataPKEntities())
                         {
-                            //Add benh nhan
-                            db.BENHNHANs.Add(benhnhan);
-                            db.SaveChanges();
+                            string name = PatientData.Name;
+                            string sex = PatientData.Sex;
+                            DateTime birth = PatientData.Birth;
+                            string address = PatientData.Address;
+
+                            // Kiểm tra xem bệnh nhân đã tồn tại trong danh sách hay chưa
+                            var existingPatient = db.BENHNHANs.FirstOrDefault(b =>
+                                 b.HoTen == name &&
+                                 b.GioiTinh == sex &&
+                                 DbFunctions.TruncateTime(b.NamSinh) == birth.Date &&
+                                 b.DiaChi == address);
+                            int id = -1;
+                            if (existingPatient != null)
+                            {
+                                id = existingPatient.MaBenhNhan;
+                            }
+                            else
+                            {
+                                var benhnhan = new BENHNHAN();
+                                benhnhan.HoTen = PatientData.Name;
+                                benhnhan.GioiTinh = PatientData.Sex;
+                                benhnhan.NamSinh = PatientData.Birth;
+                                benhnhan.DiaChi = PatientData.Address;
+                                //Add benh nhan
+                                db.BENHNHANs.Add(benhnhan);
+                                db.SaveChanges();
+                                id = benhnhan.MaBenhNhan;
+                            }
+
                             //Add phieu kham
                             if (cbbTypeOfDisease.Texts != null)
                             {
@@ -110,7 +133,7 @@ namespace DoAn.Forms
                                                 where s.TenLoaiBenh == cbbTypeOfDisease.Texts
                                                 select s).FirstOrDefault();
                                 var phieukham = new PHIEUKHAM();
-                                phieukham.MaBenhNhan = benhnhan.MaBenhNhan;
+                                phieukham.MaBenhNhan = id;
                                 phieukham.NgayKham = dpDate.Value;
                                 phieukham.TrieuChung = txtTrieuChung.Text;
                                 phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
@@ -135,6 +158,11 @@ namespace DoAn.Forms
                                 }
                             }
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            InitializeDataGridView();
+                            txtName.Clear();
+                            txtTrieuChung.Clear();
+                            cbbTypeOfDisease.Texts = null;
+                            dpDate.Value = DateTime.Now;
                         }
                     }
                     else
