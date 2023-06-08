@@ -341,12 +341,22 @@ namespace DoAn.Forms
                     }
                     else if (row.Cells["MedicineName"].Value != null && row.Cells["MedicineUnit"].Value != null)
                     {
+
                         var tenThuoc = row.Cells["MedicineName"].Value.ToString();
                         var tenDonVi = row.Cells["MedicineUnit"].Value.ToString();
                         var donGia = Convert.ToInt32(row.Cells["MedicinePrice"].Value);
 
                         var newMedicine = new CHITIETTHUOC();
-                        newMedicine.THUOC = new THUOC { TenThuoc = tenThuoc };
+                        var thuoc = db.THUOCs.FirstOrDefault(t => t.TenThuoc == tenThuoc);
+                        if (thuoc != null)
+                        {
+                            newMedicine.THUOC = thuoc;
+                        }
+                        else
+                        {
+                            var newThuoc = new THUOC { TenThuoc = tenThuoc };
+                            newMedicine.THUOC = newThuoc;
+                        }
                         var donVi = db.DONVIs.FirstOrDefault(dv => dv.TenDonVi == tenDonVi);
                         if (donVi != null)
                         {
@@ -367,7 +377,7 @@ namespace DoAn.Forms
                 // Save the changes to the database
                 db.SaveChanges();
 
-                MessageBox.Show("Lưu thành công.");
+                MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Clear data from all the dGV
                 dGVListMedicine.Rows.Clear();
                 dGVListUsage.Rows.Clear();

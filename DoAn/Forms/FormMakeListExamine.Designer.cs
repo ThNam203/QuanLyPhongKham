@@ -35,17 +35,17 @@
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usage = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.cbbTypeOfDisease = new RJCodeAdvance.RJControls.RJComboBox();
             this.btnAddPatient = new RJCodeAdvance.RJControls.RJButton();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usage = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,58 +159,6 @@
             this.dGVListMedicine.TabIndex = 9;
             this.dGVListMedicine.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dGVListMedicine_CellFormatting);
             // 
-            // Index
-            // 
-            this.Index.FillWeight = 60F;
-            this.Index.HeaderText = "Mã thuốc";
-            this.Index.MinimumWidth = 6;
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.FillWeight = 87.91444F;
-            this.MedicineName.HeaderText = "Thuốc";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            this.MedicineName.ReadOnly = true;
-            this.MedicineName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Unit
-            // 
-            this.Unit.FillWeight = 87.91444F;
-            this.Unit.HeaderText = "Đơn vị";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Quantity
-            // 
-            this.Quantity.FillWeight = 87.91444F;
-            this.Quantity.HeaderText = "Số lượng";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Usage
-            // 
-            this.Usage.FillWeight = 87.91444F;
-            this.Usage.HeaderText = "Cách dùng";
-            this.Usage.MinimumWidth = 6;
-            this.Usage.Name = "Usage";
-            this.Usage.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Usage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Add
-            // 
-            this.Add.FillWeight = 60F;
-            this.Add.HeaderText = "Thêm";
-            this.Add.MinimumWidth = 6;
-            this.Add.Name = "Add";
-            this.Add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.Red;
@@ -314,6 +262,59 @@
             this.btnAddPatient.UseVisualStyleBackColor = false;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
+            // Index
+            // 
+            this.Index.FillWeight = 60F;
+            this.Index.HeaderText = "Mã thuốc";
+            this.Index.MinimumWidth = 6;
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.FillWeight = 87.91444F;
+            this.MedicineName.HeaderText = "Thuốc";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            this.MedicineName.ReadOnly = true;
+            this.MedicineName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Unit
+            // 
+            this.Unit.FillWeight = 87.91444F;
+            this.Unit.HeaderText = "Đơn vị";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 87.91444F;
+            this.Quantity.HeaderText = "Số lượng";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Usage
+            // 
+            this.Usage.FillWeight = 87.91444F;
+            this.Usage.HeaderText = "Cách dùng";
+            this.Usage.MinimumWidth = 6;
+            this.Usage.Name = "Usage";
+            this.Usage.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Usage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Add
+            // 
+            this.Add.FillWeight = 60F;
+            this.Add.HeaderText = "Thêm";
+            this.Add.MinimumWidth = 6;
+            this.Add.Name = "Add";
+            this.Add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FormMakeListExamine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -353,12 +354,12 @@
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtTrieuChung;
         private RJCodeAdvance.RJControls.RJComboBox cbbTypeOfDisease;
+        private RJCodeAdvance.RJControls.RJButton btnAddPatient;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewComboBoxColumn Usage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Add;
-        private RJCodeAdvance.RJControls.RJButton btnAddPatient;
     }
 }

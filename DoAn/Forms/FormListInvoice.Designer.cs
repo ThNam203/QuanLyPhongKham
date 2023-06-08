@@ -32,13 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblListPatient = new System.Windows.Forms.Label();
             this.dGVListPatient = new System.Windows.Forms.DataGridView();
-            this.lblDateExam = new System.Windows.Forms.Label();
-            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disease = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateExamine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblDateExam = new System.Windows.Forms.Label();
+            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(164, 24);
+            this.txtName.Location = new System.Drawing.Point(267, 24);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -77,7 +77,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(24, 24);
+            this.label1.Location = new System.Drawing.Point(66, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 31);
             this.label1.TabIndex = 14;
@@ -87,7 +87,7 @@
             // 
             this.lblListPatient.AutoSize = true;
             this.lblListPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblListPatient.Location = new System.Drawing.Point(24, 106);
+            this.lblListPatient.Location = new System.Drawing.Point(66, 106);
             this.lblListPatient.Name = "lblListPatient";
             this.lblListPatient.Size = new System.Drawing.Size(248, 31);
             this.lblListPatient.TabIndex = 13;
@@ -115,33 +115,6 @@
             this.dGVListPatient.Size = new System.Drawing.Size(937, 460);
             this.dGVListPatient.TabIndex = 12;
             this.dGVListPatient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVListPatient_CellDoubleClick);
-            // 
-            // lblDateExam
-            // 
-            this.lblDateExam.AutoSize = true;
-            this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(624, 24);
-            this.lblDateExam.Name = "lblDateExam";
-            this.lblDateExam.Size = new System.Drawing.Size(151, 31);
-            this.lblDateExam.TabIndex = 10;
-            this.lblDateExam.Text = "Ngày khám";
-            // 
-            // dpDate
-            // 
-            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dpDate.BorderSize = 3;
-            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dpDate.CustomFormat = "dd/MM/yyyy";
-            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(781, 12);
-            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
-            this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(228, 60);
-            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.dpDate.TabIndex = 16;
-            this.dpDate.TextColor = System.Drawing.Color.Black;
-            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // Index
             // 
@@ -182,6 +155,33 @@
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // lblDateExam
+            // 
+            this.lblDateExam.AutoSize = true;
+            this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.lblDateExam.Location = new System.Drawing.Point(624, 24);
+            this.lblDateExam.Name = "lblDateExam";
+            this.lblDateExam.Size = new System.Drawing.Size(151, 31);
+            this.lblDateExam.TabIndex = 10;
+            this.lblDateExam.Text = "Ngày khám";
+            // 
+            // dpDate
+            // 
+            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dpDate.BorderSize = 3;
+            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDate.CustomFormat = "dd/MM/yyyy";
+            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDate.Location = new System.Drawing.Point(781, 12);
+            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
+            this.dpDate.Name = "dpDate";
+            this.dpDate.Size = new System.Drawing.Size(228, 60);
+            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
+            this.dpDate.TabIndex = 16;
+            this.dpDate.TextColor = System.Drawing.Color.Black;
+            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // FormListInvoice
             // 

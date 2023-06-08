@@ -22,19 +22,21 @@ namespace DoAn.Forms
         {
             using (var db = new DataPKEntities())
             {
-                var select = from s in db.CHITIETTHUOCs
+                var select = from s in db.THUOCs
                              select s;
                 foreach (var medicine in select)
                 {
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListMedicine);
-                    row.Cells[dGVListMedicine.Columns["Index"].Index].Value = medicine.MaCTThuoc;
-                    row.Cells[dGVListMedicine.Columns["MedicineName"].Index].Value = medicine.THUOC.TenThuoc;
-                    //row.Cells[dGVListMedicine.Columns["Price"].Index].Value = medicine.DonGia;
-
-                    //Populate textBox column for units
-                    row.Cells[dGVListMedicine.Columns["Unit"].Index].Value = medicine.DONVI.TenDonVi;
-
+                    row.Cells[dGVListMedicine.Columns["Index"].Index].Value = medicine.MaThuoc;
+                    row.Cells[dGVListMedicine.Columns["MedicineName"].Index].Value = medicine.TenThuoc;
+                    medicine.CHITIETTHUOCs.ToList();
+                    DataGridViewComboBoxCell unitCell = new DataGridViewComboBoxCell();
+                    foreach (var item in medicine.CHITIETTHUOCs)
+                    {
+                        unitCell.Items.Add(item.DONVI.TenDonVi);
+                    }
+                    row.Cells[dGVListMedicine.Columns["Unit"].Index] = unitCell;
                     DataGridViewTextBoxCell quantityTextBoxCell = new DataGridViewTextBoxCell();
                     quantityTextBoxCell.Value = 0;
                     row.Cells[dGVListMedicine.Columns["Quantity"].Index] = quantityTextBoxCell;
@@ -71,10 +73,17 @@ namespace DoAn.Forms
         }
         private void btnReset_Click(object sender, System.EventArgs e)
         {
+
+            cbbTypeOfDisease.Items.Clear();
+            PatientData = null;
             // Clear the existing rows
             dGVListMedicine.Rows.Clear();
             // Repopulate the DataGridView with the initial data
             InitializeDataGridView();
+            txtName.Clear();
+            txtTrieuChung.Clear();
+            cbbTypeOfDisease.Texts = null;
+            dpDate.Value = DateTime.Now;
         }
 
         private void dGVListMedicine_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -146,7 +155,13 @@ namespace DoAn.Forms
                                     {
                                         var chitietphieukham = new CHITIETPHIEUKHAM();
                                         chitietphieukham.MaPhieuKham = phieukham.MaPhieuKham;
-                                        chitietphieukham.MaCTThuoc = Convert.ToInt32(row.Cells["Index"].Value);
+                                        string tenThuoc = row.Cells["MedicineName"].Value.ToString();
+                                        string donVi = row.Cells["Unit"].Value.ToString();
+                                        var maCTThuoc = (from s in db.CHITIETTHUOCs
+                                                         where s.THUOC.TenThuoc == tenThuoc && s.DONVI.TenDonVi == donVi
+                                                         select s.MaCTThuoc).FirstOrDefault();
+
+                                        chitietphieukham.MaCTThuoc = maCTThuoc;
                                         string usage = row.Cells["Usage"].Value.ToString();
                                         chitietphieukham.MaCachDung = (from s in db.CACHDUNGs
                                                                        where s.TenCachDung == usage
@@ -158,11 +173,13 @@ namespace DoAn.Forms
                                 }
                             }
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dGVListMedicine.Rows.Clear();
                             InitializeDataGridView();
                             txtName.Clear();
                             txtTrieuChung.Clear();
-                            cbbTypeOfDisease.Texts = null;
+                            cbbTypeOfDisease.Items.Clear();
                             dpDate.Value = DateTime.Now;
+                            PatientData = null;
                         }
                     }
                     else

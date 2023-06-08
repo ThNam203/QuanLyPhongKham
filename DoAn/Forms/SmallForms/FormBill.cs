@@ -107,14 +107,8 @@ namespace DoAn.Forms.SmallForms
 
                 //Lay danh sach thuoc
                 var select2 = from s in db.CTHOADONs
-                              where s.MaHoaDon == id // Replace 1 with the desired MaPhieuKham
-                              select new
-                              {
-                                  s.TenThuoc,
-                                  s.SoLuong,
-                                  s.TongTien,
-                                  s.TenDonVi,
-                              };
+                              where s.HOADON.MaPhieuKham == id
+                              select s;
 
                 foreach (var medicine in select2)
                 {

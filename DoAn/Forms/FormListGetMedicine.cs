@@ -16,13 +16,9 @@ namespace DoAn.Forms
         {
             dGVListGetMedicine.ReadOnly = true;
             dGVListGetMedicine.Rows.Clear();
-            DateTime selectedDate = dpDate.Value.Date;
             using (var db = new DataPKEntities())
             {
                 var select = from s in db.PHIEUNHAPTHUOCs
-                             where s.NgayNhap.Value.Year == selectedDate.Year
-                                && s.NgayNhap.Value.Month == selectedDate.Month
-                                && s.NgayNhap.Value.Day == selectedDate.Day
                              select s;
                 foreach (var phieuNhap in select)
                 {
@@ -40,14 +36,10 @@ namespace DoAn.Forms
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             string providerName = txtName.Text;
-            DateTime selectedDate = dpDate.Value.Date;
             using (var db = new DataPKEntities())
             {
                 var select = from s in db.PHIEUNHAPTHUOCs
-                             where s.NhaCungCap.Contains(providerName) &&
-                                   s.NgayNhap.Value.Year == selectedDate.Year &&
-                                   s.NgayNhap.Value.Month == selectedDate.Month &&
-                                   s.NgayNhap.Value.Day == selectedDate.Day // Filter based on LastName
+                             where s.NhaCungCap.Contains(providerName)
                              select s;
                 dGVListGetMedicine.Rows.Clear(); // Clear the existing rows in the DataGridView
                 foreach (var phieuNhap in select)

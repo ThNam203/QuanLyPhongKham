@@ -28,27 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDateExam = new System.Windows.Forms.Label();
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.label1 = new System.Windows.Forms.Label();
             this.dGVListGetMedicine = new System.Windows.Forms.DataGridView();
-            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateGet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListGetMedicine)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblDateExam
-            // 
-            this.lblDateExam.AutoSize = true;
-            this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(63, 19);
-            this.lblDateExam.Name = "lblDateExam";
-            this.lblDateExam.Size = new System.Drawing.Size(145, 31);
-            this.lblDateExam.TabIndex = 6;
-            this.lblDateExam.Text = "Ngày nhập";
             // 
             // txtName
             // 
@@ -60,7 +49,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập tên nhà cung cấp";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(309, 97);
+            this.txtName.Location = new System.Drawing.Point(299, 39);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -85,7 +74,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(63, 97);
+            this.label1.Location = new System.Drawing.Point(63, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(230, 31);
             this.label1.TabIndex = 10;
@@ -110,23 +99,6 @@
             this.dGVListGetMedicine.RowTemplate.Height = 24;
             this.dGVListGetMedicine.Size = new System.Drawing.Size(947, 466);
             this.dGVListGetMedicine.TabIndex = 12;
-            // 
-            // dpDate
-            // 
-            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dpDate.BorderSize = 3;
-            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dpDate.CustomFormat = "dd/MM/yyyy";
-            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(309, 12);
-            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
-            this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(228, 60);
-            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.dpDate.TabIndex = 17;
-            this.dpDate.TextColor = System.Drawing.Color.Black;
-            this.dpDate.ValueChanged += new System.EventHandler(this.dpDate_ValueChanged);
             // 
             // Index
             // 
@@ -157,17 +129,26 @@
             this.Total.Name = "Total";
             this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label2.Location = new System.Drawing.Point(63, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(358, 31);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Danh sách phiếu nhập thuốc";
+            // 
             // FormListGetMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
-            this.Controls.Add(this.dpDate);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dGVListGetMedicine);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblDateExam);
             this.Name = "FormListGetMedicine";
             this.Text = "Danh sách phiếu nhập thuốc";
             ((System.ComponentModel.ISupportInitialize)(this.dGVListGetMedicine)).EndInit();
@@ -177,14 +158,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblDateExam;
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGVListGetMedicine;
-        private RJCodeAdvance.RJControls.RJDatePicker dpDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProviderName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateGet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Label label2;
     }
 }
