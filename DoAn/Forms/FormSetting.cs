@@ -202,17 +202,8 @@ namespace DoAn.Forms
                         }
                         catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                         {
-                            var innerException = ex.InnerException as System.Data.SqlClient.SqlException;
-                            if (innerException != null && innerException.Number == 547) // Foreign key constraint violation error code
-                            {
-                                MessageBox.Show("Không thể xóa dữ liệu vì nó liên kết với bảng khác.");
-                                return;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Có lỗi khi sửa dữ liệu ở bảng loại bệnh");
-                                return;
-                            }
+                            MessageBox.Show("Không thể xóa dữ liệu ở bảng loại bệnh vì nó liên kết với bảng khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }
@@ -250,17 +241,8 @@ namespace DoAn.Forms
                         }
                         catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                         {
-                            var innerException = ex.InnerException as System.Data.SqlClient.SqlException;
-                            if (innerException != null && innerException.Number == 547) // Foreign key constraint violation error code
-                            {
-                                MessageBox.Show("Không thể xóa dữ liệu vì nó liên kết với bảng khác.");
-                                return;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Có lỗi khi sửa dữ liệu ở bảng cách dùng");
-                                return;
-                            }
+                            MessageBox.Show("Không thể xóa dữ liệu ở bảng cách dùng vì nó liên kết với bảng khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }
@@ -298,17 +280,8 @@ namespace DoAn.Forms
                         }
                         catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                         {
-                            var innerException = ex.InnerException as System.Data.SqlClient.SqlException;
-                            if (innerException != null && innerException.Number == 547) // Foreign key constraint violation error code
-                            {
-                                MessageBox.Show("Không thể xóa dữ liệu vì nó liên kết với bảng khác.");
-                                return;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Có lỗi khi sửa dữ liệu ở bảng chi tiết thuốc.");
-                                return;
-                            }
+                            MessageBox.Show("Không thể xóa dữ liệu ở bảng chi tiết thuốc vì nó liên kết với bảng khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }

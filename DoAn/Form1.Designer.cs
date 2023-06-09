@@ -48,6 +48,7 @@
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.btn_Dashboard = new FontAwesome.Sharp.IconButton();
             this.btn_MakeListExamine = new FontAwesome.Sharp.IconButton();
+            this.btn_ListUsedMedicine = new FontAwesome.Sharp.IconButton();
             this.panelContainer.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
@@ -164,6 +165,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.panelMenu.Controls.Add(this.btn_ListUsedMedicine);
             this.panelMenu.Controls.Add(this.btn_Setting);
             this.panelMenu.Controls.Add(this.btn_SearchPatient);
             this.panelMenu.Controls.Add(this.btnListInvoice);
@@ -191,7 +193,7 @@
             this.btn_Setting.IconColor = System.Drawing.Color.Black;
             this.btn_Setting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_Setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Setting.Location = new System.Drawing.Point(0, 640);
+            this.btn_Setting.Location = new System.Drawing.Point(0, 699);
             this.btn_Setting.Name = "btn_Setting";
             this.btn_Setting.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_Setting.Size = new System.Drawing.Size(280, 60);
@@ -392,6 +394,27 @@
             this.btn_MakeListExamine.UseVisualStyleBackColor = false;
             this.btn_MakeListExamine.Click += new System.EventHandler(this.btn_MakeListExamine_Click);
             // 
+            // btn_ListUsedMedicine
+            // 
+            this.btn_ListUsedMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.btn_ListUsedMedicine.FlatAppearance.BorderSize = 0;
+            this.btn_ListUsedMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ListUsedMedicine.ForeColor = System.Drawing.Color.Black;
+            this.btn_ListUsedMedicine.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.btn_ListUsedMedicine.IconColor = System.Drawing.Color.Black;
+            this.btn_ListUsedMedicine.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ListUsedMedicine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ListUsedMedicine.Location = new System.Drawing.Point(0, 642);
+            this.btn_ListUsedMedicine.Name = "btn_ListUsedMedicine";
+            this.btn_ListUsedMedicine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_ListUsedMedicine.Size = new System.Drawing.Size(280, 60);
+            this.btn_ListUsedMedicine.TabIndex = 10;
+            this.btn_ListUsedMedicine.Text = "Báo cáo sử dụng thuốc";
+            this.btn_ListUsedMedicine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ListUsedMedicine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ListUsedMedicine.UseVisualStyleBackColor = false;
+            this.btn_ListUsedMedicine.Click += new System.EventHandler(this.btn_ListUsedMedicine_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -439,6 +462,7 @@
         private FontAwesome.Sharp.IconButton btnListInvoice;
         private FontAwesome.Sharp.IconButton btn_Dashboard;
         private FontAwesome.Sharp.IconButton btn_ListGetMedicine;
+        private FontAwesome.Sharp.IconButton btn_ListUsedMedicine;
     }
 }
 
