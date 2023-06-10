@@ -11,30 +11,30 @@ SET DATEFORMAT DMY
 -- Tạo các bảng
 CREATE TABLE BENHNHAN (
     MaBenhNhan INT IDENTITY (1,1) PRIMARY KEY,
-    HoTen VARCHAR(24),
-    GioiTinh VARCHAR(4),
+    HoTen NVARCHAR(100),
+    GioiTinh NVARCHAR(4),
     NamSinh SMALLDATETIME,
-    DiaChi VARCHAR(24)
+    DiaChi NVARCHAR(100)
 )
 
 CREATE TABLE LOAIBENH (
     MaLoaiBenh INT IDENTITY (1,1) PRIMARY KEY,
-    TenLoaiBenh VARCHAR(24)
+    TenLoaiBenh NVARCHAR(100)
 )
 
 CREATE TABLE THUOC (
     MaThuoc INT IDENTITY (1,1) PRIMARY KEY,
-    TenThuoc VARCHAR(24),
+    TenThuoc NVARCHAR(100),
 )
 
 CREATE TABLE DONVI (
     MaDonVi INT IDENTITY (1,1) PRIMARY KEY,
-    TenDonVi VARCHAR(24)
+    TenDonVi NVARCHAR(100)
 )
 
 CREATE TABLE CACHDUNG (
     MaCachDung INT IDENTITY (1,1) PRIMARY KEY,
-    TenCachDung VARCHAR(24)
+    TenCachDung NVARCHAR(100)
 )
 
 CREATE TABLE CHITIETTHUOC ( 
@@ -47,7 +47,7 @@ CREATE TABLE CHITIETTHUOC (
 CREATE TABLE PHIEUKHAM (
     MaPhieuKham INT IDENTITY (1,1) PRIMARY KEY,
     NgayKham SMALLDATETIME,
-    TrieuChung VARCHAR(24),
+    TrieuChung NVARCHAR(100),
     MaLoaiBenh INT FOREIGN KEY REFERENCES LOAIBENH(MaLoaiBenh),
     MaBenhNhan INT FOREIGN KEY REFERENCES BENHNHAN(MaBenhNhan)
 )
@@ -63,7 +63,7 @@ CREATE TABLE CHITIETPHIEUKHAM (
 CREATE TABLE PHIEUNHAPTHUOC (
     MaPhieuNhapThuoc INT IDENTITY (1,1) PRIMARY KEY,
     NgayNhap SMALLDATETIME,
-    NhaCungCap VARCHAR(24),
+    NhaCungCap NVARCHAR(100),
     TongTien INT
 )
 
@@ -96,8 +96,8 @@ CREATE TABLE THAMSO (
 CREATE TABLE CTHOADON (
 	MaCTHoaDon INT IDENTITY (1, 1) PRIMARY KEY,
 	MaHoaDon INT FOREIGN KEY REFERENCES HOADON(MaHoaDon),
-	TenThuoc VARCHAR(24),
-	TenDonVi VARCHAR(24),
+	TenThuoc NVARCHAR(100),
+	TenDonVi NVARCHAR(100),
 	SoLuong INT,
 	TongTien INT,
 )
@@ -119,7 +119,7 @@ AS
     FROM THAMSO
     IF (@NgayKham1 = @NgayKham2 AND @SLBN > @MAXQ)
         BEGIN
-            PRINT 'Moi ngay chi kham toi da ' + CAST(@MAXQ AS VARCHAR) + ' benh nhan'
+            PRINT 'Moi ngay chi kham toi da ' + CAST(@MAXQ AS NVARCHAR) + ' benh nhan'
             ROLLBACK TRAN
         END
 GO
@@ -137,7 +137,7 @@ AS
     FROM THAMSO
     IF (@SLLB > @MAXQ)
         BEGIN
-            PRINT 'Co toi da ' + CAST(@MAXQ AS VARCHAR) + ' loai benh'
+            PRINT 'Co toi da ' + CAST(@MAXQ AS NVARCHAR) + ' loai benh'
             ROLLBACK TRAN
         END
 GO
@@ -155,7 +155,7 @@ AS
     FROM THAMSO
     IF (@SLLB > @MAXQ)
         BEGIN
-            PRINT 'Co toi da ' + CAST(@MAXQ AS VARCHAR) + ' loai thuoc'
+            PRINT 'Co toi da ' + CAST(@MAXQ AS NVARCHAR) + ' loai thuoc'
             ROLLBACK TRAN
         END
 GO
@@ -173,7 +173,7 @@ AS
     FROM THAMSO
     IF (@SL > @MAXQ)
         BEGIN
-            PRINT 'Co toi da ' + CAST(@MAXQ AS VARCHAR) + ' loai don vi'
+            PRINT 'Co toi da ' + CAST(@MAXQ AS NVARCHAR) + ' loai don vi'
             ROLLBACK TRAN
         END
 GO
@@ -191,7 +191,7 @@ AS
     FROM THAMSO
     IF (@SLLB > @MAXQ)
         BEGIN
-            PRINT 'Co toi da ' + CAST(@MAXQ AS VARCHAR) + ' cach dung'
+            PRINT 'Co toi da ' + CAST(@MAXQ AS NVARCHAR) + ' cach dung'
             ROLLBACK TRAN
         END
 GO
@@ -207,7 +207,7 @@ AS
     FROM THAMSO
     IF (@TienKham != @CONSTQ)
         BEGIN
-            PRINT 'Tien kham la ' + CAST(@CONSTQ AS VARCHAR) + ' dong'
+            PRINT 'Tien kham la ' + CAST(@CONSTQ AS NVARCHAR) + ' dong'
             ROLLBACK TRAN
         END
 GO
