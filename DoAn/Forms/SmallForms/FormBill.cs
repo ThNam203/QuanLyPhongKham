@@ -47,7 +47,7 @@ namespace DoAn.Forms.SmallForms
                        (ctpk, ct) => new { ctpk, ct })
                        .Sum(x => x.ct.DonGia * x.ctpk.SoLuong);
                 dpDate.Value = select.NgayKham.Value;
-                txtDisease.Text = select.TrieuChung;
+                txtDisease.Text = select.LOAIBENH.TenLoaiBenh;
                 txtExamineMoney.Text = tienkham.ToString();
                 txtName.Text = select.BENHNHAN.HoTen;
                 txtTotal.Text = (tienkham + total).ToString();
@@ -96,7 +96,7 @@ namespace DoAn.Forms.SmallForms
                 //Lay tong tien thuoc
                 var total = select.TienThuoc;
                 dpDate.Value = select.NgayKham.Value;
-                txtDisease.Text = select.PHIEUKHAM.TrieuChung;
+                txtDisease.Text = select.PHIEUKHAM.LOAIBENH.TenLoaiBenh;
                 txtExamineMoney.Text = select.TienKham.ToString();
                 txtName.Text = select.PHIEUKHAM.BENHNHAN.HoTen;
                 txtTotal.Text = (select.TienKham + total).ToString();

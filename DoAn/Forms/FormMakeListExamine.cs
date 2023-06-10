@@ -83,7 +83,7 @@ namespace DoAn.Forms
             txtName.Clear();
             txtTrieuChung.Clear();
             cbbTypeOfDisease.Texts = null;
-            dpDate.Value = DateTime.Now;
+            dpDateExam.Value = DateTime.Now;
         }
 
         private void dGVListMedicine_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -143,7 +143,7 @@ namespace DoAn.Forms
                                                 select s).FirstOrDefault();
                                 var phieukham = new PHIEUKHAM();
                                 phieukham.MaBenhNhan = id;
-                                phieukham.NgayKham = dpDate.Value;
+                                phieukham.NgayKham = dpDateExam.Value;
                                 phieukham.TrieuChung = txtTrieuChung.Text;
                                 phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
                                 db.PHIEUKHAMs.Add(phieukham);
@@ -178,7 +178,7 @@ namespace DoAn.Forms
                             txtTrieuChung.Clear();
                             cbbTypeOfDisease.Items.Clear();
                             cbbTypeOfDisease.Texts = null;
-                            dpDate.Value = DateTime.Now;
+                            dpDateExam.Value = DateTime.Now;
                             InitializeDataGridView();
                             PatientData = null;
                         }

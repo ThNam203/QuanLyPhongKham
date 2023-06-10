@@ -41,7 +41,7 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListMedicalBill);
                     row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = s.MaPhieuKham;
                     row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = s.BENHNHAN.HoTen;
-                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.TrieuChung;
+                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.LOAIBENH.TenLoaiBenh;
                     row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham + total;
 
                     if (row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value == null)
@@ -84,7 +84,7 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListMedicalBill);
                     row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = s.MaPhieuKham;
                     row.Cells[dGVListMedicalBill.Columns["PatientName"].Index].Value = s.BENHNHAN.HoTen;
-                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.TrieuChung;
+                    row.Cells[dGVListMedicalBill.Columns["Disease"].Index].Value = s.LOAIBENH.TenLoaiBenh;
                     row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham + total;
 
                     if (row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value == null)

@@ -31,7 +31,7 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["Index"].Index].Value = s.MaPhieuKham;
                     row.Cells[dGVListPatient.Columns["PatientName"].Index].Value = s.PHIEUKHAM.BENHNHAN.HoTen;
-                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = s.PHIEUKHAM.TrieuChung;
+                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = s.PHIEUKHAM.LOAIBENH.TenLoaiBenh;
                     row.Cells[dGVListPatient.Columns["DateExamine"].Index].Value = s.NgayKham.Value.ToString("dd/MM/yyyy");
                     row.Cells[dGVListPatient.Columns["Total"].Index].Value = s.TienKham + s.TienThuoc;
                     dGVListPatient.Rows.Add(row);
@@ -67,7 +67,7 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["Index"].Index].Value = s.MaPhieuKham;
                     row.Cells[dGVListPatient.Columns["PatientName"].Index].Value = s.PHIEUKHAM.BENHNHAN.HoTen;
-                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = s.PHIEUKHAM.TrieuChung;
+                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = s.PHIEUKHAM.LOAIBENH.TenLoaiBenh;
                     row.Cells[dGVListPatient.Columns["DateExamine"].Index].Value = s.NgayKham.Value.ToString("dd/MM/yyyy");
                     row.Cells[dGVListPatient.Columns["Total"].Index].Value = s.TienKham + s.TienThuoc;
                     dGVListPatient.Rows.Add(row);

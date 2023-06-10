@@ -43,18 +43,27 @@ namespace DoAn.Forms
                 DateTime startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                 DateTime endDate = startDate.AddMonths(1).AddDays(-1);
                 var countPhieuKham = db.PHIEUKHAMs.Count(p => p.NgayKham >= startDate && p.NgayKham <= endDate);
-                label2.Text = countPhieuKham.ToString();
+                if (countPhieuKham == 0)
+                    label2.Text = "0";
+                else
+                    label2.Text = countPhieuKham.ToString();
 
                 var countBenhNhan = db.PHIEUKHAMs
                     .Where(p => p.NgayKham >= startDate && p.NgayKham <= endDate)
                     .Select(p => p.MaBenhNhan)
                     .Distinct()
                     .Count();
-                label3.Text = countBenhNhan.ToString();
+                if (countBenhNhan == 0)
+                    label3.Text = "0";
+                else
+                    label3.Text = countBenhNhan.ToString();
                 var doanhThu = db.HOADONs
                     .Where(h => h.NgayKham >= startDate && h.NgayKham <= endDate)
                     .Sum(h => h.TienKham + h.TienThuoc) / 1000000m; // Chia cho 1 triệu để có đơn vị triệu
-
+                if (doanhThu == null || doanhThu < 0)
+                {
+                    doanhThu = 0;
+                }
                 label5.Text = $"{doanhThu:F2}";
             }
         }

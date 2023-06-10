@@ -64,10 +64,10 @@
       <PropertyRef Name="MaBenhNhan" />
     </Key>
     <Property Name="MaBenhNhan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="HoTen" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
     <Property Name="NamSinh" Type="DateTime" Precision="0" />
-    <Property Name="DiaChi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3" FromRole="BENHNHAN" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="CACHDUNG">
@@ -75,7 +75,7 @@
       <PropertyRef Name="MaCachDung" />
     </Key>
     <Property Name="MaCachDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenCachDung" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenCachDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CHITIETPHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaCac__4AB81AF0" FromRole="CACHDUNG" ToRole="CHITIETPHIEUKHAM" />
   </EntityType>
   <EntityType Name="CHITIETPHIEUKHAM">
@@ -122,8 +122,8 @@
     </Key>
     <Property Name="MaCTHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaHoaDon" Type="Int32" />
-    <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
-    <Property Name="TenDonVi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenThuoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="SoLuong" Type="Int32" />
     <Property Name="TongTien" Type="Int32" />
     <NavigationProperty Name="HOADON" Relationship="QuanLyPhongKhamModel.FK__CTHOADON__MaHoaD__5812160E" FromRole="CTHOADON" ToRole="HOADON" />
@@ -133,7 +133,7 @@
       <PropertyRef Name="MaDonVi" />
     </Key>
     <Property Name="MaDonVi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenDonVi" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaDon__4222D4EF" FromRole="DONVI" ToRole="CHITIETTHUOC" />
   </EntityType>
   <EntityType Name="HOADON">
@@ -153,7 +153,7 @@
       <PropertyRef Name="MaLoaiBenh" />
     </Key>
     <Property Name="MaLoaiBenh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenLoaiBenh" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenLoaiBenh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PHIEUKHAMs" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaLoa__44FF419A" FromRole="LOAIBENH" ToRole="PHIEUKHAM" />
   </EntityType>
   <EntityType Name="PHIEUKHAM">
@@ -162,7 +162,7 @@
     </Key>
     <Property Name="MaPhieuKham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NgayKham" Type="DateTime" Precision="0" />
-    <Property Name="TrieuChung" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TrieuChung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="MaLoaiBenh" Type="Int32" />
     <Property Name="MaBenhNhan" Type="Int32" />
     <NavigationProperty Name="BENHNHAN" Relationship="QuanLyPhongKhamModel.FK__PHIEUKHAM__MaBen__45F365D3" FromRole="PHIEUKHAM" ToRole="BENHNHAN" />
@@ -176,7 +176,7 @@
     </Key>
     <Property Name="MaPhieuNhapThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NgayNhap" Type="DateTime" Precision="0" />
-    <Property Name="NhaCungCap" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="NhaCungCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="TongTien" Type="Int32" />
     <NavigationProperty Name="CHITIETPHIEUNHAPTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETPH__MaPhi__4F7CD00D" FromRole="PHIEUNHAPTHUOC" ToRole="CHITIETPHIEUNHAPTHUOC" />
   </EntityType>
@@ -197,7 +197,7 @@
       <PropertyRef Name="MaThuoc" />
     </Key>
     <Property Name="MaThuoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenThuoc" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="TenThuoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CHITIETTHUOCs" Relationship="QuanLyPhongKhamModel.FK__CHITIETTH__MaThu__412EB0B6" FromRole="THUOC" ToRole="CHITIETTHUOC" />
   </EntityType>
   <Association Name="FK__PHIEUKHAM__MaBen__45F365D3">

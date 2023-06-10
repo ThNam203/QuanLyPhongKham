@@ -5,17 +5,17 @@
       <PropertyRef Name="MaBenhNhan" />
     </Key>
     <Property Name="MaBenhNhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="HoTen" Type="varchar" MaxLength="24" />
-    <Property Name="GioiTinh" Type="varchar" MaxLength="4" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" />
     <Property Name="NamSinh" Type="smalldatetime" />
-    <Property Name="DiaChi" Type="varchar" MaxLength="24" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="CACHDUNG">
     <Key>
       <PropertyRef Name="MaCachDung" />
     </Key>
     <Property Name="MaCachDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenCachDung" Type="varchar" MaxLength="24" />
+    <Property Name="TenCachDung" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="CHITIETPHIEUKHAM">
     <Key>
@@ -52,8 +52,8 @@
     </Key>
     <Property Name="MaCTHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaHoaDon" Type="int" />
-    <Property Name="TenThuoc" Type="varchar" MaxLength="24" />
-    <Property Name="TenDonVi" Type="varchar" MaxLength="24" />
+    <Property Name="TenThuoc" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenDonVi" Type="nvarchar" MaxLength="100" />
     <Property Name="SoLuong" Type="int" />
     <Property Name="TongTien" Type="int" />
   </EntityType>
@@ -62,7 +62,7 @@
       <PropertyRef Name="MaDonVi" />
     </Key>
     <Property Name="MaDonVi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenDonVi" Type="varchar" MaxLength="24" />
+    <Property Name="TenDonVi" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -79,7 +79,7 @@
       <PropertyRef Name="MaLoaiBenh" />
     </Key>
     <Property Name="MaLoaiBenh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenLoaiBenh" Type="varchar" MaxLength="24" />
+    <Property Name="TenLoaiBenh" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PHIEUKHAM">
     <Key>
@@ -87,7 +87,7 @@
     </Key>
     <Property Name="MaPhieuKham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NgayKham" Type="smalldatetime" />
-    <Property Name="TrieuChung" Type="varchar" MaxLength="24" />
+    <Property Name="TrieuChung" Type="nvarchar" MaxLength="100" />
     <Property Name="MaLoaiBenh" Type="int" />
     <Property Name="MaBenhNhan" Type="int" />
   </EntityType>
@@ -97,7 +97,7 @@
     </Key>
     <Property Name="MaPhieuNhapThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NgayNhap" Type="smalldatetime" />
-    <Property Name="NhaCungCap" Type="varchar" MaxLength="24" />
+    <Property Name="NhaCungCap" Type="nvarchar" MaxLength="100" />
     <Property Name="TongTien" Type="int" />
   </EntityType>
   <EntityType Name="THAMSO">
@@ -117,7 +117,7 @@
       <PropertyRef Name="MaThuoc" />
     </Key>
     <Property Name="MaThuoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenThuoc" Type="varchar" MaxLength="24" />
+    <Property Name="TenThuoc" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <Association Name="FK__CHITIETPH__MaCac__4AB81AF0">
     <End Role="CACHDUNG" Type="Self.CACHDUNG" Multiplicity="0..1" />

@@ -32,20 +32,21 @@
             this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblTrieuChung = new System.Windows.Forms.Label();
             this.lblDuDoan = new System.Windows.Forms.Label();
-            this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
+            this.dpDateExam = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
-            this.btnReset = new RJCodeAdvance.RJControls.RJButton();
-            this.btnSave = new RJCodeAdvance.RJControls.RJButton();
-            this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
-            this.cbbTypeOfDisease = new RJCodeAdvance.RJControls.RJComboBox();
-            this.btnAddPatient = new RJCodeAdvance.RJControls.RJButton();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usage = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnReset = new RJCodeAdvance.RJControls.RJButton();
+            this.btnSave = new RJCodeAdvance.RJControls.RJButton();
+            this.txtTrieuChung = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.cbbTypeOfDisease = new RJCodeAdvance.RJControls.RJComboBox();
+            this.btnAddPatient = new RJCodeAdvance.RJControls.RJButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,21 +111,21 @@
             this.lblDuDoan.TabIndex = 5;
             this.lblDuDoan.Text = "Dự đoán";
             // 
-            // dpDate
+            // dpDateExam
             // 
-            this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dpDate.BorderSize = 3;
-            this.dpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dpDate.CustomFormat = "dd/MM/yyyy";
-            this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(260, 75);
-            this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
-            this.dpDate.Name = "dpDate";
-            this.dpDate.Size = new System.Drawing.Size(330, 60);
-            this.dpDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.dpDate.TabIndex = 7;
-            this.dpDate.TextColor = System.Drawing.Color.Black;
+            this.dpDateExam.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dpDateExam.BorderSize = 3;
+            this.dpDateExam.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dpDateExam.CustomFormat = "dd/MM/yyyy";
+            this.dpDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.dpDateExam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpDateExam.Location = new System.Drawing.Point(260, 75);
+            this.dpDateExam.MinimumSize = new System.Drawing.Size(4, 60);
+            this.dpDateExam.Name = "dpDateExam";
+            this.dpDateExam.Size = new System.Drawing.Size(330, 60);
+            this.dpDateExam.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
+            this.dpDateExam.TabIndex = 7;
+            this.dpDateExam.TextColor = System.Drawing.Color.Black;
             // 
             // lblDate
             // 
@@ -151,13 +152,66 @@
             this.Quantity,
             this.Usage,
             this.Add});
-            this.dGVListMedicine.Location = new System.Drawing.Point(83, 318);
+            this.dGVListMedicine.Location = new System.Drawing.Point(83, 357);
             this.dGVListMedicine.Name = "dGVListMedicine";
             this.dGVListMedicine.RowHeadersWidth = 51;
             this.dGVListMedicine.RowTemplate.Height = 24;
             this.dGVListMedicine.Size = new System.Drawing.Size(902, 302);
             this.dGVListMedicine.TabIndex = 9;
             this.dGVListMedicine.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dGVListMedicine_CellFormatting);
+            // 
+            // Index
+            // 
+            this.Index.FillWeight = 60F;
+            this.Index.HeaderText = "Mã thuốc";
+            this.Index.MinimumWidth = 6;
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.FillWeight = 87.91444F;
+            this.MedicineName.HeaderText = "Thuốc";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            this.MedicineName.ReadOnly = true;
+            this.MedicineName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Unit
+            // 
+            this.Unit.FillWeight = 87.91444F;
+            this.Unit.HeaderText = "Đơn vị";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Quantity
+            // 
+            this.Quantity.FillWeight = 87.91444F;
+            this.Quantity.HeaderText = "Số lượng";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Usage
+            // 
+            this.Usage.FillWeight = 87.91444F;
+            this.Usage.HeaderText = "Cách dùng";
+            this.Usage.MinimumWidth = 6;
+            this.Usage.Name = "Usage";
+            this.Usage.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Usage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Add
+            // 
+            this.Add.FillWeight = 60F;
+            this.Add.HeaderText = "Thêm";
+            this.Add.MinimumWidth = 6;
+            this.Add.Name = "Add";
+            this.Add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btnReset
             // 
@@ -169,7 +223,7 @@
             this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(651, 651);
+            this.btnReset.Location = new System.Drawing.Point(651, 665);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 40);
             this.btnReset.TabIndex = 10;
@@ -188,7 +242,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(835, 651);
+            this.btnSave.Location = new System.Drawing.Point(835, 665);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(150, 40);
             this.btnSave.TabIndex = 11;
@@ -262,58 +316,15 @@
             this.btnAddPatient.UseVisualStyleBackColor = false;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
-            // Index
+            // label1
             // 
-            this.Index.FillWeight = 60F;
-            this.Index.HeaderText = "Mã thuốc";
-            this.Index.MinimumWidth = 6;
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.FillWeight = 87.91444F;
-            this.MedicineName.HeaderText = "Thuốc";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            this.MedicineName.ReadOnly = true;
-            this.MedicineName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Unit
-            // 
-            this.Unit.FillWeight = 87.91444F;
-            this.Unit.HeaderText = "Đơn vị";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Quantity
-            // 
-            this.Quantity.FillWeight = 87.91444F;
-            this.Quantity.HeaderText = "Số lượng";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Usage
-            // 
-            this.Usage.FillWeight = 87.91444F;
-            this.Usage.HeaderText = "Cách dùng";
-            this.Usage.MinimumWidth = 6;
-            this.Usage.Name = "Usage";
-            this.Usage.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Usage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Add
-            // 
-            this.Add.FillWeight = 60F;
-            this.Add.HeaderText = "Thêm";
-            this.Add.MinimumWidth = 6;
-            this.Add.Name = "Add";
-            this.Add.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Add.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label1.Location = new System.Drawing.Point(77, 309);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 31);
+            this.label1.TabIndex = 74;
+            this.label1.Text = "Danh sách thuốc";
             // 
             // FormMakeListExamine
             // 
@@ -321,6 +332,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.cbbTypeOfDisease);
             this.Controls.Add(this.txtTrieuChung);
@@ -328,7 +340,7 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dGVListMedicine);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.dpDate);
+            this.Controls.Add(this.dpDateExam);
             this.Controls.Add(this.lblDuDoan);
             this.Controls.Add(this.lblTrieuChung);
             this.Controls.Add(this.txtName);
@@ -347,7 +359,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtName;
         private System.Windows.Forms.Label lblTrieuChung;
         private System.Windows.Forms.Label lblDuDoan;
-        private RJCodeAdvance.RJControls.RJDatePicker dpDate;
+        private RJCodeAdvance.RJControls.RJDatePicker dpDateExam;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DataGridView dGVListMedicine;
         private RJCodeAdvance.RJControls.RJButton btnReset;
@@ -361,5 +373,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewComboBoxColumn Usage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Add;
+        private System.Windows.Forms.Label label1;
     }
 }
