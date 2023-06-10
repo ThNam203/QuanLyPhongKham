@@ -96,6 +96,7 @@ namespace DoAn.Forms
         private void btnReset_Click(object sender, System.EventArgs e)
         {
             txtName.Clear();
+            dGVListMedicine.Rows.Clear();
             InitializeData();
         }
 
@@ -108,6 +109,11 @@ namespace DoAn.Forms
             }
             using (var db = new DataPKEntities())
             {
+                if (HasPositiveQuantity() == false)
+                {
+                    MessageBox.Show("Vui lòng nhập số lượng thuốc", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 var phieuNhapThuoc = new PHIEUNHAPTHUOC();
                 phieuNhapThuoc.NgayNhap = dpDate.Value;
                 phieuNhapThuoc.TongTien = int.Parse(txtTotal.Text);
@@ -131,7 +137,19 @@ namespace DoAn.Forms
             }
             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtName.Clear();
+            dGVListMedicine.Rows.Clear();
             InitializeData();
+        }
+        private bool HasPositiveQuantity()
+        {
+            foreach (DataGridViewRow row in dGVListMedicine.Rows)
+            {
+                if (row.Cells["Quantity"].Value != null && int.Parse(row.Cells["Quantity"].Value.ToString()) > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -41,6 +41,26 @@ namespace DoAn.Forms.SmallForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == null || txtName.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên bệnh nhân", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtAddress.Text == null || txtAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtSex.Text == null || txtSex.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập giới tính", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (dpDate.Value == null)
+            {
+                MessageBox.Show("Vui lòng nhập ngày sinh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Patient patientData = new Patient();
             patientData.Name = txtName.Text;
             patientData.Sex = txtSex.Text;

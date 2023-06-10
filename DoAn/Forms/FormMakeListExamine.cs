@@ -174,11 +174,12 @@ namespace DoAn.Forms
                             }
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dGVListMedicine.Rows.Clear();
-                            InitializeDataGridView();
                             txtName.Clear();
                             txtTrieuChung.Clear();
                             cbbTypeOfDisease.Items.Clear();
+                            cbbTypeOfDisease.Texts = null;
                             dpDate.Value = DateTime.Now;
+                            InitializeDataGridView();
                             PatientData = null;
                         }
                     }
