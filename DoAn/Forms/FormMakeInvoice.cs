@@ -31,6 +31,10 @@ namespace DoAn.Forms
                              select s;
                 foreach (var s in select)
                 {
+                    if (s.TrieuChung == null)
+                    {
+                        continue;
+                    }
                     var total = db.CHITIETPHIEUKHAMs
                         .Where(ctpk => ctpk.MaPhieuKham == s.MaPhieuKham)
                         .Join(db.CHITIETTHUOCs, ctpk => ctpk.MaCTThuoc, ct => ct.MaCTThuoc,

@@ -311,7 +311,7 @@
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(150, 36);
             this.btnAddPatient.TabIndex = 73;
-            this.btnAddPatient.Text = "Thêm bệnh nhân";
+            this.btnAddPatient.Text = "Chọn bệnh nhân";
             this.btnAddPatient.TextColor = System.Drawing.Color.White;
             this.btnAddPatient.UseVisualStyleBackColor = false;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);

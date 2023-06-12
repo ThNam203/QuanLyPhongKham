@@ -210,7 +210,7 @@
             this.Controls.Add(this.cbbMonth);
             this.Controls.Add(this.label1);
             this.Name = "FormBaoCaoDoanhThu";
-            this.Text = "FormBaoCaoDoanhThu";
+            this.Text = "Báo cáo doanh thu";
             ((System.ComponentModel.ISupportInitialize)(this.dGVListRevenue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
