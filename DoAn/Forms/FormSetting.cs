@@ -258,9 +258,19 @@ namespace DoAn.Forms
                     }
                     else if (row.Cells["DiseaseName"].Value != null)
                     {
-                        var loaiBenh = new LOAIBENH();
-                        loaiBenh.TenLoaiBenh = row.Cells["DiseaseName"].Value.ToString();
-                        db.LOAIBENHs.Add(loaiBenh);
+                        var tenLoaiBenh = row.Cells["DiseaseName"].Value.ToString();
+                        var loaiBenh = db.LOAIBENHs.FirstOrDefault(lb => lb.TenLoaiBenh == tenLoaiBenh);
+                        if (loaiBenh == null)
+                        {
+                            var newLoaiBenh = new LOAIBENH();
+                            loaiBenh.TenLoaiBenh = row.Cells["DiseaseName"].Value.ToString();
+                            db.LOAIBENHs.Add(loaiBenh);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể thêm loại bệnh có tên trùng với loại bệnh đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                 }
                 //Update the units in the DONVIs table
@@ -297,9 +307,19 @@ namespace DoAn.Forms
                     }
                     else if (row.Cells["UnitName"].Value != null)
                     {
-                        var donVi = new DONVI();
-                        donVi.TenDonVi = row.Cells["UnitName"].Value.ToString();
-                        db.DONVIs.Add(donVi);
+                        var tenDonVi = row.Cells["UnitName"].Value.ToString();
+                        var donVi = db.DONVIs.FirstOrDefault(dv => dv.TenDonVi == tenDonVi);
+                        if (donVi == null)
+                        {
+                            var newDonVi = new DONVI();
+                            donVi.TenDonVi = row.Cells["UnitName"].Value.ToString();
+                            db.DONVIs.Add(donVi);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể thêm đơn vị có tên trùng với đơn vị đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                 }
 
@@ -337,9 +357,19 @@ namespace DoAn.Forms
                     }
                     else if (row.Cells["UsageName"].Value != null)
                     {
-                        var cachDung = new CACHDUNG();
-                        cachDung.TenCachDung = row.Cells["UsageName"].Value.ToString();
-                        db.CACHDUNGs.Add(cachDung);
+                        var tenCachDung = row.Cells["UsageName"].Value.ToString();
+                        var cachDung = db.CACHDUNGs.FirstOrDefault(cd => cd.TenCachDung == tenCachDung);
+                        if (cachDung == null)
+                        {
+                            var newCachDung = new CACHDUNG();
+                            cachDung.TenCachDung = row.Cells["UsageName"].Value.ToString();
+                            db.CACHDUNGs.Add(cachDung);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể thêm cách dùng có tên trùng với cách dùng đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                 }
                 // Update the CHITIETTHUOC table
@@ -419,6 +449,13 @@ namespace DoAn.Forms
                         {
 
                             MessageBox.Show("Mã đơn vị không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        //check if the medicine already exists in the database
+                        var medicine = db.CHITIETTHUOCs.FirstOrDefault(ct => ct.THUOC.TenThuoc == tenThuoc && ct.DONVI.MaDonVi == maDonVi);
+                        if (medicine != null)
+                        {
+                            MessageBox.Show("Không thể thêm thuốc có tên và đơn vị trùng với thuốc đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         newMedicine.DonGia = donGia;

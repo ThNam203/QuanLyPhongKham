@@ -32,14 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dGVListDisease = new System.Windows.Forms.DataGridView();
-            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.dGVListUsage = new System.Windows.Forms.DataGridView();
-            this.UsageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddDisease = new RJCodeAdvance.RJControls.RJButton();
             this.btnAddUsage = new RJCodeAdvance.RJControls.RJButton();
@@ -57,10 +53,14 @@
             this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dGVListUnit = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddUnit = new RJCodeAdvance.RJControls.RJButton();
             this.btnRemoveUnit = new RJCodeAdvance.RJControls.RJButton();
+            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListUsage)).BeginInit();
@@ -130,20 +130,6 @@
             this.dGVListDisease.Size = new System.Drawing.Size(329, 191);
             this.dGVListDisease.TabIndex = 13;
             // 
-            // DiseaseId
-            // 
-            this.DiseaseId.FillWeight = 70F;
-            this.DiseaseId.HeaderText = "Mã loại bệnh";
-            this.DiseaseId.MinimumWidth = 6;
-            this.DiseaseId.Name = "DiseaseId";
-            this.DiseaseId.ReadOnly = true;
-            // 
-            // DiseaseName
-            // 
-            this.DiseaseName.HeaderText = "Tên loại bệnh";
-            this.DiseaseName.MinimumWidth = 6;
-            this.DiseaseName.Name = "DiseaseName";
-            // 
             // btnRemoveDisease
             // 
             this.btnRemoveDisease.BackColor = System.Drawing.Color.Red;
@@ -202,20 +188,6 @@
             this.dGVListUsage.RowTemplate.Height = 24;
             this.dGVListUsage.Size = new System.Drawing.Size(313, 191);
             this.dGVListUsage.TabIndex = 22;
-            // 
-            // UsageId
-            // 
-            this.UsageId.FillWeight = 85F;
-            this.UsageId.HeaderText = "Mã cách dùng";
-            this.UsageId.MinimumWidth = 6;
-            this.UsageId.Name = "UsageId";
-            this.UsageId.ReadOnly = true;
-            // 
-            // UsageName
-            // 
-            this.UsageName.HeaderText = "Cách dùng";
-            this.UsageName.MinimumWidth = 6;
-            this.UsageName.Name = "UsageName";
             // 
             // label5
             // 
@@ -459,20 +431,6 @@
             this.label7.TabIndex = 37;
             this.label7.Text = "Đơn vị";
             // 
-            // UnitId
-            // 
-            this.UnitId.FillWeight = 85F;
-            this.UnitId.HeaderText = "Mã đơn vị";
-            this.UnitId.MinimumWidth = 6;
-            this.UnitId.Name = "UnitId";
-            this.UnitId.ReadOnly = true;
-            // 
-            // UnitName
-            // 
-            this.UnitName.HeaderText = "Đơn vị";
-            this.UnitName.MinimumWidth = 6;
-            this.UnitName.Name = "UnitName";
-            // 
             // btnAddUnit
             // 
             this.btnAddUnit.BackColor = System.Drawing.Color.SeaGreen;
@@ -510,6 +468,48 @@
             this.btnRemoveUnit.TextColor = System.Drawing.Color.White;
             this.btnRemoveUnit.UseVisualStyleBackColor = false;
             this.btnRemoveUnit.Click += new System.EventHandler(this.btnRemoveUnit_Click);
+            // 
+            // DiseaseId
+            // 
+            this.DiseaseId.FillWeight = 70F;
+            this.DiseaseId.HeaderText = "Mã";
+            this.DiseaseId.MinimumWidth = 6;
+            this.DiseaseId.Name = "DiseaseId";
+            this.DiseaseId.ReadOnly = true;
+            // 
+            // DiseaseName
+            // 
+            this.DiseaseName.HeaderText = "Tên loại bệnh";
+            this.DiseaseName.MinimumWidth = 6;
+            this.DiseaseName.Name = "DiseaseName";
+            // 
+            // UsageId
+            // 
+            this.UsageId.FillWeight = 85F;
+            this.UsageId.HeaderText = "Mã";
+            this.UsageId.MinimumWidth = 6;
+            this.UsageId.Name = "UsageId";
+            this.UsageId.ReadOnly = true;
+            // 
+            // UsageName
+            // 
+            this.UsageName.HeaderText = "Cách dùng";
+            this.UsageName.MinimumWidth = 6;
+            this.UsageName.Name = "UsageName";
+            // 
+            // UnitId
+            // 
+            this.UnitId.FillWeight = 85F;
+            this.UnitId.HeaderText = "Mã";
+            this.UnitId.MinimumWidth = 6;
+            this.UnitId.Name = "UnitId";
+            this.UnitId.ReadOnly = true;
+            // 
+            // UnitName
+            // 
+            this.UnitName.HeaderText = "Đơn vị";
+            this.UnitName.MinimumWidth = 6;
+            this.UnitName.Name = "UnitName";
             // 
             // FormSetting
             // 
@@ -570,20 +570,20 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtExamineMoney;
         private RJCodeAdvance.RJControls.RJButton btnSave;
         private RJCodeAdvance.RJControls.RJButton btnReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UsageId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UsageName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicineUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedicinePrice;
         private System.Windows.Forms.DataGridView dGVListUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.Label label7;
         private RJCodeAdvance.RJControls.RJButton btnAddUnit;
         private RJCodeAdvance.RJControls.RJButton btnRemoveUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiseaseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsageId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsageName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
     }
 }
