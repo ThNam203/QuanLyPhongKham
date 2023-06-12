@@ -57,7 +57,7 @@ namespace DoAn.Forms
                     row.Cells[dGVListRevenue.Columns["Day"].Index].Value = item.Ngay;
 
                     row.Cells[dGVListRevenue.Columns["Revenue"].Index].Value = item.DoanhThu;
-                    row.Cells[dGVListRevenue.Columns["Percent"].Index].Value = item.DoanhThu / doanhThu;
+                    row.Cells[dGVListRevenue.Columns["Percent"].Index].Value = ((double)item.DoanhThu / doanhThu * 100).ToString() + "%";
                     DateTime date = new DateTime(item.Nam, item.Thang, item.Ngay);
                     var countBenhNhan = db.PHIEUKHAMs
                     .Where(p => p.NgayKham.Value.Year == item.Nam && p.NgayKham.Value.Month == item.Thang && p.NgayKham.Value.Day == item.Ngay)

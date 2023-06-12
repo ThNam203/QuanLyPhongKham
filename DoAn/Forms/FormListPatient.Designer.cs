@@ -37,6 +37,7 @@
             this.Birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblListPatient = new System.Windows.Forms.Label();
+            this.btnAddPatient = new RJCodeAdvance.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(83, 49);
+            this.lblDateExam.Location = new System.Drawing.Point(83, 29);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(151, 31);
             this.lblDateExam.TabIndex = 0;
@@ -58,7 +59,7 @@
             this.dpDate.CustomFormat = "dd/MM/yyyy";
             this.dpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDate.Location = new System.Drawing.Point(89, 108);
+            this.dpDate.Location = new System.Drawing.Point(89, 97);
             this.dpDate.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDate.Name = "dpDate";
             this.dpDate.Size = new System.Drawing.Size(272, 60);
@@ -87,6 +88,7 @@
             this.dGVListPatient.RowTemplate.Height = 24;
             this.dGVListPatient.Size = new System.Drawing.Size(926, 382);
             this.dGVListPatient.TabIndex = 2;
+            this.dGVListPatient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVListPatient_CellDoubleClick);
             // 
             // Index
             // 
@@ -133,12 +135,32 @@
             this.lblListPatient.TabIndex = 3;
             this.lblListPatient.Text = "Danh sách bệnh nhân";
             // 
+            // btnAddPatient
+            // 
+            this.btnAddPatient.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddPatient.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddPatient.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddPatient.BorderRadius = 10;
+            this.btnAddPatient.BorderSize = 0;
+            this.btnAddPatient.FlatAppearance.BorderSize = 0;
+            this.btnAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPatient.ForeColor = System.Drawing.Color.White;
+            this.btnAddPatient.Location = new System.Drawing.Point(865, 199);
+            this.btnAddPatient.Name = "btnAddPatient";
+            this.btnAddPatient.Size = new System.Drawing.Size(150, 36);
+            this.btnAddPatient.TabIndex = 76;
+            this.btnAddPatient.Text = "Thêm bệnh nhân";
+            this.btnAddPatient.TextColor = System.Drawing.Color.White;
+            this.btnAddPatient.UseVisualStyleBackColor = false;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
+            // 
             // FormListPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.lblListPatient);
             this.Controls.Add(this.dGVListPatient);
             this.Controls.Add(this.dpDate);
@@ -163,5 +185,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birth;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private RJCodeAdvance.RJControls.RJButton btnAddPatient;
     }
 }

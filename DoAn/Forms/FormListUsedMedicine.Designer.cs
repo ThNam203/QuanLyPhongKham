@@ -219,7 +219,7 @@
             this.Controls.Add(this.cbbMonth);
             this.Controls.Add(this.label1);
             this.Name = "FormListUsedMedicine";
-            this.Text = "FormListUsedMedicine";
+            this.Text = "Báo cáo sử dụng thuốc";
             ((System.ComponentModel.ISupportInitialize)(this.dGVListUsedMedicine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

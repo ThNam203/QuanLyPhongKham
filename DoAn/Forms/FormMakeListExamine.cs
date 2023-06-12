@@ -156,13 +156,22 @@ namespace DoAn.Forms
                                         var chitietphieukham = new CHITIETPHIEUKHAM();
                                         chitietphieukham.MaPhieuKham = phieukham.MaPhieuKham;
                                         string tenThuoc = row.Cells["MedicineName"].Value.ToString();
-                                        string donVi = row.Cells["Unit"].Value.ToString();
+
+                                        string donVi = row.Cells["Unit"].Value?.ToString();
+                                        if (donVi == null)
+                                        {
+                                            continue;
+                                        }
                                         var maCTThuoc = (from s in db.CHITIETTHUOCs
                                                          where s.THUOC.TenThuoc == tenThuoc && s.DONVI.TenDonVi == donVi
                                                          select s.MaCTThuoc).FirstOrDefault();
 
                                         chitietphieukham.MaCTThuoc = maCTThuoc;
-                                        string usage = row.Cells["Usage"].Value.ToString();
+                                        string usage = row.Cells["Usage"].Value?.ToString();
+                                        if (usage == null)
+                                        {
+                                            continue;
+                                        }
                                         chitietphieukham.MaCachDung = (from s in db.CACHDUNGs
                                                                        where s.TenCachDung == usage
                                                                        select s.MaCachDung).FirstOrDefault();
@@ -231,18 +240,8 @@ namespace DoAn.Forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            if (PatientData != null)
-            {
-                FormPatientDetail formPatientDetail = new FormPatientDetail(PatientData);
-                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.ShowDialog();
-            }
-            else
-            {
-                FormPatientDetail formPatientDetail = new FormPatientDetail();
-                formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.ShowDialog();
-            }
+
         }
+
     }
 }
