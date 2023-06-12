@@ -416,6 +416,7 @@ namespace DoAn.Forms
                     {
                         try
                         {
+                            db.THUOCs.Remove(medicine.THUOC);
                             db.CHITIETTHUOCs.Remove(medicine);
                             db.SaveChanges();
                         }

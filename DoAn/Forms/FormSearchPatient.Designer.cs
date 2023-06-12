@@ -68,6 +68,7 @@
             this.Address});
             this.dGVListPatient.Location = new System.Drawing.Point(83, 235);
             this.dGVListPatient.Name = "dGVListPatient";
+            this.dGVListPatient.ReadOnly = true;
             this.dGVListPatient.RowHeadersWidth = 51;
             this.dGVListPatient.RowTemplate.Height = 24;
             this.dGVListPatient.Size = new System.Drawing.Size(947, 382);
@@ -78,6 +79,7 @@
             this.Index.HeaderText = "Mã bệnh nhân";
             this.Index.MinimumWidth = 6;
             this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // LastName
@@ -85,6 +87,7 @@
             this.LastName.HeaderText = "Họ và tên";
             this.LastName.MinimumWidth = 6;
             this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
             this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // DateExamine
@@ -92,6 +95,7 @@
             this.DateExamine.HeaderText = "Ngày khám";
             this.DateExamine.MinimumWidth = 6;
             this.DateExamine.Name = "DateExamine";
+            this.DateExamine.ReadOnly = true;
             // 
             // Sex
             // 
@@ -99,6 +103,7 @@
             this.Sex.HeaderText = "Giới tính";
             this.Sex.MinimumWidth = 6;
             this.Sex.Name = "Sex";
+            this.Sex.ReadOnly = true;
             this.Sex.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Birth
@@ -106,6 +111,7 @@
             this.Birth.HeaderText = "Ngày sinh";
             this.Birth.MinimumWidth = 6;
             this.Birth.Name = "Birth";
+            this.Birth.ReadOnly = true;
             this.Birth.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Address
@@ -113,6 +119,7 @@
             this.Address.HeaderText = "Địa chỉ";
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
             this.Address.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // txtName
