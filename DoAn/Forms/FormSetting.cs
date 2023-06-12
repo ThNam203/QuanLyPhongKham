@@ -416,7 +416,12 @@ namespace DoAn.Forms
                     {
                         try
                         {
-                            db.THUOCs.Remove(medicine.THUOC);
+                            //count thuoc if thuoc <2 then delete thuoc
+                            var count = db.CHITIETTHUOCs.Count(ctt => ctt.THUOC.TenThuoc == medicine.THUOC.TenThuoc);
+                            if (count < 2)
+                            {
+                                db.THUOCs.Remove(medicine.THUOC);
+                            }
                             db.CHITIETTHUOCs.Remove(medicine);
                             db.SaveChanges();
                         }
