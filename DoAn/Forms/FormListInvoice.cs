@@ -84,7 +84,7 @@ namespace DoAn.Forms
                 {
                     int selectedId = (int)selectedRow.Cells[dGVListPatient.Columns["Index"].Index].Value;
                     FormBill formInvoice = new FormBill(selectedId, true);
-                    formInvoice.Show();
+                    formInvoice.ShowDialog();
                 }
             }
         }

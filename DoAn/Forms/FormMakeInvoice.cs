@@ -119,7 +119,7 @@ namespace DoAn.Forms
                 // Open a new form and pass the ID
                 FormBill invoiceDetailsForm = new FormBill(selectedId, (bool)selectedRow.Cells["IsPaid"].Value);
                 invoiceDetailsForm.FormClosed += InvoiceDetailsForm_FormClosed;
-                invoiceDetailsForm.Show();
+                invoiceDetailsForm.ShowDialog();
             }
             //Initialize the data again
 

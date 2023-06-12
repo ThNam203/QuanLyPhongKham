@@ -254,6 +254,16 @@ namespace DoAn.Forms
                         var maLoaiBenh = int.Parse(row.Cells["DiseaseId"].Value.ToString());
                         var tenLoaiBenh = row.Cells["DiseaseName"].Value.ToString();
                         var loaiBenh = db.LOAIBENHs.FirstOrDefault(lb => lb.MaLoaiBenh == maLoaiBenh);
+                        //check if disease exists in the database
+                        var loaibenhsosanh = db.LOAIBENHs.FirstOrDefault(lb => lb.TenLoaiBenh == tenLoaiBenh);
+                        if (loaibenhsosanh != null)
+                        {
+                            if (loaiBenh != null && loaiBenh.MaLoaiBenh != loaibenhsosanh.MaLoaiBenh)
+                            {
+                                MessageBox.Show("Không thể sửa loại bệnh có tên trùng với loại bệnh đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
                         loaiBenh.TenLoaiBenh = tenLoaiBenh;
                     }
                     else if (row.Cells["DiseaseName"].Value != null)
@@ -303,6 +313,16 @@ namespace DoAn.Forms
                         var maDonVi = int.Parse(row.Cells["UnitId"].Value.ToString());
                         var tenDonVi = row.Cells["UnitName"].Value.ToString();
                         var donVi = db.DONVIs.FirstOrDefault(dv => dv.MaDonVi == maDonVi);
+                        //check if unit exists in the database
+                        var donvisosanh = db.DONVIs.FirstOrDefault(dv => dv.TenDonVi == tenDonVi);
+                        if (donvisosanh != null)
+                        {
+                            if (donVi != null && donVi.MaDonVi != donvisosanh.MaDonVi)
+                            {
+                                MessageBox.Show("Không thể sửa đơn vị có tên trùng với đơn vị đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
                         donVi.TenDonVi = tenDonVi;
                     }
                     else if (row.Cells["UnitName"].Value != null)
@@ -424,42 +444,56 @@ namespace DoAn.Forms
                     }
                     else if (row.Cells["MedicineName"].Value != null && row.Cells["MedicineUnit"].Value != null)
                     {
+                        try
+                        {
+                            var tenThuoc = row.Cells["MedicineName"].Value.ToString();
+                            var maDonVi = int.Parse(row.Cells["MedicineUnit"].Value.ToString());
+                            var donGia = Convert.ToInt32(row.Cells["MedicinePrice"].Value);
 
-                        var tenThuoc = row.Cells["MedicineName"].Value.ToString();
-                        var maDonVi = int.Parse(row.Cells["MedicineUnit"].Value.ToString());
-                        var donGia = Convert.ToInt32(row.Cells["MedicinePrice"].Value);
+                            var newMedicine = new CHITIETTHUOC();
+                            var thuoc = db.THUOCs.FirstOrDefault(t => t.TenThuoc == tenThuoc);
+                            if (thuoc != null)
+                            {
+                                newMedicine.THUOC = thuoc;
+                            }
+                            else
+                            {
+                                var newThuoc = new THUOC { TenThuoc = tenThuoc };
+                                newMedicine.THUOC = newThuoc;
+                            }
+                            var donVi = db.DONVIs.FirstOrDefault(dv => dv.MaDonVi == maDonVi);
+                            if (donVi != null)
+                            {
+                                newMedicine.DONVI = donVi;
+                            }
+                            else
+                            {
 
-                        var newMedicine = new CHITIETTHUOC();
-                        var thuoc = db.THUOCs.FirstOrDefault(t => t.TenThuoc == tenThuoc);
-                        if (thuoc != null)
-                        {
-                            newMedicine.THUOC = thuoc;
+                                MessageBox.Show("Mã đơn vị không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            //check if the medicine already exists in the database
+                            var medicine = db.CHITIETTHUOCs.FirstOrDefault(ct => ct.THUOC.TenThuoc == tenThuoc && ct.DONVI.MaDonVi == maDonVi);
+                            if (medicine != null)
+                            {
+                                MessageBox.Show("Không thể thêm thuốc có tên và đơn vị trùng với thuốc đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            //check if value in the price column is valid
+                            if (donGia < 0)
+                            {
+                                MessageBox.Show("Đơn giá không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            newMedicine.DonGia = donGia;
+                            db.CHITIETTHUOCs.Add(newMedicine);
                         }
-                        else
+                        catch (FormatException ex)
                         {
-                            var newThuoc = new THUOC { TenThuoc = tenThuoc };
-                            newMedicine.THUOC = newThuoc;
-                        }
-                        var donVi = db.DONVIs.FirstOrDefault(dv => dv.MaDonVi == maDonVi);
-                        if (donVi != null)
-                        {
-                            newMedicine.DONVI = donVi;
-                        }
-                        else
-                        {
-
-                            MessageBox.Show("Mã đơn vị không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Đơn giá không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        //check if the medicine already exists in the database
-                        var medicine = db.CHITIETTHUOCs.FirstOrDefault(ct => ct.THUOC.TenThuoc == tenThuoc && ct.DONVI.MaDonVi == maDonVi);
-                        if (medicine != null)
-                        {
-                            MessageBox.Show("Không thể thêm thuốc có tên và đơn vị trùng với thuốc đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        newMedicine.DonGia = donGia;
-                        db.CHITIETTHUOCs.Add(newMedicine);
+
                     }
                 }
 
@@ -488,6 +522,46 @@ namespace DoAn.Forms
             InitializeData();
         }
 
+        private void txtNumberMax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is a digit or a valid input for a number
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
 
+            // Allow the use of decimal point (.) only once
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains('.'))
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
+
+            // Disallow the input of minus sign (-)
+            if (e.KeyChar == '-')
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
+        }
+
+        private void txtExamineMoney_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is a digit or a valid input for a number
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
+
+            // Allow the use of decimal point (.) only once
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains('.'))
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
+
+            // Disallow the input of minus sign (-)
+            if (e.KeyChar == '-')
+            {
+                e.Handled = true; // Ignore the keypress event
+            }
+        }
     }
 }

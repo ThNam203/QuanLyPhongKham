@@ -236,13 +236,13 @@ namespace DoAn.Forms
             {
                 FormPatientDetail formPatientDetail = new FormPatientDetail(PatientData);
                 formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.Show();
+                formPatientDetail.ShowDialog();
             }
             else
             {
                 FormPatientDetail formPatientDetail = new FormPatientDetail();
                 formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-                formPatientDetail.Show();
+                formPatientDetail.ShowDialog();
             }
         }
     }

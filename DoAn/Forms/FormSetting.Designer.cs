@@ -32,10 +32,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dGVListDisease = new System.Windows.Forms.DataGridView();
+            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveDisease = new RJCodeAdvance.RJControls.RJButton();
             this.dGVListMedicine = new System.Windows.Forms.DataGridView();
+            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicineUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dGVListUsage = new System.Windows.Forms.DataGridView();
+            this.UsageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddDisease = new RJCodeAdvance.RJControls.RJButton();
             this.btnAddUsage = new RJCodeAdvance.RJControls.RJButton();
@@ -47,20 +55,12 @@
             this.btnSave = new RJCodeAdvance.RJControls.RJButton();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.MedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicineUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MedicinePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dGVListUnit = new System.Windows.Forms.DataGridView();
+            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAddUnit = new RJCodeAdvance.RJControls.RJButton();
             this.btnRemoveUnit = new RJCodeAdvance.RJControls.RJButton();
-            this.DiseaseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiseaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UsageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListDisease)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListUsage)).BeginInit();
@@ -95,6 +95,7 @@
             this.txtNumberMax.TrailingIcon = null;
             this.txtNumberMax.UseSystemPasswordChar = false;
             this.txtNumberMax.UseTallSize = false;
+            this.txtNumberMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumberMax_KeyPress);
             // 
             // label1
             // 
@@ -129,6 +130,20 @@
             this.dGVListDisease.RowTemplate.Height = 24;
             this.dGVListDisease.Size = new System.Drawing.Size(329, 191);
             this.dGVListDisease.TabIndex = 13;
+            // 
+            // DiseaseId
+            // 
+            this.DiseaseId.FillWeight = 70F;
+            this.DiseaseId.HeaderText = "Mã";
+            this.DiseaseId.MinimumWidth = 6;
+            this.DiseaseId.Name = "DiseaseId";
+            this.DiseaseId.ReadOnly = true;
+            // 
+            // DiseaseName
+            // 
+            this.DiseaseName.HeaderText = "Tên loại bệnh";
+            this.DiseaseName.MinimumWidth = 6;
+            this.DiseaseName.Name = "DiseaseName";
             // 
             // btnRemoveDisease
             // 
@@ -165,6 +180,32 @@
             this.dGVListMedicine.Size = new System.Drawing.Size(928, 191);
             this.dGVListMedicine.TabIndex = 16;
             // 
+            // MedicineId
+            // 
+            this.MedicineId.FillWeight = 70F;
+            this.MedicineId.HeaderText = "Mã thuốc";
+            this.MedicineId.MinimumWidth = 6;
+            this.MedicineId.Name = "MedicineId";
+            this.MedicineId.ReadOnly = true;
+            // 
+            // MedicineName
+            // 
+            this.MedicineName.HeaderText = "Tên thuốc";
+            this.MedicineName.MinimumWidth = 6;
+            this.MedicineName.Name = "MedicineName";
+            // 
+            // MedicineUnit
+            // 
+            this.MedicineUnit.HeaderText = "Mã đơn vị";
+            this.MedicineUnit.MinimumWidth = 6;
+            this.MedicineUnit.Name = "MedicineUnit";
+            // 
+            // MedicinePrice
+            // 
+            this.MedicinePrice.HeaderText = "Đơn giá";
+            this.MedicinePrice.MinimumWidth = 6;
+            this.MedicinePrice.Name = "MedicinePrice";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -188,6 +229,20 @@
             this.dGVListUsage.RowTemplate.Height = 24;
             this.dGVListUsage.Size = new System.Drawing.Size(313, 191);
             this.dGVListUsage.TabIndex = 22;
+            // 
+            // UsageId
+            // 
+            this.UsageId.FillWeight = 85F;
+            this.UsageId.HeaderText = "Mã";
+            this.UsageId.MinimumWidth = 6;
+            this.UsageId.Name = "UsageId";
+            this.UsageId.ReadOnly = true;
+            // 
+            // UsageName
+            // 
+            this.UsageName.HeaderText = "Cách dùng";
+            this.UsageName.MinimumWidth = 6;
+            this.UsageName.Name = "UsageName";
             // 
             // label5
             // 
@@ -332,6 +387,7 @@
             this.txtExamineMoney.TrailingIcon = null;
             this.txtExamineMoney.UseSystemPasswordChar = false;
             this.txtExamineMoney.UseTallSize = false;
+            this.txtExamineMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExamineMoney_KeyPress);
             // 
             // btnSave
             // 
@@ -381,32 +437,6 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "đ";
             // 
-            // MedicineId
-            // 
-            this.MedicineId.FillWeight = 70F;
-            this.MedicineId.HeaderText = "Mã thuốc";
-            this.MedicineId.MinimumWidth = 6;
-            this.MedicineId.Name = "MedicineId";
-            this.MedicineId.ReadOnly = true;
-            // 
-            // MedicineName
-            // 
-            this.MedicineName.HeaderText = "Tên thuốc";
-            this.MedicineName.MinimumWidth = 6;
-            this.MedicineName.Name = "MedicineName";
-            // 
-            // MedicineUnit
-            // 
-            this.MedicineUnit.HeaderText = "Mã đơn vị";
-            this.MedicineUnit.MinimumWidth = 6;
-            this.MedicineUnit.Name = "MedicineUnit";
-            // 
-            // MedicinePrice
-            // 
-            this.MedicinePrice.HeaderText = "Đơn giá";
-            this.MedicinePrice.MinimumWidth = 6;
-            this.MedicinePrice.Name = "MedicinePrice";
-            // 
             // dGVListUnit
             // 
             this.dGVListUnit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -420,6 +450,20 @@
             this.dGVListUnit.RowTemplate.Height = 24;
             this.dGVListUnit.Size = new System.Drawing.Size(313, 191);
             this.dGVListUnit.TabIndex = 36;
+            // 
+            // UnitId
+            // 
+            this.UnitId.FillWeight = 85F;
+            this.UnitId.HeaderText = "Mã";
+            this.UnitId.MinimumWidth = 6;
+            this.UnitId.Name = "UnitId";
+            this.UnitId.ReadOnly = true;
+            // 
+            // UnitName
+            // 
+            this.UnitName.HeaderText = "Đơn vị";
+            this.UnitName.MinimumWidth = 6;
+            this.UnitName.Name = "UnitName";
             // 
             // label7
             // 
@@ -468,48 +512,6 @@
             this.btnRemoveUnit.TextColor = System.Drawing.Color.White;
             this.btnRemoveUnit.UseVisualStyleBackColor = false;
             this.btnRemoveUnit.Click += new System.EventHandler(this.btnRemoveUnit_Click);
-            // 
-            // DiseaseId
-            // 
-            this.DiseaseId.FillWeight = 70F;
-            this.DiseaseId.HeaderText = "Mã";
-            this.DiseaseId.MinimumWidth = 6;
-            this.DiseaseId.Name = "DiseaseId";
-            this.DiseaseId.ReadOnly = true;
-            // 
-            // DiseaseName
-            // 
-            this.DiseaseName.HeaderText = "Tên loại bệnh";
-            this.DiseaseName.MinimumWidth = 6;
-            this.DiseaseName.Name = "DiseaseName";
-            // 
-            // UsageId
-            // 
-            this.UsageId.FillWeight = 85F;
-            this.UsageId.HeaderText = "Mã";
-            this.UsageId.MinimumWidth = 6;
-            this.UsageId.Name = "UsageId";
-            this.UsageId.ReadOnly = true;
-            // 
-            // UsageName
-            // 
-            this.UsageName.HeaderText = "Cách dùng";
-            this.UsageName.MinimumWidth = 6;
-            this.UsageName.Name = "UsageName";
-            // 
-            // UnitId
-            // 
-            this.UnitId.FillWeight = 85F;
-            this.UnitId.HeaderText = "Mã";
-            this.UnitId.MinimumWidth = 6;
-            this.UnitId.Name = "UnitId";
-            this.UnitId.ReadOnly = true;
-            // 
-            // UnitName
-            // 
-            this.UnitName.HeaderText = "Đơn vị";
-            this.UnitName.MinimumWidth = 6;
-            this.UnitName.Name = "UnitName";
             // 
             // FormSetting
             // 
