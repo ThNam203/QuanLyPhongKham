@@ -98,3 +98,4 @@ E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\bin\Debug\LiveCharts.Wpf.xml
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.SmallForms.FormPatientDetail.resources
 D:\C_Sharp\WF\NMCNPM\DoAn\obj\Debug\DoAn.Forms.SmallForms.FormPatientDetail.resources
 E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormListUsedMedicine.resources
+E:\BoDtr\NMCNPM\QuanLyPhongKham\DoAn\obj\Debug\DoAn.Forms.FormBaoCaoDoanhThu.resources

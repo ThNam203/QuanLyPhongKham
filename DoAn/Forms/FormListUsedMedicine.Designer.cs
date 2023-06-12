@@ -31,12 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbMonth = new RJCodeAdvance.RJControls.RJComboBox();
             this.dGVListUsedMedicine = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberUsed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtYear = new MaterialSkin.Controls.MaterialTextBox2();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new RJCodeAdvance.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListUsedMedicine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,16 +95,6 @@
             this.dGVListUsedMedicine.Size = new System.Drawing.Size(937, 460);
             this.dGVListUsedMedicine.TabIndex = 74;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label2.Location = new System.Drawing.Point(67, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(290, 31);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Báo cáo sử dụng thuốc";
-            // 
             // Index
             // 
             this.Index.FillWeight = 60F;
@@ -143,12 +136,84 @@
             this.TotalNumber.Name = "TotalNumber";
             this.TotalNumber.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label2.Location = new System.Drawing.Point(67, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(290, 31);
+            this.label2.TabIndex = 75;
+            this.label2.Text = "Báo cáo sử dụng thuốc";
+            // 
+            // txtYear
+            // 
+            this.txtYear.AnimateReadOnly = false;
+            this.txtYear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtYear.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtYear.Depth = 0;
+            this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.HideSelection = true;
+            this.txtYear.Hint = "Nhập năm";
+            this.txtYear.LeadingIcon = null;
+            this.txtYear.Location = new System.Drawing.Point(598, 45);
+            this.txtYear.MaxLength = 32767;
+            this.txtYear.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.PasswordChar = '\0';
+            this.txtYear.PrefixSuffixText = null;
+            this.txtYear.ReadOnly = false;
+            this.txtYear.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtYear.SelectedText = "";
+            this.txtYear.SelectionLength = 0;
+            this.txtYear.SelectionStart = 0;
+            this.txtYear.ShortcutsEnabled = true;
+            this.txtYear.Size = new System.Drawing.Size(250, 36);
+            this.txtYear.TabIndex = 77;
+            this.txtYear.TabStop = false;
+            this.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtYear.TrailingIcon = null;
+            this.txtYear.UseSystemPasswordChar = false;
+            this.txtYear.UseTallSize = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label3.Location = new System.Drawing.Point(510, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 31);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Năm";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSearch.BorderRadius = 10;
+            this.btnSearch.BorderSize = 0;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(901, 45);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(150, 40);
+            this.btnSearch.TabIndex = 78;
+            this.btnSearch.Text = "Tìm";
+            this.btnSearch.TextColor = System.Drawing.Color.White;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // FormListUsedMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
             this.ClientSize = new System.Drawing.Size(1084, 717);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtYear);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dGVListUsedMedicine);
             this.Controls.Add(this.cbbMonth);
@@ -172,5 +237,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberUsed;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalNumber;
+        private MaterialSkin.Controls.MaterialTextBox2 txtYear;
+        private System.Windows.Forms.Label label3;
+        private RJCodeAdvance.RJControls.RJButton btnSearch;
     }
 }

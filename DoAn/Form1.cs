@@ -74,6 +74,7 @@ namespace DoAn
             public static Color color8 = Color.FromArgb(255, 128, 0);
             public static Color color9 = Color.FromArgb(255, 128, 128);
             public static Color color10 = Color.FromArgb(255, 255, 0);
+            public static Color color11 = Color.FromArgb(255, 0, 0);
         }
 
         //Private Methods
@@ -302,6 +303,11 @@ namespace DoAn
         {
             ActivateButton(sender, RGBColors.color10);
             OpenChildForm(new FormListUsedMedicine());
+        }
+        private void btnBaoCaoDoanhThu_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color11);
+            OpenChildForm(new FormBaoCaoDoanhThu());
         }
 
         private void btnHome_Click(object sender, EventArgs e)

@@ -18,13 +18,13 @@ namespace DoAn.Forms
             cbbMonth.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbbMonth.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbbMonth.SelectedItem = DateTime.Now.Month;
-
+            txtYear.Text = DateTime.Now.Year.ToString();
             InitializeData();
         }
         private void InitializeData()
         {
             int selectedMonth = (int)cbbMonth.SelectedItem;
-            int selectedYear = DateTime.Now.Year;
+            int selectedYear = int.Parse(txtYear.Text);
 
             using (var db = new DataPKEntities())
             {
@@ -73,6 +73,35 @@ namespace DoAn.Forms
 
             dGVListUsedMedicine.Rows.Clear();
             InitializeData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (IsYearValid(txtYear.Text))
+            {
+                dGVListUsedMedicine.Rows.Clear();
+                InitializeData();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập năm hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtYear.Text = DateTime.Now.Year.ToString();
+                dGVListUsedMedicine.Rows.Clear();
+                InitializeData();
+                return;
+            }
+        }
+        private bool IsYearValid(string text)
+        {
+            int year;
+            if (int.TryParse(text, out year))
+            {
+                if (year >= DateTime.MinValue.Year && year <= DateTime.MaxValue.Year)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
