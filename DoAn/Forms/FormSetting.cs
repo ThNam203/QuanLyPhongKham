@@ -6,7 +6,7 @@ namespace DoAn.Forms
 {
     public partial class FormSetting : Form
     {
-
+        private bool isDataGridViewInitialized = false;
         public FormSetting()
         {
             InitializeComponent();
@@ -68,7 +68,8 @@ namespace DoAn.Forms
                     row.Cells[dGVListMedicine.Columns["MedicinePrice"].Index].Value = s.DonGia;
                     dGVListMedicine.Rows.Add(row);
                 }
-
+                isDataGridViewInitialized = true;
+                dGVListMedicine.CellValueChanged += dGVListMedicine_CellValueChanged;
             }
         }
 
@@ -373,6 +374,16 @@ namespace DoAn.Forms
                         var maCachDung = int.Parse(row.Cells["UsageId"].Value.ToString());
                         var tenCachDung = row.Cells["UsageName"].Value.ToString();
                         var cachDung = db.CACHDUNGs.FirstOrDefault(cd => cd.MaCachDung == maCachDung);
+                        //check if usage exists in the database
+                        var cachdungsosanh = db.CACHDUNGs.FirstOrDefault(cd => cd.TenCachDung == tenCachDung);
+                        if (cachdungsosanh != null)
+                        {
+                            if (cachDung != null && cachDung.MaCachDung != cachdungsosanh.MaCachDung)
+                            {
+                                MessageBox.Show("Không thể sửa cách dùng có tên trùng với cách dùng đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
                         cachDung.TenCachDung = tenCachDung;
                     }
                     else if (row.Cells["UsageName"].Value != null)
@@ -486,6 +497,12 @@ namespace DoAn.Forms
                                 return;
                             }
                             newMedicine.DonGia = donGia;
+                            var sosanhthuoc = db.CHITIETTHUOCs.FirstOrDefault(ct => ct.THUOC.TenThuoc == tenThuoc && ct.DONVI.MaDonVi == maDonVi);
+                            if (sosanhthuoc != null)
+                            {
+                                MessageBox.Show("Không thể thêm thuốc có tên và đơn vị trùng với thuốc đã có.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                             db.CHITIETTHUOCs.Add(newMedicine);
                         }
                         catch (FormatException ex)
@@ -561,6 +578,36 @@ namespace DoAn.Forms
             if (e.KeyChar == '-')
             {
                 e.Handled = true; // Ignore the keypress event
+            }
+        }
+        private void dGVListMedicine_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (isDataGridViewInitialized && e.ColumnIndex == dGVListMedicine.Columns["MedicinePrice"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCell quantityCell = dGVListMedicine.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string quantityText = quantityCell.Value?.ToString();
+                // Check if the quantity is not a number or less than 0
+                if (!int.TryParse(quantityText, out int quantity) || quantity < 0)
+                {
+                    // Perform your desired action when the quantity is not a valid number or less than 0 (e.g., display an error message)
+                    MessageBox.Show("Vui lòng nhập lại đơn giá.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Reset the quantity value to 0
+                    using (var db = new DataPKEntities())
+                    {
+                        DataGridViewRow row = dGVListMedicine.Rows[e.RowIndex];
+                        var tenthuoc = row.Cells["MedicineName"].Value.ToString();
+                        var madonvi = int.Parse(row.Cells["MedicineUnit"].Value.ToString());
+                        var ctthuoc = db.CHITIETTHUOCs.Where(c => c.THUOC.TenThuoc == tenthuoc && c.DONVI.MaDonVi == madonvi).FirstOrDefault();
+                        if (ctthuoc != null)
+                        {
+                            quantityCell.Value = ctthuoc.DonGia;
+                        }
+                        else
+                        {
+                            quantityCell.Value = 0;
+                        }
+                    }
+                }
             }
         }
     }

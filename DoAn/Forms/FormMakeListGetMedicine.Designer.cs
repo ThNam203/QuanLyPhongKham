@@ -231,6 +231,7 @@
             this.Index.HeaderText = "Mã thuốc";
             this.Index.MinimumWidth = 6;
             this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
             // 
             // MedicineName
             // 

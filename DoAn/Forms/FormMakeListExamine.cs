@@ -222,8 +222,7 @@ namespace DoAn.Forms
                 if (!int.TryParse(quantityText, out int quantity) || quantity < 0)
                 {
                     // Perform your desired action when the quantity is not a valid number or less than 0 (e.g., display an error message)
-                    MessageBox.Show("Số lượng phải là số không âm.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("Vui lòng nhập lại số lượng.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     // Reset the quantity value to 0
                     quantityCell.Value = 0;
                 }
