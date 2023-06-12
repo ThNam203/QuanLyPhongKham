@@ -120,7 +120,7 @@ namespace DoAn.Forms.SmallForms
                     var select = (from s in db.BENHNHANs
                                   where s.MaBenhNhan == id
                                   select s).FirstOrDefault();
-                    //select.NamSinh.Value = dpDate.Value;
+                    select.NamSinh = dpDate.Value;
                     select.HoTen = txtName.Text;
                     select.DiaChi = txtAddress.Text;
                     select.GioiTinh = txtSex.Text;
