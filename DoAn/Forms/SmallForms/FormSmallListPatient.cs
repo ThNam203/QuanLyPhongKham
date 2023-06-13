@@ -4,17 +4,21 @@ using System.Windows.Forms;
 
 namespace DoAn.Forms.SmallForms
 {
-    public partial class FormListPatient : Form
+    public partial class FormSmallListPatient : Form
     {
-        public FormListPatient()
+        public int PatientId = -1;
+        public DateTime date = DateTime.Now;
+        public FormSmallListPatient(DateTime date)
         {
             InitializeComponent();
             dGVListPatient.ReadOnly = true;
+            dGVListPatient.MultiSelect = false;
+            this.date = date;
             InitializeData();
         }
         private void InitializeData()
         {
-            DateTime selectedDate = DateTime.Now;
+            DateTime selectedDate = date;
             using (var db = new DataPKEntities())
             {
                 var select = from s in db.PHIEUKHAMs
@@ -44,12 +48,32 @@ namespace DoAn.Forms.SmallForms
 
         private void dGVListPatient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dGVListPatient.Rows[e.RowIndex];
+                PatientId = (int)row.Cells[dGVListPatient.Columns["Index"].Index].Value;
+            }
+            this.Close();
         }
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
+            if (dGVListPatient.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dGVListPatient.SelectedRows[0];
+                PatientId = Convert.ToInt32(row.Cells["Index"].Value);
+            }
+            this.Close();
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

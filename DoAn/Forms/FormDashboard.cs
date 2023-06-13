@@ -42,7 +42,7 @@ namespace DoAn.Forms
             {
                 DateTime startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                 DateTime endDate = startDate.AddMonths(1).AddDays(-1);
-                var countPhieuKham = db.PHIEUKHAMs.Count(p => p.NgayKham >= startDate && p.NgayKham <= endDate);
+                var countPhieuKham = db.PHIEUKHAMs.Count(p => p.NgayKham >= startDate && p.NgayKham <= endDate && p.TrieuChung != null);
                 if (countPhieuKham == 0)
                     label2.Text = "0";
                 else

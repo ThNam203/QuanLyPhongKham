@@ -1,7 +1,5 @@
 ﻿using DoAn.Forms.SmallForms;
-using DoAn.NewFolder1;
 using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,7 +7,7 @@ namespace DoAn.Forms
 {
     public partial class FormMakeListExamine : Form
     {
-        public Patient PatientData { get; private set; }
+        public int PatientId = -1;
         private bool isDataGridViewInitialized = false;
         public FormMakeListExamine()
         {
@@ -75,7 +73,7 @@ namespace DoAn.Forms
         {
 
             cbbTypeOfDisease.Items.Clear();
-            PatientData = null;
+            PatientId = -1;
             // Clear the existing rows
             dGVListMedicine.Rows.Clear();
             // Repopulate the DataGridView with the initial data
@@ -97,7 +95,7 @@ namespace DoAn.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (PatientData != null)
+            if (PatientId != -1)
             {
                 if (cbbTypeOfDisease.Items.Contains(cbbTypeOfDisease.Texts))
                 {
@@ -106,34 +104,6 @@ namespace DoAn.Forms
 
                         using (var db = new DataPKEntities())
                         {
-                            string name = PatientData.Name;
-                            string sex = PatientData.Sex;
-                            DateTime birth = PatientData.Birth;
-                            string address = PatientData.Address;
-
-                            // Kiểm tra xem bệnh nhân đã tồn tại trong danh sách hay chưa
-                            var existingPatient = db.BENHNHANs.FirstOrDefault(b =>
-                                 b.HoTen == name &&
-                                 b.GioiTinh == sex &&
-                                 DbFunctions.TruncateTime(b.NamSinh) == birth.Date &&
-                                 b.DiaChi == address);
-                            int id = -1;
-                            if (existingPatient != null)
-                            {
-                                id = existingPatient.MaBenhNhan;
-                            }
-                            else
-                            {
-                                var benhnhan = new BENHNHAN();
-                                benhnhan.HoTen = PatientData.Name;
-                                benhnhan.GioiTinh = PatientData.Sex;
-                                benhnhan.NamSinh = PatientData.Birth;
-                                benhnhan.DiaChi = PatientData.Address;
-                                //Add benh nhan
-                                db.BENHNHANs.Add(benhnhan);
-                                db.SaveChanges();
-                                id = benhnhan.MaBenhNhan;
-                            }
 
                             //Add phieu kham
                             if (cbbTypeOfDisease.Texts != null)
@@ -142,7 +112,7 @@ namespace DoAn.Forms
                                                 where s.TenLoaiBenh == cbbTypeOfDisease.Texts
                                                 select s).FirstOrDefault();
                                 var phieukham = new PHIEUKHAM();
-                                phieukham.MaBenhNhan = id;
+                                phieukham.MaBenhNhan = PatientId;
                                 phieukham.NgayKham = dpDateExam.Value;
                                 phieukham.TrieuChung = txtTrieuChung.Text;
                                 phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
@@ -189,7 +159,7 @@ namespace DoAn.Forms
                             cbbTypeOfDisease.Texts = null;
                             dpDateExam.Value = DateTime.Now;
                             InitializeDataGridView();
-                            PatientData = null;
+                            PatientId = -1;
                         }
                     }
                     else
@@ -209,16 +179,6 @@ namespace DoAn.Forms
 
         }
 
-        private void FormPatientDetail_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FormPatientDetail formPatientDetail = (FormPatientDetail)sender;
-            PatientData = formPatientDetail.PatientData;
-            if (PatientData != null)
-            {
-                txtName.Text = PatientData.Name;
-            }
-
-        }
 
         private void dGVListMedicine_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -240,7 +200,27 @@ namespace DoAn.Forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-
+            FormSmallListPatient formSmallListPatient = new FormSmallListPatient(dpDateExam.Value);
+            formSmallListPatient.FormClosed += FormSmallListPatient_FormClosed;
+            formSmallListPatient.ShowDialog();
+        }
+        private void FormSmallListPatient_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormSmallListPatient formSmallListPatient = (FormSmallListPatient)sender;
+            PatientId = formSmallListPatient.PatientId;
+            if (PatientId != -1)
+            {
+                using (var db = new DataPKEntities())
+                {
+                    var benhnhan = (from s in db.BENHNHANs
+                                    where s.MaBenhNhan == PatientId
+                                    select s).FirstOrDefault();
+                    if (benhnhan != null)
+                    {
+                        txtName.Text = benhnhan.HoTen;
+                    }
+                }
+            }
         }
 
     }

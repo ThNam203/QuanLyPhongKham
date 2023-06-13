@@ -1,6 +1,6 @@
 ﻿namespace DoAn.Forms.SmallForms
 {
-    partial class FormListPatient
+    partial class FormSmallListPatient
     {
         /// <summary>
         /// Required designer variable.
@@ -72,6 +72,7 @@
             this.btnMinimize.Size = new System.Drawing.Size(75, 44);
             this.btnMinimize.TabIndex = 23;
             this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -90,6 +91,7 @@
             this.btnClose.Size = new System.Drawing.Size(75, 44);
             this.btnClose.TabIndex = 22;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label1
             // 
@@ -195,7 +197,7 @@
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
             // 
-            // FormListPatient
+            // FormSmallListPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +211,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnHome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormListPatient";
+            this.Name = "FormSmallListPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormListPatient";
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVListPatient)).EndInit();

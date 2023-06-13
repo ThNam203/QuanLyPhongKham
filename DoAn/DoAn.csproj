@@ -199,11 +199,11 @@
     <Compile Include="Forms\SmallForms\FormBill.Designer.cs">
       <DependentUpon>FormBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SmallForms\FormListPatient.cs">
+    <Compile Include="Forms\SmallForms\FormSmallListPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SmallForms\FormListPatient.Designer.cs">
-      <DependentUpon>FormListPatient.cs</DependentUpon>
+    <Compile Include="Forms\SmallForms\FormSmallListPatient.Designer.cs">
+      <DependentUpon>FormSmallListPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SmallForms\FormPatientDetail.cs">
       <SubType>Form</SubType>
@@ -271,8 +271,8 @@
     <EmbeddedResource Include="Forms\SmallForms\FormBill.resx">
       <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SmallForms\FormListPatient.resx">
-      <DependentUpon>FormListPatient.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SmallForms\FormSmallListPatient.resx">
+      <DependentUpon>FormSmallListPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SmallForms\FormPatientDetail.resx">
       <DependentUpon>FormPatientDetail.cs</DependentUpon>

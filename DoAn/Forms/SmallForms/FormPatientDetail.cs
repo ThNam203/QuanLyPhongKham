@@ -109,8 +109,15 @@ namespace DoAn.Forms.SmallForms
                         NgayKham = DateTime.Now,
                     };
                     db.PHIEUKHAMs.Add(phieukham);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Đã vượt quá lượng người", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
