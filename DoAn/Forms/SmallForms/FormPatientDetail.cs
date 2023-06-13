@@ -108,6 +108,7 @@ namespace DoAn.Forms.SmallForms
                         db.PHIEUKHAMs.Add(newphieukham);
                         db.SaveChanges();
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                         return;
                     }
 
@@ -120,10 +121,16 @@ namespace DoAn.Forms.SmallForms
                     };
                     db.PHIEUKHAMs.Add(phieukham);
 
-                    db.SaveChanges();
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                    try
+                    {
+                        db.SaveChanges();
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thêm thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else

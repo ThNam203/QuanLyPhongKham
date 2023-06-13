@@ -111,10 +111,9 @@ AS
     DECLARE @NgayKham1 SMALLDATETIME, @NgayKham2 SMALLDATETIME, @SLBN INT, @MAXQ INT
     SELECT @NgayKham1 = NgayKham
     FROM INSERTED
-    SELECT @NgayKham2 = NgayKham
-	FROM PHIEUKHAM
-	SELECT @SLBN = COUNT(MaBenhNhan)
+	SELECT @NgayKham2 = NgayKham, @SLBN = COUNT(MaPhieuKham)
     FROM PHIEUKHAM
+	GROUP BY NgayKham
     SELECT @MAXQ = SoBenhNhanToiDaTrongNgay
     FROM THAMSO
     IF (@NgayKham1 = @NgayKham2 AND @SLBN > @MAXQ)

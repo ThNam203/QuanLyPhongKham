@@ -29,19 +29,16 @@ namespace DoAn.Forms
                 count = 0;
                 foreach (var person in select)
                 {
-                    if (person.TrieuChung == null)
-                    {
-                        DataGridViewRow row = new DataGridViewRow();
-                        row.CreateCells(dGVListPatient);
-                        row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
-                        row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
-                        row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
-                        row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
-                        row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
-                        // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
-                        dGVListPatient.Rows.Add(row);
-                        count++;
-                    }
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dGVListPatient);
+                    row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
+                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
+                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
+                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
+                    // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
+                    dGVListPatient.Rows.Add(row);
+                    count++;
                 }
 
             }
@@ -63,18 +60,16 @@ namespace DoAn.Forms
 
                 foreach (var person in select)
                 {
-                    if (person.TrieuChung == null)
-                    {
-                        DataGridViewRow row = new DataGridViewRow();
-                        row.CreateCells(dGVListPatient);
-                        row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
-                        row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
-                        row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
-                        row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
-                        row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
-                        dGVListPatient.Rows.Add(row);
-                        count++;
-                    }
+
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dGVListPatient);
+                    row.Cells[dGVListPatient.Columns["Index"].Index].Value = person.MaBenhNhan;
+                    row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
+                    row.Cells[dGVListPatient.Columns["Sex"].Index].Value = person.BENHNHAN.GioiTinh;
+                    row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
+                    row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
+                    dGVListPatient.Rows.Add(row);
+                    count++;
                 }
             }
         }
