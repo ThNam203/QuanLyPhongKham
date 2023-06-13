@@ -9,6 +9,7 @@ namespace DoAn.Forms.SmallForms
     {
         public Patient PatientData { get; private set; }
         public bool isAdd = false;
+        public DateTime date = DateTime.Now;
         public int id;
         public FormPatientDetail()
         {
@@ -32,10 +33,11 @@ namespace DoAn.Forms.SmallForms
             }
             this.id = id;
         }
-        public FormPatientDetail(bool abc)
+        public FormPatientDetail(DateTime date)
         {
             InitializeComponent();
             isAdd = true;
+            this.date = date;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -95,9 +97,17 @@ namespace DoAn.Forms.SmallForms
                                     && s.NamSinh.Value.Year == patient.NamSinh.Value.Year
                                   && s.DiaChi == patient.DiaChi
                                   select s).FirstOrDefault();
+
                     if (select != null)
                     {
-                        MessageBox.Show("Bệnh nhân đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        var newphieukham = new PHIEUKHAM()
+                        {
+                            MaBenhNhan = select.MaBenhNhan,
+                            NgayKham = date.Date,
+                        };
+                        db.PHIEUKHAMs.Add(newphieukham);
+                        db.SaveChanges();
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
@@ -106,18 +116,14 @@ namespace DoAn.Forms.SmallForms
                     var phieukham = new PHIEUKHAM()
                     {
                         MaBenhNhan = patient.MaBenhNhan,
-                        NgayKham = DateTime.Now,
+                        NgayKham = date.Date,
                     };
                     db.PHIEUKHAMs.Add(phieukham);
-                    try
-                    {
-                        db.SaveChanges();
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Đã vượt quá lượng người", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
+                    db.SaveChanges();
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                 }
             }
             else

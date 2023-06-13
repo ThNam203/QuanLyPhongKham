@@ -7,6 +7,7 @@ namespace DoAn.Forms
 {
     public partial class FormListPatient : Form
     {
+        int count = 0;
         public FormListPatient()
         {
             InitializeComponent();
@@ -16,7 +17,7 @@ namespace DoAn.Forms
         }
         private void InitializeData()
         {
-            DateTime selectedDate = dpDate.Value.Date;
+            DateTime selectedDate = dpDate.Value;
             using (var db = new DataPKEntities())
             {
                 var select = from s in db.PHIEUKHAMs
@@ -25,6 +26,7 @@ namespace DoAn.Forms
                                 && s.NgayKham.Value.Day == selectedDate.Day
                              select s;
                 dGVListPatient.Rows.Clear();
+                count = 0;
                 foreach (var person in select)
                 {
                     if (person.TrieuChung == null)
@@ -38,6 +40,7 @@ namespace DoAn.Forms
                         row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
                         // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
                         dGVListPatient.Rows.Add(row);
+                        count++;
                     }
                 }
 
@@ -45,7 +48,7 @@ namespace DoAn.Forms
         }
         private void dpDate_ValueChanged(object sender, EventArgs e)
         {
-            DateTime selectedDate = dpDate.Value.Date;
+            DateTime selectedDate = dpDate.Value;
 
             using (var db = new DataPKEntities())
             {
@@ -55,7 +58,8 @@ namespace DoAn.Forms
                                 && s.NgayKham.Value.Day == selectedDate.Day
                              select s;
 
-                dGVListPatient.Rows.Clear(); // Clear the existing rows in the DataGridView
+                dGVListPatient.Rows.Clear();
+                count = 0;// Clear the existing rows in the DataGridView
 
                 foreach (var person in select)
                 {
@@ -69,6 +73,7 @@ namespace DoAn.Forms
                         row.Cells[dGVListPatient.Columns["Birth"].Index].Value = person.BENHNHAN.NamSinh.Value.ToString("dd'/'MM'/'yyyy");
                         row.Cells[dGVListPatient.Columns["Address"].Index].Value = person.BENHNHAN.DiaChi;
                         dGVListPatient.Rows.Add(row);
+                        count++;
                     }
                 }
             }
@@ -76,10 +81,19 @@ namespace DoAn.Forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-
-            FormPatientDetail formPatientDetail = new FormPatientDetail(false);
-            formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
-            formPatientDetail.ShowDialog();
+            using (var db = new DataPKEntities())
+            {
+                var select = (from s in db.THAMSOes
+                              select s).FirstOrDefault();
+                if (select.SoBenhNhanToiDaTrongNgay > count)
+                {
+                    FormPatientDetail formPatientDetail = new FormPatientDetail(dpDate.Value);
+                    formPatientDetail.FormClosed += FormPatientDetail_FormClosed;
+                    formPatientDetail.ShowDialog();
+                }
+                else
+                    MessageBox.Show("Số bệnh nhân tối đa trong ngày đã đạt mức tối đa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void FormPatientDetail_FormClosed(object sender, FormClosedEventArgs e)
         {

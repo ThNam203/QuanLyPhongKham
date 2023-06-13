@@ -58,9 +58,10 @@ namespace DoAn.Forms.SmallForms
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
-            if (dGVListPatient.SelectedRows.Count > 0)
+            if (dGVListPatient.SelectedCells.Count > 0)
             {
-                DataGridViewRow row = dGVListPatient.SelectedRows[0];
+                DataGridViewCell selectedCell = dGVListPatient.SelectedCells[0];
+                DataGridViewRow row = selectedCell.OwningRow;
                 PatientId = Convert.ToInt32(row.Cells["Index"].Value);
             }
             this.Close();
@@ -74,6 +75,11 @@ namespace DoAn.Forms.SmallForms
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

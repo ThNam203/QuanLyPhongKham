@@ -111,9 +111,10 @@ namespace DoAn.Forms
                                 var loaibenh = (from s in db.LOAIBENHs
                                                 where s.TenLoaiBenh == cbbTypeOfDisease.Texts
                                                 select s).FirstOrDefault();
-                                var phieukham = new PHIEUKHAM();
-                                phieukham.MaBenhNhan = PatientId;
-                                phieukham.NgayKham = dpDateExam.Value;
+                                var phieukham = (from s in db.PHIEUKHAMs
+                                                 where s.MaBenhNhan == PatientId && s.NgayKham.Value.Month == dpDateExam.Value.Month && s.NgayKham.Value.Year == dpDateExam.Value.Year
+                                                 && s.TrieuChung == null
+                                                 select s).FirstOrDefault();
                                 phieukham.TrieuChung = txtTrieuChung.Text;
                                 phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
                                 db.PHIEUKHAMs.Add(phieukham);

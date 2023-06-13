@@ -196,6 +196,7 @@
             this.btnReset.Text = "Hủy";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormSmallListPatient
             // 

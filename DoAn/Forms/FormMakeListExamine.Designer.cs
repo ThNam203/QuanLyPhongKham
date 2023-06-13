@@ -54,7 +54,7 @@
             // 
             this.lblDateExam.AutoSize = true;
             this.lblDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDateExam.Location = new System.Drawing.Point(77, 30);
+            this.lblDateExam.Location = new System.Drawing.Point(77, 92);
             this.lblDateExam.Name = "lblDateExam";
             this.lblDateExam.Size = new System.Drawing.Size(130, 31);
             this.lblDateExam.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.txtName.HideSelection = true;
             this.txtName.Hint = "Nhập họ và tên";
             this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(260, 25);
+            this.txtName.Location = new System.Drawing.Point(260, 92);
             this.txtName.MaxLength = 32767;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Name = "txtName";
@@ -119,7 +119,7 @@
             this.dpDateExam.CustomFormat = "dd/MM/yyyy";
             this.dpDateExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.dpDateExam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpDateExam.Location = new System.Drawing.Point(260, 75);
+            this.dpDateExam.Location = new System.Drawing.Point(260, 13);
             this.dpDateExam.MinimumSize = new System.Drawing.Size(4, 60);
             this.dpDateExam.Name = "dpDateExam";
             this.dpDateExam.Size = new System.Drawing.Size(330, 60);
@@ -131,7 +131,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblDate.Location = new System.Drawing.Point(77, 92);
+            this.lblDate.Location = new System.Drawing.Point(77, 30);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(151, 31);
             this.lblDate.TabIndex = 8;
