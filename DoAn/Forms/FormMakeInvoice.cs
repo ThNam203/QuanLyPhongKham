@@ -92,7 +92,7 @@ namespace DoAn.Forms
                         .Join(db.CHITIETTHUOCs, ctpk => ctpk.MaCTThuoc, ct => ct.MaCTThuoc,
                         (ctpk, ct) => new { ctpk, ct })
                         .Sum(x => x.ct.DonGia * x.ctpk.SoLuong);
-
+                    bool isPaid = db.HOADONs.Any(h => h.MaPhieuKham == s.MaPhieuKham);
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListMedicalBill);
                     row.Cells[dGVListMedicalBill.Columns["Index"].Index].Value = s.MaPhieuKham;
@@ -105,7 +105,7 @@ namespace DoAn.Forms
                         row.Cells[dGVListMedicalBill.Columns["Total"].Index].Value = tienkham;
                     }
 
-                    row.Cells[dGVListMedicalBill.Columns["IsPaid"].Index].Value = false;
+                    row.Cells[dGVListMedicalBill.Columns["IsPaid"].Index].Value = isPaid;
                     dGVListMedicalBill.Rows.Add(row);
                 }
             }
