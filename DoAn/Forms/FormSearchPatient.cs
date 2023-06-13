@@ -32,8 +32,10 @@ namespace DoAn.Forms
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["Index"].Index].Value = stt;
                     row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
-                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = person.LOAIBENH.TenLoaiBenh;
-                    row.Cells[dGVListPatient.Columns["Symptom"].Index].Value = person.TrieuChung;
+
+                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = person.LOAIBENH != null ? person.LOAIBENH.TenLoaiBenh : "Chưa khám"; // Check if LOAIBENH is null
+
+                    row.Cells[dGVListPatient.Columns["Symptom"].Index].Value = person.TrieuChung != null ? person.TrieuChung : "Chưa khám"; // Check if TrieuChung is null
                     row.Cells[dGVListPatient.Columns["DateExamine"].Index].Value = person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
                     // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
                     dGVListPatient.Rows.Add(row);
