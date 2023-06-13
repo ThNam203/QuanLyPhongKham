@@ -65,11 +65,7 @@ namespace DoAn.Forms
             string loaibenh = cbbLBenh.Texts;
             using (var db = new DataPKEntities())
             {
-                var select = (from s in db.PHIEUKHAMs
-                              where s.BENHNHAN.HoTen.Contains(lastName)
-                              && s.TrieuChung.Contains(trieuchung)
-                              && s.LOAIBENH.TenLoaiBenh.Contains(loaibenh)
-                              select s).ToList();
+                var select = (from s in db.PHIEUKHAMs select s).ToList();
 
                 dGVListPatient.Rows.Clear(); // Clear the existing rows in the DataGridView
 
@@ -83,13 +79,34 @@ namespace DoAn.Forms
                               && person.NgayKham.Value.Day == selectedDate.Day))
                             continue;
                     }
+
+                    if (!person.BENHNHAN.HoTen.Contains(lastName)) continue;
+
+                    if (person.LOAIBENH == null)
+                    {
+                        if (!"Chưa khám".Contains(loaibenh)) continue;
+                    }
+                    else
+                    {
+                        if (!person.LOAIBENH.TenLoaiBenh.Contains(lastName)) continue;
+                    }
+                    if (person.TrieuChung == null)
+                    {
+                        if (!"Chưa khám".Contains(trieuchung)) continue;
+                    }
+                    else
+                    {
+                        if (!person.TrieuChung.Contains(trieuchung)) continue;
+
+                    }
                     stt++;
                     DataGridViewRow row = new DataGridViewRow();
                     row.CreateCells(dGVListPatient);
                     row.Cells[dGVListPatient.Columns["Index"].Index].Value = stt;
                     row.Cells[dGVListPatient.Columns["LastName"].Index].Value = person.BENHNHAN.HoTen;
-                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = person.LOAIBENH.TenLoaiBenh;
-                    row.Cells[dGVListPatient.Columns["Symptom"].Index].Value = person.TrieuChung;
+                    row.Cells[dGVListPatient.Columns["Disease"].Index].Value = person.LOAIBENH != null ? person.LOAIBENH.TenLoaiBenh : "Chưa khám"; // Check if LOAIBENH is null
+
+                    row.Cells[dGVListPatient.Columns["Symptom"].Index].Value = person.TrieuChung != null ? person.TrieuChung : "Chưa khám"; // Check if TrieuChung is null
                     row.Cells[dGVListPatient.Columns["DateExamine"].Index].Value = person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
                     // person.NgayKham.Value.ToString("dd'/'MM'/'yyyy");
                     dGVListPatient.Rows.Add(row);
@@ -114,11 +131,11 @@ namespace DoAn.Forms
 
         private void btnReset_Click_1(object sender, EventArgs e)
         {
-            txtName.Text = null;
-            isDateChange = false;
             dpDate.Value = DateTime.Now;
             cbbLBenh.Items.Clear();
-            cbbLBenh.Texts = null;
+            cbbLBenh.Texts = "";
+            txtName.Text = "";
+            isDateChange = false;
             InitializeData();
         }
 
