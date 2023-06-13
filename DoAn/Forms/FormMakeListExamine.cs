@@ -104,7 +104,6 @@ namespace DoAn.Forms
 
                         using (var db = new DataPKEntities())
                         {
-
                             //Add phieu kham
                             if (cbbTypeOfDisease.Texts != null)
                             {
@@ -149,6 +148,7 @@ namespace DoAn.Forms
                                         db.SaveChanges();
                                     }
                                 }
+                                db.SaveChanges();
                             }
                             MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dGVListMedicine.Rows.Clear();

@@ -312,6 +312,7 @@
     <Resource Include="assets\images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\images\download.jpg" />
     <Content Include="Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>

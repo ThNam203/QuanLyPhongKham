@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.panelDesktop = new System.Windows.Forms.Panel();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.lblTitleChildForm = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelDesktop = new System.Windows.Forms.Panel();
             this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.btnClose = new FontAwesome.Sharp.IconButton();
-            this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.btn_MakeListExamine = new FontAwesome.Sharp.IconButton();
             this.btnBaoCaoDoanhThu = new FontAwesome.Sharp.IconButton();
             this.btn_ListUsedMedicine = new FontAwesome.Sharp.IconButton();
             this.btn_Setting = new FontAwesome.Sharp.IconButton();
@@ -46,15 +48,13 @@
             this.btn_MakeListGetMedicine = new FontAwesome.Sharp.IconButton();
             this.btn_MakeInvoice = new FontAwesome.Sharp.IconButton();
             this.btn_ListPatient = new FontAwesome.Sharp.IconButton();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.btn_Dashboard = new FontAwesome.Sharp.IconButton();
-            this.btn_MakeListExamine = new FontAwesome.Sharp.IconButton();
             this.panelContainer.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,16 +69,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1382, 872);
             this.panelContainer.TabIndex = 1;
-            // 
-            // panelDesktop
-            // 
-            this.panelDesktop.AutoScroll = true;
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(280, 89);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1102, 783);
-            this.panelDesktop.TabIndex = 3;
             // 
             // panelShadow
             // 
@@ -102,6 +92,58 @@
             this.panelTitleBar.Size = new System.Drawing.Size(1102, 80);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            // 
+            // lblTitleChildForm
+            // 
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Black;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(81, 24);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(81, 29);
+            this.lblTitleChildForm.TabIndex = 2;
+            this.lblTitleChildForm.Text = "Home";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
+            this.panelMenu.Controls.Add(this.btnBaoCaoDoanhThu);
+            this.panelMenu.Controls.Add(this.btn_ListUsedMedicine);
+            this.panelMenu.Controls.Add(this.btn_Setting);
+            this.panelMenu.Controls.Add(this.btn_SearchPatient);
+            this.panelMenu.Controls.Add(this.btnListInvoice);
+            this.panelMenu.Controls.Add(this.btn_ListGetMedicine);
+            this.panelMenu.Controls.Add(this.btn_MakeListGetMedicine);
+            this.panelMenu.Controls.Add(this.btn_MakeInvoice);
+            this.panelMenu.Controls.Add(this.btn_ListPatient);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Controls.Add(this.btn_Dashboard);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.ForeColor = System.Drawing.Color.Black;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(280, 872);
+            this.panelMenu.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.btnHome);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(280, 200);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // panelDesktop
+            // 
+            this.panelDesktop.AutoScroll = true;
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(247)))), ((int)(((byte)(218)))));
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(280, 89);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(1102, 783);
+            this.panelDesktop.TabIndex = 3;
             // 
             // btnMinimize
             // 
@@ -139,17 +181,6 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // lblTitleChildForm
-            // 
-            this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Black;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(81, 24);
-            this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(81, 29);
-            this.lblTitleChildForm.TabIndex = 2;
-            this.lblTitleChildForm.Text = "Home";
-            // 
             // iconCurrentChildForm
             // 
             this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(212)))), ((int)(((byte)(143)))));
@@ -163,27 +194,26 @@
             this.iconCurrentChildForm.TabIndex = 1;
             this.iconCurrentChildForm.TabStop = false;
             // 
-            // panelMenu
+            // btn_MakeListExamine
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
-            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
-            this.panelMenu.Controls.Add(this.btnBaoCaoDoanhThu);
-            this.panelMenu.Controls.Add(this.btn_ListUsedMedicine);
-            this.panelMenu.Controls.Add(this.btn_Setting);
-            this.panelMenu.Controls.Add(this.btn_SearchPatient);
-            this.panelMenu.Controls.Add(this.btnListInvoice);
-            this.panelMenu.Controls.Add(this.btn_ListGetMedicine);
-            this.panelMenu.Controls.Add(this.btn_MakeListGetMedicine);
-            this.panelMenu.Controls.Add(this.btn_MakeInvoice);
-            this.panelMenu.Controls.Add(this.btn_ListPatient);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Controls.Add(this.btn_Dashboard);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.ForeColor = System.Drawing.Color.Black;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(280, 872);
-            this.panelMenu.TabIndex = 0;
+            this.btn_MakeListExamine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.btn_MakeListExamine.FlatAppearance.BorderSize = 0;
+            this.btn_MakeListExamine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MakeListExamine.ForeColor = System.Drawing.Color.Black;
+            this.btn_MakeListExamine.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
+            this.btn_MakeListExamine.IconColor = System.Drawing.Color.Black;
+            this.btn_MakeListExamine.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_MakeListExamine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 305);
+            this.btn_MakeListExamine.Name = "btn_MakeListExamine";
+            this.btn_MakeListExamine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_MakeListExamine.Size = new System.Drawing.Size(280, 60);
+            this.btn_MakeListExamine.TabIndex = 3;
+            this.btn_MakeListExamine.Text = "Lập phiếu khám bệnh";
+            this.btn_MakeListExamine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_MakeListExamine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_MakeListExamine.UseVisualStyleBackColor = false;
+            this.btn_MakeListExamine.Click += new System.EventHandler(this.btn_MakeListExamine_Click);
             // 
             // btnBaoCaoDoanhThu
             // 
@@ -374,15 +404,6 @@
             this.btn_ListPatient.UseVisualStyleBackColor = false;
             this.btn_ListPatient.Click += new System.EventHandler(this.btn_ListPatient_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.btnHome);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(280, 200);
-            this.panelLogo.TabIndex = 0;
-            // 
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
@@ -417,27 +438,6 @@
             this.btn_Dashboard.UseVisualStyleBackColor = false;
             this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
-            // btn_MakeListExamine
-            // 
-            this.btn_MakeListExamine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
-            this.btn_MakeListExamine.FlatAppearance.BorderSize = 0;
-            this.btn_MakeListExamine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_MakeListExamine.ForeColor = System.Drawing.Color.Black;
-            this.btn_MakeListExamine.IconChar = FontAwesome.Sharp.IconChar.FileSignature;
-            this.btn_MakeListExamine.IconColor = System.Drawing.Color.Black;
-            this.btn_MakeListExamine.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_MakeListExamine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 305);
-            this.btn_MakeListExamine.Name = "btn_MakeListExamine";
-            this.btn_MakeListExamine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btn_MakeListExamine.Size = new System.Drawing.Size(280, 60);
-            this.btn_MakeListExamine.TabIndex = 3;
-            this.btn_MakeListExamine.Text = "Lập phiếu khám bệnh";
-            this.btn_MakeListExamine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeListExamine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_MakeListExamine.UseVisualStyleBackColor = false;
-            this.btn_MakeListExamine.Click += new System.EventHandler(this.btn_MakeListExamine_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -456,9 +456,9 @@
             this.panelContainer.ResumeLayout(false);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.ResumeLayout(false);
 
