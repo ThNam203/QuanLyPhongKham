@@ -88,7 +88,7 @@ namespace DoAn.Forms
                     }
                     else
                     {
-                        if (!person.LOAIBENH.TenLoaiBenh.Contains(lastName)) continue;
+                        if (!person.LOAIBENH.TenLoaiBenh.Contains(loaibenh)) continue;
                     }
                     if (person.TrieuChung == null)
                     {
