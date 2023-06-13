@@ -7,6 +7,7 @@ namespace DoAn.Forms
 {
     public partial class FormMakeInvoice : Form
     {
+        bool first = true;
 
         public FormMakeInvoice()
         {
@@ -25,10 +26,17 @@ namespace DoAn.Forms
                                 select s.TienKham).FirstOrDefault();
 
                 var select = from s in db.PHIEUKHAMs
-                             where s.NgayKham.Value.Year == selectedDate.Year
-                                && s.NgayKham.Value.Month == selectedDate.Month
-                                && s.NgayKham.Value.Day == selectedDate.Day
                              select s;
+                if (!first)
+                {
+                    select = from s in db.PHIEUKHAMs
+                             where s.NgayKham.Value.Year == selectedDate.Year
+                             && s.NgayKham.Value.Month == selectedDate.Month
+                              && s.NgayKham.Value.Day == selectedDate.Day
+                             select s;
+                }
+                first = false;
+
                 foreach (var s in select)
                 {
                     if (s.TrieuChung == null)
