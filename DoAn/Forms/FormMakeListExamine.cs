@@ -117,8 +117,6 @@ namespace DoAn.Forms
                                                  select s).FirstOrDefault();
                                 phieukham.TrieuChung = txtTrieuChung.Text;
                                 phieukham.MaLoaiBenh = loaibenh.MaLoaiBenh;
-                                db.PHIEUKHAMs.Add(phieukham);
-                                db.SaveChanges();
                                 //Add chi tiet phieu kham
                                 foreach (DataGridViewRow row in dGVListMedicine.Rows)
                                 {

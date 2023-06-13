@@ -62,7 +62,7 @@ namespace DoAn.Forms
             string lastName = txtName.Text;
             string trieuchung = txtTrieuChung.Text;
             DateTime selectedDate = dpDate.Value.Date;
-            string loaibenh = cbbLBenh.SelectedItem.ToString();
+            string loaibenh = cbbLBenh.Texts;
             using (var db = new DataPKEntities())
             {
                 var select = (from s in db.PHIEUKHAMs
