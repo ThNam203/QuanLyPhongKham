@@ -30,13 +30,13 @@
         {
             this.lblListPatient = new System.Windows.Forms.Label();
             this.dGVListPatient = new System.Windows.Forms.DataGridView();
-            this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
-            this.label1 = new System.Windows.Forms.Label();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateExamine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Symptom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disease = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.label1 = new System.Windows.Forms.Label();
             this.dpDate = new RJCodeAdvance.RJControls.RJDatePicker();
             this.lblDateExam = new System.Windows.Forms.Label();
             this.btnReset = new RJCodeAdvance.RJControls.RJButton();
@@ -78,47 +78,6 @@
             this.dGVListPatient.RowTemplate.Height = 24;
             this.dGVListPatient.Size = new System.Drawing.Size(947, 382);
             this.dGVListPatient.TabIndex = 6;
-            // 
-            // txtName
-            // 
-            this.txtName.AnimateReadOnly = false;
-            this.txtName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtName.Depth = 0;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.HideSelection = true;
-            this.txtName.Hint = "Nhập họ và tên";
-            this.txtName.LeadingIcon = null;
-            this.txtName.Location = new System.Drawing.Point(222, 36);
-            this.txtName.MaxLength = 32767;
-            this.txtName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtName.Name = "txtName";
-            this.txtName.PasswordChar = '\0';
-            this.txtName.PrefixSuffixText = null;
-            this.txtName.ReadOnly = false;
-            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtName.SelectedText = "";
-            this.txtName.SelectionLength = 0;
-            this.txtName.SelectionStart = 0;
-            this.txtName.ShortcutsEnabled = true;
-            this.txtName.Size = new System.Drawing.Size(287, 36);
-            this.txtName.TabIndex = 9;
-            this.txtName.TabStop = false;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtName.TrailingIcon = null;
-            this.txtName.UseSystemPasswordChar = false;
-            this.txtName.UseTallSize = false;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(70, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Họ và tên";
             // 
             // Index
             // 
@@ -166,6 +125,47 @@
             this.Disease.ReadOnly = true;
             this.Disease.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // txtName
+            // 
+            this.txtName.AnimateReadOnly = false;
+            this.txtName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtName.Depth = 0;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.HideSelection = true;
+            this.txtName.Hint = "Nhập họ và tên";
+            this.txtName.LeadingIcon = null;
+            this.txtName.Location = new System.Drawing.Point(222, 36);
+            this.txtName.MaxLength = 32767;
+            this.txtName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtName.Name = "txtName";
+            this.txtName.PasswordChar = '\0';
+            this.txtName.PrefixSuffixText = null;
+            this.txtName.ReadOnly = false;
+            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtName.SelectedText = "";
+            this.txtName.SelectionLength = 0;
+            this.txtName.SelectionStart = 0;
+            this.txtName.ShortcutsEnabled = true;
+            this.txtName.Size = new System.Drawing.Size(287, 36);
+            this.txtName.TabIndex = 9;
+            this.txtName.TabStop = false;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtName.TrailingIcon = null;
+            this.txtName.UseSystemPasswordChar = false;
+            this.txtName.UseTallSize = false;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label1.Location = new System.Drawing.Point(70, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 31);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Họ và tên";
+            // 
             // dpDate
             // 
             this.dpDate.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -207,7 +207,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 40);
             this.btnReset.TabIndex = 12;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Tải lại";
             this.btnReset.TextColor = System.Drawing.Color.White;
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);

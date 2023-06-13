@@ -199,6 +199,12 @@ namespace DoAn.Forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            //check if dpDateExam > today
+            if (dpDateExam.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày khám không được lớn hơn ngày hiện tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FormSmallListPatient formSmallListPatient = new FormSmallListPatient(dpDateExam.Value);
             formSmallListPatient.FormClosed += FormSmallListPatient_FormClosed;
             formSmallListPatient.ShowDialog();
