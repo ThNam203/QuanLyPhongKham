@@ -121,6 +121,7 @@
             this.dGVListPatient.RowTemplate.Height = 24;
             this.dGVListPatient.Size = new System.Drawing.Size(769, 382);
             this.dGVListPatient.TabIndex = 25;
+            this.dGVListPatient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVListPatient_CellDoubleClick);
             // 
             // Index
             // 
@@ -174,6 +175,7 @@
             this.btnPaid.Text = "Chọn";
             this.btnPaid.TextColor = System.Drawing.Color.White;
             this.btnPaid.UseVisualStyleBackColor = false;
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
             // 
             // btnReset
             // 

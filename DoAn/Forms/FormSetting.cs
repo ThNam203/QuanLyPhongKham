@@ -274,8 +274,9 @@ namespace DoAn.Forms
                         if (loaiBenh == null)
                         {
                             var newLoaiBenh = new LOAIBENH();
-                            loaiBenh.TenLoaiBenh = row.Cells["DiseaseName"].Value.ToString();
-                            db.LOAIBENHs.Add(loaiBenh);
+
+                            newLoaiBenh.TenLoaiBenh = tenLoaiBenh;
+                            db.LOAIBENHs.Add(newLoaiBenh);
                         }
                         else
                         {
@@ -333,8 +334,8 @@ namespace DoAn.Forms
                         if (donVi == null)
                         {
                             var newDonVi = new DONVI();
-                            donVi.TenDonVi = row.Cells["UnitName"].Value.ToString();
-                            db.DONVIs.Add(donVi);
+                            newDonVi.TenDonVi = row.Cells["UnitName"].Value.ToString();
+                            db.DONVIs.Add(newDonVi);
                         }
                         else
                         {
@@ -393,8 +394,8 @@ namespace DoAn.Forms
                         if (cachDung == null)
                         {
                             var newCachDung = new CACHDUNG();
-                            cachDung.TenCachDung = row.Cells["UsageName"].Value.ToString();
-                            db.CACHDUNGs.Add(cachDung);
+                            newCachDung.TenCachDung = row.Cells["UsageName"].Value.ToString();
+                            db.CACHDUNGs.Add(newCachDung);
                         }
                         else
                         {

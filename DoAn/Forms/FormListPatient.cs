@@ -97,5 +97,7 @@ namespace DoAn.Forms
                 formPatientDetail.ShowDialog();
             }
         }
+
+
     }
 }
