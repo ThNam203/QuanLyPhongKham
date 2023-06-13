@@ -37,6 +37,7 @@
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnBaoCaoDoanhThu = new FontAwesome.Sharp.IconButton();
             this.btn_ListUsedMedicine = new FontAwesome.Sharp.IconButton();
             this.btn_Setting = new FontAwesome.Sharp.IconButton();
             this.btn_SearchPatient = new FontAwesome.Sharp.IconButton();
@@ -49,7 +50,6 @@
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.btn_Dashboard = new FontAwesome.Sharp.IconButton();
             this.btn_MakeListExamine = new FontAwesome.Sharp.IconButton();
-            this.btnBaoCaoDoanhThu = new FontAwesome.Sharp.IconButton();
             this.panelContainer.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
@@ -166,6 +166,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
             this.panelMenu.Controls.Add(this.btnBaoCaoDoanhThu);
             this.panelMenu.Controls.Add(this.btn_ListUsedMedicine);
             this.panelMenu.Controls.Add(this.btn_Setting);
@@ -177,13 +178,33 @@
             this.panelMenu.Controls.Add(this.btn_ListPatient);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Controls.Add(this.btn_Dashboard);
-            this.panelMenu.Controls.Add(this.btn_MakeListExamine);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.ForeColor = System.Drawing.Color.Black;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(280, 872);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnBaoCaoDoanhThu
+            // 
+            this.btnBaoCaoDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
+            this.btnBaoCaoDoanhThu.FlatAppearance.BorderSize = 0;
+            this.btnBaoCaoDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaoCaoDoanhThu.ForeColor = System.Drawing.Color.Black;
+            this.btnBaoCaoDoanhThu.IconChar = FontAwesome.Sharp.IconChar.Readme;
+            this.btnBaoCaoDoanhThu.IconColor = System.Drawing.Color.Black;
+            this.btnBaoCaoDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBaoCaoDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaoCaoDoanhThu.Location = new System.Drawing.Point(0, 699);
+            this.btnBaoCaoDoanhThu.Name = "btnBaoCaoDoanhThu";
+            this.btnBaoCaoDoanhThu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnBaoCaoDoanhThu.Size = new System.Drawing.Size(280, 60);
+            this.btnBaoCaoDoanhThu.TabIndex = 11;
+            this.btnBaoCaoDoanhThu.Text = "Báo cáo doanh thu";
+            this.btnBaoCaoDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaoCaoDoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBaoCaoDoanhThu.UseVisualStyleBackColor = false;
+            this.btnBaoCaoDoanhThu.Click += new System.EventHandler(this.btnBaoCaoDoanhThu_Click);
             // 
             // btn_ListUsedMedicine
             // 
@@ -342,7 +363,7 @@
             this.btn_ListPatient.IconColor = System.Drawing.Color.Black;
             this.btn_ListPatient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_ListPatient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ListPatient.Location = new System.Drawing.Point(0, 303);
+            this.btn_ListPatient.Location = new System.Drawing.Point(0, 248);
             this.btn_ListPatient.Name = "btn_ListPatient";
             this.btn_ListPatient.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_ListPatient.Size = new System.Drawing.Size(280, 60);
@@ -406,7 +427,7 @@
             this.btn_MakeListExamine.IconColor = System.Drawing.Color.Black;
             this.btn_MakeListExamine.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_MakeListExamine.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 247);
+            this.btn_MakeListExamine.Location = new System.Drawing.Point(0, 305);
             this.btn_MakeListExamine.Name = "btn_MakeListExamine";
             this.btn_MakeListExamine.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btn_MakeListExamine.Size = new System.Drawing.Size(280, 60);
@@ -416,27 +437,6 @@
             this.btn_MakeListExamine.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_MakeListExamine.UseVisualStyleBackColor = false;
             this.btn_MakeListExamine.Click += new System.EventHandler(this.btn_MakeListExamine_Click);
-            // 
-            // btnBaoCaoDoanhThu
-            // 
-            this.btnBaoCaoDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(217)))), ((int)(((byte)(173)))));
-            this.btnBaoCaoDoanhThu.FlatAppearance.BorderSize = 0;
-            this.btnBaoCaoDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBaoCaoDoanhThu.ForeColor = System.Drawing.Color.Black;
-            this.btnBaoCaoDoanhThu.IconChar = FontAwesome.Sharp.IconChar.Readme;
-            this.btnBaoCaoDoanhThu.IconColor = System.Drawing.Color.Black;
-            this.btnBaoCaoDoanhThu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBaoCaoDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaoCaoDoanhThu.Location = new System.Drawing.Point(0, 699);
-            this.btnBaoCaoDoanhThu.Name = "btnBaoCaoDoanhThu";
-            this.btnBaoCaoDoanhThu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnBaoCaoDoanhThu.Size = new System.Drawing.Size(280, 60);
-            this.btnBaoCaoDoanhThu.TabIndex = 11;
-            this.btnBaoCaoDoanhThu.Text = "Báo cáo doanh thu";
-            this.btnBaoCaoDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaoCaoDoanhThu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBaoCaoDoanhThu.UseVisualStyleBackColor = false;
-            this.btnBaoCaoDoanhThu.Click += new System.EventHandler(this.btnBaoCaoDoanhThu_Click);
             // 
             // Form1
             // 
